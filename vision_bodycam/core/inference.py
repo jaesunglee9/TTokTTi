@@ -111,6 +111,42 @@ class SafetyAnalyzer:
             logger.error(f"Action Detection Error: {e}")
             return "general work"
 
+    async def compress_memory(self, memory_history: List[Dict[str, Any]]) -> str:
+        """
+        [VINCI INTEGRATION] Memory Compression Algorithm
+        Extracts core features from short-term memory to compress and store in long-term memory.
+        """
+        try:
+            if not memory_history:
+                return "No prior context."
+                
+            history_text = "\n".join([f"[{m.get('timestamp', '')}] Action: {m.get('action', '')} | Result: {m.get('observation', '')}" for m in memory_history])
+            prompt = (
+                "Summarize the following chronological sequence of a worker's actions and observations into a concise, 1-2 sentence long-term memory summary.\n"
+                "Focus ONLY on the core context and persistent state.\n"
+                f"History:\n{history_text}"
+            )
+            
+            logger.info(f"[vLLM REQUEST] compress_memory | Compressing {len(memory_history)} short-term memory items...")
+
+            response = await self.client.chat.completions.create(
+                model=self.model_name,
+                messages=[{"role": "user", "content": [{"type": "text", "text": prompt}]}],
+                temperature=0.1,
+                max_tokens=60,
+                stream=False
+            )
+
+            message = response.choices[0].message
+            result_text = message.content[0].get("text", "").strip() if isinstance(message.content, list) else str(message.content).strip()
+            
+            logger.info(f"[vLLM OUTPUT] compress_memory | Compressed: '{result_text}'")
+            return result_text
+
+        except Exception as e:
+            logger.error(f"Memory Compression Error: {e}")
+            return "Failed to compress memory."
+
     async def answer_question(self, frames: List[str], question: str, recent_context: str) -> AsyncGenerator[str, None]:
         """
         Asynchronous streaming via AsyncOpenAI to yield text chunks immediately.

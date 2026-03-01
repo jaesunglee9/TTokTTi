@@ -108,7 +108,8 @@ async def process_job(queue_name, payload):
                 "frame_count": 0,
                 "current_rule": retriever.get_context("general work"),
                 "recent_frames": deque(maxlen=MAX_RECENT_FRAMES),
-                "memory_history": [] # Chronological actions
+                "memory_history": [], # Chronological actions
+                "long_term_memory": "No prior context."
             }
 
         state["frame_count"] += 1
@@ -122,10 +123,10 @@ async def process_job(queue_name, payload):
             user_text = content.get("text", "What do you see?")
             logger.info(f"Processing Question for {client_id}: {user_text}")
 
-            context_text = "Recent observations: "
+            context_text = f"Long-term memory context: {state['long_term_memory']} | Recent observations: "
 
-            if recent_memory:
-                context_text += " | ".join([m["observation"] for m in recent_memory])
+            if state["memory_history"]:
+                context_text += " | ".join([m["observation"] for m in state["memory_history"]])
             else:
                 context_text += "No recent context available."
 
@@ -152,6 +153,17 @@ async def process_job(queue_name, payload):
                     "action": current_action,
                     "observation": "Monitored safely"
                 })
+                
+                # [VINCI MEMORY COMPRESSION]
+                if len(state["memory_history"]) >= 5:
+                    compressed_summary = await analyzer.compress_memory(state["memory_history"])
+                    if state["long_term_memory"] == "No prior context.":
+                        state["long_term_memory"] = compressed_summary
+                    else:
+                        state["long_term_memory"] += " " + compressed_summary
+                    state["memory_history"] = []
+                    logger.info(f"[{client_id}] Compressed Memory: {state['long_term_memory']}")
+                
                 client_memory_cache.put(client_id, state)
                 logger.info(f"[{client_id}] T={current_time_t} | Action: {current_action}")
 
