@@ -77,7 +77,10 @@ export default function CameraScreen({ route }: Props) {
   const { mode } = route.params;
   const isFullCam = mode === 'all';
   const isTestCam = mode === 'test';
-  const useVision = isFullCam || isTestCam;
+  const isWorkerCam = mode === 'worker';
+  
+  // Local lightweight YOLO is now always loaded to support event-based streaming
+  const useVision = true;
 
   const { workSessionId } = useWorkSession();
 
@@ -214,10 +217,10 @@ export default function CameraScreen({ route }: Props) {
     };
   }, []);
 
-  // mode=worker: 기존 WebSocket 스트리밍
+  // mode=worker: Event-Based WebSocket Streaming Connect
   useEffect(() => {
     const currentSessionId = workSessionId ? String(workSessionId) : "";
-    if (useVision || !isCameraActive) return;
+    if (!isWorkerCam || !isCameraActive) return;
     const userId = 'AuthContext_user_id';
 
     streamRef.current = new SafetyStream(
@@ -242,26 +245,10 @@ export default function CameraScreen({ route }: Props) {
 
     streamRef.current.connect();
 
-    intervalRef.current = setInterval(async () => {
-      if (cameraRef.current && streamRef.current) {
-        try {
-          const photo = await cameraRef.current.takePhoto({
-            flash: 'off',
-            enableShutterSound: false,
-          });
-          const base64 = await RNFS.readFile(photo.path, 'base64');
-          streamRef.current.sendFrame(base64);
-        } catch (err) {
-          console.log('Frame capture error (expected if camera not ready)');
-        }
-      }
-    }, STREAM_CONFIG.INTERVAL_MS);
-
     return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
       streamRef.current?.disconnect();
     };
-  }, [useVision, isCameraActive]);
+  }, [isWorkerCam, isCameraActive, workSessionId]);
 
   // ref 동기화
   useEffect(() => {
@@ -303,6 +290,15 @@ export default function CameraScreen({ route }: Props) {
               d => d.label === 'person' || d.label === 'helmet' || d.label === 'safety_vest',
             );
         setDetections(filtered);
+
+        // [EVENT-BASED STREAMING]
+        // 로컬 YOLO(경량화된 모델)에서 유의미한 객체가 감지되었을 때만 비디오를 서버로 전송합니다.
+        // 불필요한 네트워크 트래픽 및 Tailscale 라우팅 지연을 감소시킵니다.
+        if (isWorkerCam && filtered.length > 0 && streamRef.current) {
+          const base64 = await RNFS.readFile(photo.path, 'base64');
+          streamRef.current.sendFrame(base64);
+          console.log('[CameraScreen] 유의미한 객체 인식됨 -> 프레임 스트리밍 전송완료');
+        }
 
         // 모드별 이벤트 처리
         if (isTestCam && events.length > 0) {
