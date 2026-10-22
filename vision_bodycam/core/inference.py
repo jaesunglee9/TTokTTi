@@ -75,14 +75,16 @@ class SafetyAnalyzer:
             # DEBUG LOGGING: Print exactly what vLLM spat out
             logger.info(f"[vLLM OUTPUT] detect_danger | {result_text}")
 
-            if not result_text:
-                return {"is_danger": False, "details": "SAFE - Empty text returned."}
+            if not result_text or message.content is None:
+                raise ValueError("Danger inference returned no result")
 
             return {"is_danger": result_text.upper().startswith("DANGER"), "details": result_text}
 
         except Exception as e:
             logger.error(f"Inference Error in detect_danger: {e}")
-            return {"is_danger": False, "details": "Error during inference"}
+            # Propagate to the worker: unavailable inference is not a successful
+            # safe frame, and must not contaminate successful latency percentiles.
+            raise RuntimeError("Danger inference failed") from e
 
     async def detect_action(self, frames: List[str]) -> str:
         """Slow Loop (Blocking): Determines broad action context from recent frames."""
