@@ -56,7 +56,7 @@ def compute_risk_stats_and_highlights(
     """
     # 1) 위험 이벤트만 (risk_type 있는 것만)
     risk_events = [v for v in videologs if v.risk_type_id is not None]
-    risk_events.sort(key=lambda x: x.created_at)
+    risk_events.sort(key=lambda x: x.detected_at or x.created_at)
 
     by_type = Counter()
     by_camera = Counter()
@@ -85,7 +85,7 @@ def compute_risk_stats_and_highlights(
     if not risk_events:
         return stats, []
 
-    times = [v.created_at for v in risk_events]
+    times = [v.detected_at or v.created_at for v in risk_events]
     n = len(times)
     i = 0
     j = 0
@@ -125,7 +125,7 @@ def compute_risk_stats_and_highlights(
     for s, e, evs in merged:
         # 중복 제거(병합 때문에)
         uniq = {v.id: v for v in evs}
-        evs2 = sorted(uniq.values(), key=lambda x: x.created_at)
+        evs2 = sorted(uniq.values(), key=lambda x: x.detected_at or x.created_at)
 
         c_type = Counter()
         for v in evs2:
@@ -139,7 +139,8 @@ def compute_risk_stats_and_highlights(
             rt = v.risk_type
             evidence_samples.append({
                 "videolog_id": v.id,
-                "time": _dt(v.created_at),
+                "time": _dt(v.detected_at or v.created_at),
+                "description": v.description,
                 "risk_type_name": rt.name if rt else None,
                 "camera_type": rt.camera_type if rt else None,
                 "evidence_video": v.original_video,
@@ -231,7 +232,8 @@ def build_input_package(worksession_id: int) -> Dict[str, Any]:
         rt = v.risk_type
         events_sample.append({
             "videolog_id": v.id,
-            "time": _dt(v.created_at),
+            "time": _dt(v.detected_at or v.created_at),
+            "description": v.description,
             "source": v.source,
             "status": str(v.status) if v.status else None,
             "risk_type": {

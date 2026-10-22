@@ -1,8 +1,20 @@
 {
   "compilerOptions": {
-    "target": "ES2022", "module": "CommonJS", "strict": true,
-    "lib": ["ES2022", "DOM"], "skipLibCheck": true,
+    "target": "ES2022",
+    "module": "CommonJS",
+    "strict": true,
+    "lib": [
+      "ES2022",
+      "DOM"
+    ],
+    "skipLibCheck": true,
     "rootDir": "../src"
   },
-  "files": ["../src/telemetry/latency.ts", "../src/api/stream.ts", "native-stub.d.ts"]
+  "files": [
+    "../src/telemetry/latency.ts",
+    "../src/api/stream.ts",
+    "native-stub.d.ts",
+    "../src/api/client.ts",
+    "auth-stub.d.ts"
+  ]
 }

@@ -75,6 +75,7 @@ async def websocket_endpoint(websocket: WebSocket, client_id: str):
     pubsub = redis_client.pubsub()
     listener_task = None
     measure_latency = False
+    session_metadata = {}
     await pubsub.subscribe(f"alerts:{client_id}")
 
     async def listen_for_results():
@@ -105,8 +106,10 @@ async def websocket_endpoint(websocket: WebSocket, client_id: str):
                 mapping = {
                     "worksession_id": str(data_json.get("worksession_id", "")),
                     "risk_type_id": str(data_json.get("risk_type_id", "")),
-                    "video_path": str(data_json.get("video_path", ""))
+                    "video_path": str(data_json.get("video_path", "")),
+                    "access_token": str(data_json.get("access_token", ""))
                 }
+                session_metadata = {k: v for k, v in mapping.items() if k != "access_token"}
                 # Store in Redis hash and set a 12-hour expiration
                 await redis_client.hset(f"session_meta:{client_id}", mapping=mapping)
                 await redis_client.expire(f"session_meta:{client_id}", 43200) 
@@ -123,7 +126,7 @@ async def websocket_endpoint(websocket: WebSocket, client_id: str):
                 )
                 data_json["image"] = optimized_b64
 
-            job = {"client_id": client_id, "data": data_json}
+            job = {"client_id": client_id, "data": data_json, "session_meta": dict(session_metadata)}
             if measure_latency and msg_type == "FRAME" and frame_id(data_json.get("frame_id")):
                 try:
                     job["_latency"] = {

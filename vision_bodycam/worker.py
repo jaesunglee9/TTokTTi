@@ -4,6 +4,7 @@ import logging
 import os
 import signal
 import time
+import uuid
 from latency import FrameTiming, elapsed_ms
 import threading
 from collections import OrderedDict, deque
@@ -25,8 +26,8 @@ logger = logging.getLogger(__name__)
 # Configuration
 REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379")
 VLLM_URL = os.getenv("VLLM_URL", "http://localhost:8889/v1")
-DJANGO_API_URL = os.getenv("DJANGO_API_URL", "http://localhost:8000/api/incidents/")
-DJANGO_API_KEY = os.getenv("DJANGO_API_KEY", "secret_internal_key")
+DJANGO_API_URL = os.getenv("DJANGO_API_URL", "http://localhost:8000/api/detect/bodycam/events/")
+report_tasks = set()
 
 # --- Short-Term Memory Cache ---
 class FIFOSafeCache:
@@ -60,39 +61,59 @@ analyzer = SafetyAnalyzer(api_url=VLLM_URL) # Connects to local vLLM
 retriever = DynamicRetriever()
 shutdown_event = asyncio.Event()
 
-async def report_to_django(user_id: str, reason: str, timestamp: str):
-    """Async fire-and-forget report to backend (Lightweight Payload)"""
-    async with httpx.AsyncClient() as client:
-        try:
-            session_meta = await redis_client.hgetall(f"session_meta:{user_id}")
-            # We removed the heavy base64 image!
-            # Once your Blob storage is set up, you will just add: "image_url": blob_url
-            payload = {
-                "user_id": user_id, 
-                "description": reason, 
-                "timestamp": timestamp,
-                # Inject the cached data
-                "worksession_id": session_meta.get("worksession_id"),
-                "risk_type_id": session_meta.get("risk_type_id"),
-                "video_path": session_meta.get("video_path")
-            }
-
-            response = await client.post(
-                DJANGO_API_URL, 
-                json=payload,
-                headers={
-                    "X-Internal-Key": DJANGO_API_KEY,
-                    "Content-Type": "application/json"
-                },
-                timeout=5.0 
-            )
-
-            if response.status_code == 201:
-                logger.info(f"Reported violation to backend for {user_id} at {timestamp}")
-            else:
-                logger.warning(f"Backend Error {response.status_code}: {response.text}")
-        except Exception as e:
-            logger.error(f"Django Report Failed: {e}")
+async def report_to_django(client_id: str, reason: str, timestamp: str,
+                           event_id: str = None, session_meta: dict = None):
+    """Persist one event; retry transient failures with the same idempotency key."""
+    event_id = event_id or str(uuid.uuid4())
+    result = {"type": "REPORT_RESULT", "event_id": event_id, "status": "error"}
+    try:
+        current_meta = await redis_client.hgetall(f"session_meta:{client_id}")
+        meta = {**current_meta, **(session_meta or {})}
+        # The token can be refreshed while this event is queued; its session stays fixed.
+        token = current_meta.get("access_token")
+        if not token:
+            raise ValueError("Missing user access token")
+        if not meta.get("worksession_id"):
+            raise ValueError("Missing work session")
+        payload = {
+            "event_id": event_id, "description": reason, "detected_at": timestamp,
+            "worksession_id": meta["worksession_id"],
+            "video_path": meta.get("video_path") or None,
+        }
+        if meta.get("risk_type_id"):
+            payload["risk_type_id"] = meta["risk_type_id"]
+        async with httpx.AsyncClient() as client:
+            for attempt in range(3):
+                try:
+                    response = await client.post(
+                        DJANGO_API_URL, json=payload,
+                        headers={"Authorization": f"Bearer {token}"}, timeout=5.0,
+                    )
+                    if response.status_code in (200, 201):
+                        body = response.json()
+                        if body.get("ok") is not True or not body.get("data", {}).get("id"):
+                            raise ValueError("Invalid event persistence acknowledgment")
+                        result.update(status="saved", videolog_id=body["data"]["id"])
+                        logger.info("Saved bodycam event %s as VideoLog %s", event_id, result["videolog_id"])
+                        break
+                    if response.status_code not in (429,) and response.status_code < 500:
+                        result["http_status"] = response.status_code
+                        raise ValueError(f"Event rejected with HTTP {response.status_code}")
+                    if attempt == 2:
+                        raise ValueError(f"Event storage unavailable: HTTP {response.status_code}")
+                except httpx.TransportError:
+                    if attempt == 2:
+                        raise
+                await asyncio.sleep(0.2 * (2 ** attempt))
+    except Exception as error:
+        # Never log credentials, response bodies, or complete submitted images.
+        logger.warning("Event persistence failed (%s): %s", event_id, type(error).__name__)
+        result["message"] = "위험 알림은 전달됐지만 기록 저장에 실패했습니다."
+    try:
+        await redis_client.publish(f"alerts:{client_id}", json.dumps(result))
+    except Exception:
+        logger.warning("Unable to publish persistence result for event %s", event_id)
+    return result
 
 async def process_job(queue_name, payload):
     """Handles a single job from Redis"""
@@ -235,6 +256,8 @@ async def main():
             logger.error(f"Redis polling error: {e}")
             await asyncio.sleep(1)
             
+    if report_tasks:
+        await asyncio.gather(*list(report_tasks), return_exceptions=True)
     await redis_client.aclose()
     logger.info("Worker stopped cleanly.")
 

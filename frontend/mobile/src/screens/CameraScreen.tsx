@@ -25,6 +25,8 @@ import type { RouteProp } from '@react-navigation/native';
 import type { RootStackParamList } from '../../App';
 import TopHeader from '../components/TopHeader';
 
+import { useAuth } from '../context/AuthContext';
+import { refreshAccessToken } from '../api/client';
 import { useWorkSession } from '../context/WorkSessionContext';
 import SafetyStream, { StreamResponse } from '../api/stream';
 
@@ -84,6 +86,7 @@ export default function CameraScreen({ route }: Props) {
   const useVision = true;
 
   const { workSessionId } = useWorkSession();
+  const { userId } = useAuth();
 
   // 스트리밍 설정 기반 포맷 선택
   const device = useCameraDevice('back');
@@ -232,37 +235,51 @@ export default function CameraScreen({ route }: Props) {
 
   // mode=worker: Event-Based WebSocket Streaming Connect
   useEffect(() => {
-    const currentSessionId = workSessionId ? String(workSessionId) : "";
-    if (!isWorkerCam || !isCameraActive) return;
-    const userId = 'AuthContext_user_id';
-
-    streamRef.current = new SafetyStream(
-      userId, 
-      { 
-        worksession_id: currentSessionId, 
-        video_path: "",
-        measureLatency: __DEV__,
-      },
-      (data: StreamResponse) => {
-      if (data.type === 'DANGER') {
-        setAlertMessage(data.message || '위험이 감지되었습니다!');
-        setAlertSeverity('high');
-        setAlertVisible(true);
-      } else if (data.type === 'ANSWER') {
-        Alert.alert('AI Assistant', data.message);
-        setAssistantState('speaking');
-        stopWakeWord().then(() => {
-          Tts.speak(data.message);
-        });
-      }
-    });
-
-    streamRef.current.connect();
-
-    return () => {
-      streamRef.current?.disconnect();
+    if (!isWorkerCam || !isCameraActive || !workSessionId || !userId) return;
+    let cancelled = false;
+    let stream: SafetyStream | null = null;
+    let refreshing = false;
+    const showStorageFailure = () => {
+      setAlertMessage('위험 기록 저장 연결을 확인해주세요. 다시 로그인해야 할 수 있습니다.');
+      setAlertSeverity('high');
+      setAlertVisible(true);
     };
-  }, [isWorkerCam, isCameraActive, workSessionId]);
+    const renew = async () => {
+      if (refreshing) return;
+      refreshing = true;
+      try {
+        const accessToken = await refreshAccessToken();
+        if (cancelled) return;
+        if (stream) { stream.updateAccessToken(accessToken); return; }
+        const connectionId = `${userId}-${workSessionId}-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+        stream = new SafetyStream(connectionId, {
+          worksession_id: String(workSessionId), video_path: '', accessToken,
+          measureLatency: __DEV__,
+        }, (data: StreamResponse) => {
+          if (data.type === 'DANGER') {
+            setAlertMessage(data.details || data.message || '위험이 감지되었습니다!');
+            setAlertSeverity('high'); setAlertVisible(true);
+          } else if (data.type === 'REPORT_RESULT' && data.status === 'error') {
+            showStorageFailure();
+          } else if (data.type === 'ANSWER') {
+            Alert.alert('AI Assistant', data.message);
+            setAssistantState('speaking');
+            stopWakeWord().then(() => Tts.speak(data.message));
+          }
+        });
+        streamRef.current = stream;
+        stream.connect();
+      } catch { if (!cancelled) showStorageFailure(); }
+      finally { refreshing = false; }
+    };
+    void renew();
+    const renewal = setInterval(() => { void renew(); }, 4 * 60 * 1000);
+    return () => {
+      cancelled = true; clearInterval(renewal);
+      stream?.disconnect();
+      if (streamRef.current === stream) streamRef.current = null;
+    };
+  }, [isWorkerCam, isCameraActive, workSessionId, userId]);
 
   // ref 동기화
   useEffect(() => {

@@ -132,15 +132,15 @@ class TimingTests(unittest.IsolatedAsyncioTestCase):
 
 class ReportDispatchTests(unittest.IsolatedAsyncioTestCase):
     async def test_report_payload_uses_session_metadata_and_excludes_image(self):
-        import httpx
+        httpx = worker.httpx
         received = []
         def handle(request):
             received.append(request)
-            return httpx.Response(201, json={"ok": True})
+            return httpx.Response(201, json={"ok": True, "data": {"id": 123}})
         original_client = httpx.AsyncClient
         redis = FakeRedis()
-        redis.hgetall = AsyncMock(return_value={"worksession_id": "17", "risk_type_id": "4", "video_path": "fixture://clip.mp4"})
-        with patch.object(worker, "redis_client", redis), patch.object(worker, "DJANGO_API_URL", "https://report-test.invalid/api/incidents/"), patch.object(worker, "DJANGO_API_KEY", "fixture-key"), patch.object(worker.httpx, "AsyncClient", side_effect=lambda: original_client(transport=httpx.MockTransport(handle))):
+        redis.hgetall = AsyncMock(return_value={"worksession_id": "17", "risk_type_id": "4", "video_path": "fixture://clip.mp4", "access_token": "fixture-jwt"})
+        with patch.object(worker, "redis_client", redis), patch.object(worker, "DJANGO_API_URL", "https://report-test.invalid/api/incidents/"), patch.object(worker.httpx, "AsyncClient", side_effect=lambda: original_client(transport=httpx.MockTransport(handle))):
             await worker.report_to_django("fixture-worker", "DANGER: test", "2026-10-22T00:00:00Z")
         self.assertEqual(len(received), 1)
         payload = json.loads(received[0].content)
@@ -149,13 +149,15 @@ class ReportDispatchTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(payload["video_path"], "fixture://clip.mp4")
         self.assertEqual(payload["description"], "DANGER: test")
         self.assertNotIn("image", payload)
-        self.assertEqual(received[0].headers["X-Internal-Key"], "fixture-key")
+        self.assertEqual(received[0].headers["Authorization"], "Bearer fixture-jwt")
+        self.assertEqual(redis.events[-1]["status"], "saved")
+        self.assertEqual(redis.events[-1]["videolog_id"], 123)
 
-    async def test_report_rejection_and_timeout_only_log_without_retry(self):
-        import httpx
+    async def test_report_rejection_and_transient_retry(self):
+        httpx = worker.httpx
         original_client = httpx.AsyncClient
         redis = FakeRedis()
-        redis.hgetall = AsyncMock(return_value={})
+        redis.hgetall = AsyncMock(return_value={"worksession_id": "17", "access_token": "fixture-jwt"})
         for failure in [404, 500, "timeout"]:
             received = []
             def handle(request):
@@ -163,9 +165,10 @@ class ReportDispatchTests(unittest.IsolatedAsyncioTestCase):
                 if failure == "timeout":
                     raise httpx.ReadTimeout("controlled timeout", request=request)
                 return httpx.Response(failure, text="controlled rejection")
-            with patch.object(worker, "redis_client", redis), patch.object(worker, "DJANGO_API_URL", "https://report-test.invalid/api/incidents/"), patch.object(worker.httpx, "AsyncClient", side_effect=lambda: original_client(transport=httpx.MockTransport(handle))), self.assertLogs(worker.logger, level="WARNING"):
+            with patch.object(worker, "redis_client", redis), patch.object(worker, "DJANGO_API_URL", "https://report-test.invalid/api/incidents/"), patch.object(worker.httpx, "AsyncClient", side_effect=lambda: original_client(transport=httpx.MockTransport(handle))), self.assertLogs(worker.logger, level="WARNING") as logs:
                 await worker.report_to_django("fixture-worker", "DANGER: test", "2026-10-22T00:00:00Z")
-            self.assertEqual(len(received), 1)
+            self.assertEqual(len(received), 1 if failure == 404 else 3, (failure, logs.output))
+            self.assertEqual(redis.events[-1]["status"], "error")
 
 
 class GatewayTests(unittest.TestCase):
@@ -178,7 +181,7 @@ class GatewayTests(unittest.TestCase):
             worker.client_memory_cache = worker.FIFOSafeCache(100)
             with TestClient(gateway.app) as client:
                 with client.websocket_connect("/ws/stream/contract-test") as ws:
-                    ws.send_json({"type": "CONFIG", "latency_metrics": True})
+                    ws.send_json({"type": "CONFIG", "latency_metrics": True, "worksession_id": "17", "access_token": "private-test-token"})
                     ws.send_json({"type": "FRAME", "frame_id": "trace-1", "image": "fake-image",
                                   "_latency": {"gateway_prepare_ms": -100, "enqueued_redis_ms": 999999}})
                     result = ws.receive_json()
@@ -189,6 +192,8 @@ class GatewayTests(unittest.TestCase):
                     self.assertGreaterEqual(result["timing"]["gateway_prepare_ms"], 0)
                     self.assertNotIn("image", json.dumps(result))
                     self.assertNotIn("_latency", redis.jobs[0][1]["data"])
+                    self.assertEqual(redis.jobs[0][1]["session_meta"]["worksession_id"], "17")
+                    self.assertNotIn("private-test-token", json.dumps(redis.jobs))
 
 
 class SummaryTests(unittest.TestCase):

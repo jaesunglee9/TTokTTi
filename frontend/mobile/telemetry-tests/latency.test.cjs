@@ -59,18 +59,24 @@ test('websocket opt-in, frame correlation, safe completion, legacy alerts and in
   try {
     const SafetyStream=require(path.join(build,'api/stream.js')).default;
     const alerts=[];
-    stream=new SafetyStream('test',{worksession_id:'1',video_path:'',measureLatency:true},data=>alerts.push(data));
+    stream=new SafetyStream('test',{worksession_id:'1',video_path:'',measureLatency:true,accessToken:'fixture-jwt'},data=>alerts.push(data));
     stream.connect();
     const ws=instances[0]; ws.onopen();
     assert.equal(ws.sent[0].latency_metrics,true);
+    assert.equal(ws.sent[0].access_token,'fixture-jwt');
     assert.equal(stream.sendFrame('fake-image',{captureRequestedAt:performance.now()}),true);
     const frame=ws.sent[1];
     assert.ok(frame.frame_id);
+    assert.equal(frame.access_token,undefined);
+    stream.updateAccessToken('renewed-jwt');
+    assert.equal(ws.sent.at(-1).access_token,'renewed-jwt');
     ws.onmessage({data:JSON.stringify({type:'FRAME_RESULT',frame_id:frame.frame_id,status:'ok',timing:{worker_total_ms:1}})});
     assert.equal(stream.getLatencySummary().counts.completed,1);
     assert.equal(alerts.length,0);
     ws.onmessage({data:JSON.stringify({type:'DANGER',message:'test'})});
     assert.equal(alerts.length,1);
+    ws.onmessage({data:JSON.stringify({type:'REPORT_RESULT',status:'error',message:'storage failed'})});
+    assert.equal(alerts.length,2);
     assert.equal(stream.sendFrame('fake-image'),false);
     assert.equal(stream.getLatencySummary().counts.throttled,1);
     stream.disconnect(); stream.connect();

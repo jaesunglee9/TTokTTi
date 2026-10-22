@@ -2,19 +2,23 @@
 import { Alert } from 'react-native';
 import { FrameLatencyTracker, type FrameStart } from '../telemetry/latency';
 
-export type StreamMessageType = 'DANGER' | 'ANSWER' | 'ANSWER_CHUNK' | 'ANSWER_DONE' | 'FRAME_RESULT';
+export type StreamMessageType = 'DANGER' | 'ANSWER' | 'ANSWER_CHUNK' | 'ANSWER_DONE' | 'FRAME_RESULT' | 'REPORT_RESULT';
 export interface StreamResponse {
   type: StreamMessageType;
   message: string;
   details?: string;
   timestamp?: string;
   frame_id?: string;
-  status?: 'ok' | 'error';
+  status?: 'ok' | 'error' | 'saved';
+  event_id?: string;
+  videolog_id?: number;
   timing?: Record<string, number>;
 }
 export interface SessionConfig {
   worksession_id: string;
   video_path: string;
+  accessToken?: string;
+  riskTypeId?: number;
   /** Diagnostic frames receive a completion even when no danger is detected. */
   measureLatency?: boolean;
   gatewayUrl?: string;
@@ -49,7 +53,8 @@ class SafetyStream {
       this.reconnectAttempts = 0;
       socket.send(JSON.stringify({
         type: 'CONFIG', worksession_id: this.config.worksession_id,
-        video_path: this.config.video_path, latency_metrics: this.config.measureLatency === true,
+        video_path: this.config.video_path, access_token: this.config.accessToken,
+        risk_type_id: this.config.riskTypeId, latency_metrics: this.config.measureLatency === true,
       }));
       if (this.config.measureLatency && !this.metricsTimer) {
         this.metricsTimer = setInterval(() => {
@@ -63,7 +68,7 @@ class SafetyStream {
       try {
         const data: StreamResponse = JSON.parse(e.data);
         if (data.type === 'FRAME_RESULT') {
-          if (this.config.measureLatency) this.latency.complete(data.frame_id, data.status, data.timing);
+          if (this.config.measureLatency) this.latency.complete(data.frame_id, data.status === 'ok' ? 'ok' : 'error', data.timing);
           return; // Measurement acknowledgments are not safety alerts.
         }
         this.onMessageCallback(data);
@@ -87,6 +92,16 @@ class SafetyStream {
       this.reconnectTimer = setTimeout(() => { this.reconnectTimer = null; this.connect(); }, 3000);
     } else {
       Alert.alert('연결 오류', '서버와의 연결이 끊겼습니다. 네트워크를 확인해주세요.');
+    }
+  }
+
+  public updateAccessToken(accessToken: string) {
+    this.config.accessToken = accessToken;
+    if (this.ws?.readyState === WebSocket.OPEN) {
+      this.ws.send(JSON.stringify({ type: 'CONFIG',
+        worksession_id: this.config.worksession_id, video_path: this.config.video_path,
+        access_token: accessToken, risk_type_id: this.config.riskTypeId,
+        latency_metrics: this.config.measureLatency === true }));
     }
   }
 

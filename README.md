@@ -105,4 +105,4 @@ Python 전체 현장 카메라는 TTOKTTI_LATENCY=1로 활성화한다.
 ## 테스트 파이프라인과 위험 리포트
 
 [테스트·위험 리포트 검증 보고서](docs/test-pipeline-report.md)에 현재 처리 흐름, 실제 측정 결과, 격리 DB 테스트와 미완료 연결을 정리했다.
-위험 알림과 종합 보고서 생성은 별도 단계이며, Worker의 기본 저장 요청과 Django API 계약에는 아직 불일치가 있다.
+위험 알림과 종합 보고서 생성은 별도 단계다. Worker 저장 계약은 JWT·작업 참여 권한·중복 방지 API로 수정했으며, [연결 및 배포 안내](docs/worker-django-integration.md)에 필요한 마이그레이션과 검증 범위를 정리했다.

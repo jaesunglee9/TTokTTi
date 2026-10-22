@@ -28,6 +28,14 @@ class RiskType(models.Model):
     
 class VideoLog(models.Model): # 알림 로그의 의미 (웹에서 관리자에게 보여지는 로그)
 
+    event_id = models.UUIDField(null=True, blank=True, unique=True)
+    description = models.TextField(blank=True, default="")
+    detected_at = models.DateTimeField(null=True, blank=True, db_index=True)
+    reported_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL,
+        related_name="bodycam_events",
+    )
+
     class SourceChoices(models.TextChoices):
         AUTO = "AUTO", "Auto Detection" # 모델에 의한 자동 위험 감지 로그
         MANUAL = "MANUAL", "Manual Report" # 사용자가 수동으로 요청한 로그

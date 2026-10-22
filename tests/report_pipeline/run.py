@@ -12,7 +12,7 @@ ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/'backend'))
 from django.conf import settings
 settings.configure(
- SECRET_KEY='isolated-report-test-only',DEBUG=False,USE_TZ=True,TIME_ZONE='UTC',
+ SECRET_KEY='isolated-report-test-only-not-production-32plus',DEBUG=False,USE_TZ=True,TIME_ZONE='UTC',
  DATABASES={'default':{'ENGINE':'django.db.backends.sqlite3','NAME':':memory:'}},
  INSTALLED_APPS=['django.contrib.auth','django.contrib.contenttypes','apps.user','apps.worksession','apps.check','apps.detect','apps.risk','apps.report'],
  AUTH_USER_MODEL='user.User',ROOT_URLCONF=__name__,MIDDLEWARE=[],
@@ -29,7 +29,7 @@ from django.test.utils import setup_databases,teardown_databases
 from django.utils import timezone
 from rest_framework.test import APIClient
 from apps.user.models import User
-from apps.worksession.models import Worksite,WorkSession
+from apps.worksession.models import Worksite,WorkSession,WorkSessionMember
 from apps.detect.models import RiskType,VideoLog
 from apps.check.models import Compliance,Photo
 from apps.report.models import PostWorkReport
@@ -80,7 +80,9 @@ class ReportPipelineTests(TestCase):
   artifact={'kind':'synthetic_sqlite_contract_test_not_real_detection_or_llm_report',
     'generated_by':'tests/report_pipeline/run.py','llm_stubbed':True,'external_services_used':False,
     'request':self.payload(),'response':first.data}
-  (ROOT/'performance-results/report-pipeline-fixture.json').write_text(json.dumps(artifact,ensure_ascii=False,indent=2))
+  import os
+  if os.getenv('TTOKTTI_WRITE_REPORT_FIXTURE') == '1':
+   (ROOT/'performance-results/report-pipeline-fixture.json').write_text(json.dumps(artifact,ensure_ascii=False,indent=2))
  def test_bodycam_validation_and_internal_header_is_not_jwt(self):
   unauth=APIClient()
   response=unauth.post('/api/detect/bodycam/',self.payload(),format='json',HTTP_X_INTERNAL_KEY='fixture-key')
@@ -101,16 +103,83 @@ class ReportPipelineTests(TestCase):
   self.assertEqual(package['risk_logs']['highlights'],[])
   self.assertEqual(self.client.get(f'/api/report/{self.session.id}/latest').status_code,404)
   self.assertEqual(self.client.post('/api/report/generate',{},format='json').status_code,400)
- def test_default_worker_endpoint_absent_from_root_routes(self):
+ def test_worker_endpoint_matches_registered_event_ingestion(self):
   # Check real application route declarations, rather than our reduced test URLconf.
   tree=ast.parse((ROOT/'backend/apps/urls.py').read_text())
   routes=[node.args[0].value for node in ast.walk(tree) if isinstance(node,ast.Call)
     and isinstance(node.func,ast.Name) and node.func.id=='path' and node.args and isinstance(node.args[0],ast.Constant)]
   self.assertNotIn('incidents/',routes)
-  self.assertIn('incident/',routes);self.assertIn('detect/',routes);self.assertIn('report/',routes)
+  self.assertIn('detect/',routes);self.assertIn('report/',routes)
+  from django.urls import resolve
+  self.assertEqual(resolve('/api/detect/bodycam/events/').url_name,'bodycam_events')
   worker=ast.parse((ROOT/'vision_bodycam/worker.py').read_text())
   assignment=next(n for n in worker.body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='DJANGO_API_URL' for t in n.targets))
-  self.assertEqual(assignment.value.args[1].value,'http://localhost:8000/api/incidents/')
+  self.assertEqual(assignment.value.args[1].value,'http://localhost:8000/api/detect/bodycam/events/')
+
+
+ def event_payload(self):
+  return {'event_id':'4f328acb-219c-4a61-b037-e2cafdc1e914',
+   'worksession_id':self.session.id,'description':'DANGER: fixture missing helmet',
+   'detected_at':'2026-10-22T10:00:00Z','video_path':None}
+ def authenticated_event_client(self):
+  from rest_framework_simplejwt.tokens import AccessToken
+  client=APIClient();client.credentials(HTTP_AUTHORIZATION='Bearer '+str(AccessToken.for_user(self.user)))
+  return client
+ def test_event_jwt_membership_idempotency_and_report_evidence(self):
+  WorkSessionMember.objects.create(worksession=self.session,user=self.user,role='WORKER')
+  client=self.authenticated_event_client();payload=self.event_payload()
+  first=client.post('/api/detect/bodycam/events/',payload,format='json')
+  self.assertEqual(first.status_code,201,first.data)
+  self.assertEqual(client.post('/api/detect/bodycam/events/',payload,format='json').status_code,200)
+  self.assertEqual(VideoLog.objects.count(),1)
+  event=VideoLog.objects.get();self.assertEqual(event.reported_by,self.user)
+  self.assertIsNone(event.original_video);self.assertEqual(event.risk_type.code,'BODY_VLM_HAZARD')
+  self.assertEqual(event.description,payload['description'])
+  self.assertEqual(event.detected_at.isoformat(),'2026-10-22T10:00:00+00:00')
+  self.assertEqual(build_input_package(self.session.id)['risk_logs']['events_sample'][0]['description'],payload['description'])
+  altered={**payload,'description':'Different event'}
+  self.assertEqual(client.post('/api/detect/bodycam/events/',altered,format='json').status_code,409)
+ def test_event_requires_real_jwt_membership_and_body_risk(self):
+  payload=self.event_payload()
+  self.assertEqual(APIClient().post('/api/detect/bodycam/events/',payload,format='json').status_code,401)
+  client=self.authenticated_event_client()
+  self.assertEqual(client.post('/api/detect/bodycam/events/',payload,format='json').status_code,403)
+  WorkSessionMember.objects.create(worksession=self.session,user=self.user,role='WORKER')
+  self.risk.camera_type='FULL';self.risk.save();payload['risk_type_id']=self.risk.pk
+  self.assertEqual(client.post('/api/detect/bodycam/events/',payload,format='json').status_code,400)
+  self.assertEqual(VideoLog.objects.count(),0)
+ def test_real_worker_to_django_retry_after_lost_response_saves_once(self):
+  import importlib,types,httpx
+  from asgiref.sync import async_to_sync,sync_to_async
+  from unittest.mock import AsyncMock
+  from rest_framework_simplejwt.tokens import AccessToken
+  sys.path.insert(0,str(ROOT/'vision_bodycam'))
+  fake_inference=types.ModuleType('core.inference');fake_inference.SafetyAnalyzer=lambda **_:None
+  fake_rag=types.ModuleType('core.rag');fake_rag.DynamicRetriever=lambda:None
+  with patch.dict(sys.modules,{'core.inference':fake_inference,'core.rag':fake_rag}):
+   worker=importlib.import_module('worker')
+  WorkSessionMember.objects.create(worksession=self.session,user=self.user,role='WORKER')
+  token=str(AccessToken.for_user(self.user))
+  redis=types.SimpleNamespace(hgetall=AsyncMock(return_value={'worksession_id':str(self.session.pk),'access_token':token}),publish=AsyncMock())
+  client=APIClient();calls=[];original=httpx.AsyncClient
+  async def handle(request):
+   payload=json.loads(request.content);calls.append(payload)
+   response=await sync_to_async(client.post,thread_sensitive=True)(request.url.path,payload,format='json',HTTP_AUTHORIZATION=request.headers['Authorization'])
+   if len(calls)==1:
+    self.assertEqual(response.status_code,201,response.data)
+    raise httpx.ReadTimeout('lost response after database commit',request=request)
+   return httpx.Response(response.status_code,json=response.data)
+  with patch.object(worker,'redis_client',redis),patch.object(worker.httpx,'AsyncClient',side_effect=lambda:original(transport=httpx.MockTransport(handle))):
+   result=async_to_sync(worker.report_to_django)('connection-1','DANGER: fixture missing helmet','2026-10-22T10:00:00Z')
+  self.assertEqual(result['status'],'saved');self.assertEqual(len(calls),2)
+  self.assertEqual(calls[0]['event_id'],calls[1]['event_id'])
+  self.assertEqual(VideoLog.objects.count(),1)
+  redis.publish.assert_awaited_once()
+  with patch('apps.report.views.generate_report_json',return_value={'report_title':'integration fixture'}):
+   response=self.client.post('/api/report/generate',{'worksession_id':self.session.pk},format='json')
+  self.assertEqual(response.status_code,200)
+  self.assertEqual(response.data['report']['risk_statistics']['total'],1)
+  self.assertEqual(PostWorkReport.objects.count(),1)
 
 if __name__=='__main__':
  old=setup_databases(verbosity=0,interactive=False)
