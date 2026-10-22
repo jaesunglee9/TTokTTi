@@ -1,0 +1,291 @@
+{
+  "kind": "synthetic_sqlite_contract_test_not_real_detection_or_llm_report",
+  "generated_by": "tests/report_pipeline/run.py",
+  "llm_stubbed": true,
+  "external_services_used": false,
+  "request": {
+    "worksession_id": 1,
+    "risk_type_id": 1,
+    "video_path": "fixture://evidence.mp4"
+  },
+  "response": {
+    "status": "GENERATED",
+    "worksession_id": 1,
+    "report_id": 1,
+    "report_version": 1,
+    "input_package": {
+      "worksession": {
+        "id": 1,
+        "session_label": "Session(1) - DONE",
+        "status": "DONE",
+        "starts_at": "2026-10-22T10:47:09.005805+00:00",
+        "ends_at": null,
+        "worksite": {
+          "id": 1,
+          "name": "격리 테스트 현장",
+          "address": "synthetic test location"
+        },
+        "videos": {
+          "fullcam_video": null,
+          "bodycam_video": "fixture://bodycam.mp4",
+          "meta": {
+            "fullcam_duration_sec": null,
+            "bodycam_duration_sec": null
+          }
+        }
+      },
+      "participants": {
+        "head_managers": [],
+        "related": [],
+        "workers": []
+      },
+      "photos": {
+        "before": [
+          {
+            "photo_id": 1,
+            "employee_id": 1,
+            "image_path": "fixture://before.jpg",
+            "created_at": "2026-10-22T10:47:09.012400+00:00"
+          }
+        ],
+        "after": []
+      },
+      "compliance": {
+        "stats": {
+          "helmet": {
+            "total": 1,
+            "complied": 0,
+            "not_complied": 1,
+            "unknown": 0
+          },
+          "vest": {
+            "total": 0,
+            "complied": 0,
+            "not_complied": 0,
+            "unknown": 0
+          },
+          "shoes": {
+            "total": 0,
+            "complied": 0,
+            "not_complied": 0,
+            "unknown": 0
+          }
+        },
+        "records_sample": [
+          {
+            "compliance_id": 1,
+            "employee_id": 1,
+            "category": "HELMET",
+            "is_complied": false,
+            "original_image": null,
+            "detected_image": null,
+            "created_at": "2026-10-22T10:47:09.012206+00:00"
+          }
+        ]
+      },
+      "risk_logs": {
+        "stats": {
+          "total": 3,
+          "by_type": [
+            {
+              "risk_type_name": "테스트 위험",
+              "count": 3
+            }
+          ],
+          "by_camera": {
+            "BODY": 3
+          },
+          "manual_actions": {
+            "PENDING": 0,
+            "APPROVED": 0,
+            "REJECTED": 0
+          }
+        },
+        "highlights": [
+          {
+            "start": "2026-10-22T10:47:09.006773+00:00",
+            "end": "2026-10-22T10:47:09.011232+00:00",
+            "count": 3,
+            "top_types": [
+              {
+                "risk_type_name": "테스트 위험",
+                "count": 3
+              }
+            ],
+            "evidence_samples": [
+              {
+                "videolog_id": 1,
+                "time": "2026-10-22T10:47:09.006773+00:00",
+                "risk_type_name": "테스트 위험",
+                "camera_type": "BODY",
+                "evidence_video": "fixture://evidence.mp4",
+                "source": "AUTO",
+                "status": null
+              },
+              {
+                "videolog_id": 2,
+                "time": "2026-10-22T10:47:09.010109+00:00",
+                "risk_type_name": "테스트 위험",
+                "camera_type": "BODY",
+                "evidence_video": "fixture://evidence.mp4",
+                "source": "AUTO",
+                "status": null
+              },
+              {
+                "videolog_id": 3,
+                "time": "2026-10-22T10:47:09.011232+00:00",
+                "risk_type_name": "테스트 위험",
+                "camera_type": "BODY",
+                "evidence_video": "fixture://evidence.mp4",
+                "source": "AUTO",
+                "status": null
+              }
+            ],
+            "reason": "위험 로그 집중 구간"
+          }
+        ],
+        "events_sample": [
+          {
+            "videolog_id": 1,
+            "time": "2026-10-22T10:47:09.006773+00:00",
+            "source": "AUTO",
+            "status": null,
+            "risk_type": {
+              "id": 1,
+              "code": "TEST_BODY_RISK",
+              "name": "테스트 위험",
+              "camera_type": "BODY",
+              "description": null
+            },
+            "evidence_video": "fixture://evidence.mp4"
+          },
+          {
+            "videolog_id": 2,
+            "time": "2026-10-22T10:47:09.010109+00:00",
+            "source": "AUTO",
+            "status": null,
+            "risk_type": {
+              "id": 1,
+              "code": "TEST_BODY_RISK",
+              "name": "테스트 위험",
+              "camera_type": "BODY",
+              "description": null
+            },
+            "evidence_video": "fixture://evidence.mp4"
+          },
+          {
+            "videolog_id": 3,
+            "time": "2026-10-22T10:47:09.011232+00:00",
+            "source": "AUTO",
+            "status": null,
+            "risk_type": {
+              "id": 1,
+              "code": "TEST_BODY_RISK",
+              "name": "테스트 위험",
+              "camera_type": "BODY",
+              "description": null
+            },
+            "evidence_video": "fixture://evidence.mp4"
+          }
+        ]
+      }
+    },
+    "report": {
+      "report_title": "격리 테스트 보고서 (LLM stub)",
+      "risk_statistics": {
+        "total": 3,
+        "by_type": [
+          {
+            "risk_type_name": "테스트 위험",
+            "count": 3
+          }
+        ],
+        "by_camera": {
+          "BODY": 3
+        },
+        "manual_actions": {
+          "PENDING": 0,
+          "APPROVED": 0,
+          "REJECTED": 0
+        }
+      },
+      "risk_highlights": [
+        {
+          "start": "2026-10-22T10:47:09.006773+00:00",
+          "end": "2026-10-22T10:47:09.011232+00:00",
+          "count": 3,
+          "top_types": [
+            {
+              "risk_type_name": "테스트 위험",
+              "count": 3
+            }
+          ],
+          "evidence_samples": [
+            {
+              "videolog_id": 1,
+              "time": "2026-10-22T10:47:09.006773+00:00",
+              "risk_type_name": "테스트 위험",
+              "camera_type": "BODY",
+              "evidence_video": "fixture://evidence.mp4",
+              "source": "AUTO",
+              "status": null
+            },
+            {
+              "videolog_id": 2,
+              "time": "2026-10-22T10:47:09.010109+00:00",
+              "risk_type_name": "테스트 위험",
+              "camera_type": "BODY",
+              "evidence_video": "fixture://evidence.mp4",
+              "source": "AUTO",
+              "status": null
+            },
+            {
+              "videolog_id": 3,
+              "time": "2026-10-22T10:47:09.011232+00:00",
+              "risk_type_name": "테스트 위험",
+              "camera_type": "BODY",
+              "evidence_video": "fixture://evidence.mp4",
+              "source": "AUTO",
+              "status": null
+            }
+          ],
+          "reason": "위험 로그 집중 구간"
+        }
+      ],
+      "before_after_summary": {
+        "before_photos": [
+          "fixture://before.jpg"
+        ],
+        "after_photos": []
+      },
+      "compliance_summary": {
+        "helmet": {
+          "total": 1,
+          "complied": 0,
+          "not_complied": 1,
+          "unknown": 0
+        },
+        "vest": {
+          "total": 0,
+          "complied": 0,
+          "not_complied": 0,
+          "unknown": 0
+        },
+        "shoes": {
+          "total": 0,
+          "complied": 0,
+          "not_complied": 0,
+          "unknown": 0
+        }
+      },
+      "action_items": {
+        "immediate": [
+          "테스트 조치"
+        ],
+        "preventive": [],
+        "follow_up": []
+      },
+      "generated_at": "2026-10-22T10:47:09.016372+00:00"
+    }
+  }
+}
