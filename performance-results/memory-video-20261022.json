@@ -1,0 +1,2018 @@
+{
+  "schema_version": 1,
+  "kind": "real_video_memory_comparison",
+  "started_at": "2026-10-22T10:33:43Z",
+  "source": {
+    "url": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4.zip",
+    "title": "Big Buck Bunny",
+    "attribution": "(c) 2008 Blender Foundation / www.bigbuckbunny.org",
+    "license": "CC BY 3.0",
+    "license_source": "https://peach.blender.org/about/",
+    "sha256": "f78f39603e6774907f2faafabf26a667f4a6fc31769ec304a8a8f7c62d280508",
+    "bytes": 64657027
+  },
+  "metadata": {
+    "model": "Qwen/Qwen3-VL-2B-Instruct",
+    "revision": "89644892e4d85e24eaac8bacfd4f463576704203",
+    "dtype": "float16",
+    "device": "NVIDIA GeForce RTX 2070 SUPER",
+    "max_new_tokens": 64,
+    "model_load_ms": 38925.651,
+    "transformers": "4.57.6",
+    "torch": "2.14.0+cu130",
+    "mode": "browser_demo_single_frame"
+  },
+  "conditions": {
+    "sample_times_seconds": [
+      20.0,
+      35.0,
+      50.0,
+      65.0,
+      80.0,
+      95.0,
+      110.0,
+      125.0,
+      140.0,
+      155.0,
+      170.0,
+      185.0,
+      200.0,
+      215.0,
+      230.0,
+      245.0,
+      260.0,
+      275.0,
+      290.0,
+      305.0,
+      320.0,
+      335.0,
+      350.0,
+      365.0,
+      380.0,
+      395.0,
+      410.0,
+      425.0,
+      440.0,
+      455.0
+    ],
+    "compression_every_observations": 5,
+    "checkpoints": [
+      5,
+      10,
+      20,
+      30
+    ],
+    "repeats": 3,
+    "question": "In exactly two short sentences, summarize the earlier events in chronological order and describe what is happening now. Mention only events supported by the observations.",
+    "greedy_both_conditions": true,
+    "fixed_output_control_tokens": 32,
+    "transport": "in-process real GPU, no network/queue/browser timing",
+    "original_methods": [
+      "SafetyAnalyzer.compress_memory",
+      "SafetyAnalyzer.answer_question"
+    ],
+    "sampling_note": "One observation per 15 seconds; replaces production action-check cadence for a controlled experiment."
+  },
+  "warmups": [
+    {
+      "text": "A rabbit sits in a field.",
+      "input_tokens": 20,
+      "output_tokens": 8,
+      "token_limit_reached": false,
+      "prepare_ms": 115.32073898706585,
+      "generate_ms": 4656.5179220051505,
+      "first_token_ms": 4236.279,
+      "total_ms": 4774.467306036968,
+      "fixed_output_tokens": false
+    },
+    {
+      "text": "A cartoon bird with grey feathers, a yellow beak, and orange feet is perched on a tree branch. The bird is opening its beak wide as",
+      "input_tokens": 108,
+      "output_tokens": 32,
+      "token_limit_reached": true,
+      "prepare_ms": 92.68074604915455,
+      "generate_ms": 2254.7110759769566,
+      "first_token_ms": 1005.721,
+      "total_ms": 2348.7866860232316,
+      "fixed_output_tokens": false
+    }
+  ],
+  "observations": [
+    {
+      "index": 1,
+      "timestamp_seconds": 20.0,
+      "frame_sha256": "b792707eb91eb60dce1ad61198acbfd46f6e6ee6ff644cf3792ca8be6465e864",
+      "entry": {
+        "timestamp": "T+20.00s",
+        "action": "Flying",
+        "observation": "A cartoon bird with grey feathers, a yellow beak, and orange feet is perched on a tree branch. The bird is opening its beak wide as if singing or calling out."
+      },
+      "action_metrics": {
+        "text": "Flying",
+        "input_tokens": 93,
+        "output_tokens": 2,
+        "token_limit_reached": false,
+        "prepare_ms": 13.7632199912332,
+        "generate_ms": 121.93646701052785,
+        "first_token_ms": 79.655,
+        "total_ms": 135.90026297606528,
+        "fixed_output_tokens": false
+      },
+      "observation_metrics": {
+        "text": "A cartoon bird with grey feathers, a yellow beak, and orange feet is perched on a tree branch. The bird is opening its beak wide as if singing or calling out.",
+        "input_tokens": 108,
+        "output_tokens": 39,
+        "token_limit_reached": false,
+        "prepare_ms": 2.932064002379775,
+        "generate_ms": 1606.6067190258764,
+        "first_token_ms": 78.11,
+        "total_ms": 1609.993204998318,
+        "fixed_output_tokens": false
+      }
+    },
+    {
+      "index": 2,
+      "timestamp_seconds": 35.0,
+      "frame_sha256": "33aff4161cd0dbf9e259f54bfe65eb05bd6487fde0c0d6481dfde8d221b5804a",
+      "entry": {
+        "timestamp": "T+35.00s",
+        "action": "The worker is digging.",
+        "observation": "A large, dark, furry creature is curled up inside a cozy, grassy den with rocks. The creature is resting, and the den is surrounded by vibrant green grass and smooth stones."
+      },
+      "action_metrics": {
+        "text": "The worker is digging.",
+        "input_tokens": 161,
+        "output_tokens": 6,
+        "token_limit_reached": false,
+        "prepare_ms": 13.46961100352928,
+        "generate_ms": 273.1241500005126,
+        "first_token_ms": 84.012,
+        "total_ms": 287.0122849708423,
+        "fixed_output_tokens": false
+      },
+      "observation_metrics": {
+        "text": "A large, dark, furry creature is curled up inside a cozy, grassy den with rocks. The creature is resting, and the den is surrounded by vibrant green grass and smooth stones.",
+        "input_tokens": 108,
+        "output_tokens": 39,
+        "token_limit_reached": false,
+        "prepare_ms": 2.7241139905527234,
+        "generate_ms": 1516.3303770241328,
+        "first_token_ms": 68.465,
+        "total_ms": 1520.280247030314,
+        "fixed_output_tokens": false
+      }
+    },
+    {
+      "index": 3,
+      "timestamp_seconds": 50.0,
+      "frame_sha256": "e755551b67b895bb682d78cda6238eb71b03da8ba905034cf926596fd14e90e9",
+      "entry": {
+        "timestamp": "T+50.00s",
+        "action": "The worker is digging.",
+        "observation": "A large, grey, furry creature with a long snout and small ears is sitting on a grassy hill, holding onto a rock with its front paws. The creature is looking up at the sky, which is a soft, pale color."
+      },
+      "action_metrics": {
+        "text": "The worker is digging.",
+        "input_tokens": 229,
+        "output_tokens": 6,
+        "token_limit_reached": false,
+        "prepare_ms": 15.78340504784137,
+        "generate_ms": 280.15417396090925,
+        "first_token_ms": 97.316,
+        "total_ms": 296.0693860077299,
+        "fixed_output_tokens": false
+      },
+      "observation_metrics": {
+        "text": "A large, grey, furry creature with a long snout and small ears is sitting on a grassy hill, holding onto a rock with its front paws. The creature is looking up at the sky, which is a soft, pale color.",
+        "input_tokens": 108,
+        "output_tokens": 51,
+        "token_limit_reached": false,
+        "prepare_ms": 2.610833034850657,
+        "generate_ms": 1918.1753569864668,
+        "first_token_ms": 68.638,
+        "total_ms": 1922.2334320074879,
+        "fixed_output_tokens": false
+      }
+    },
+    {
+      "index": 4,
+      "timestamp_seconds": 65.0,
+      "frame_sha256": "d015ae79239cb86354bdcc23a7b3bf1f94e4237f1bdac84357c1a3297a10a69a",
+      "entry": {
+        "timestamp": "T+65.00s",
+        "action": "Digging.",
+        "observation": "A large, white, cartoonish character with a round body and a small head is standing on a grassy hill. The character is facing the viewer and appears to be in a relaxed, standing pose."
+      },
+      "action_metrics": {
+        "text": "Digging.",
+        "input_tokens": 229,
+        "output_tokens": 4,
+        "token_limit_reached": false,
+        "prepare_ms": 9.605573024600744,
+        "generate_ms": 209.9444959894754,
+        "first_token_ms": 91.524,
+        "total_ms": 219.82184797525406,
+        "fixed_output_tokens": false
+      },
+      "observation_metrics": {
+        "text": "A large, white, cartoonish character with a round body and a small head is standing on a grassy hill. The character is facing the viewer and appears to be in a relaxed, standing pose.",
+        "input_tokens": 108,
+        "output_tokens": 42,
+        "token_limit_reached": false,
+        "prepare_ms": 2.7687439578585327,
+        "generate_ms": 1789.6269890479743,
+        "first_token_ms": 71.759,
+        "total_ms": 1793.2448239880614,
+        "fixed_output_tokens": false
+      }
+    },
+    {
+      "index": 5,
+      "timestamp_seconds": 80.0,
+      "frame_sha256": "60a4421667c01cb08a7b636269c1c0e73e5b31b19d0fbbea06f0c31f4840f1fb",
+      "entry": {
+        "timestamp": "T+80.00s",
+        "action": "The worker is digging a hole.",
+        "observation": "A large, white, fluffy rabbit stands in a grassy field, looking up at a small pink butterfly that is flying above it. The rabbit has its arms slightly raised and is standing still, while a small red butterfly is visible on the grass to the left."
+      },
+      "action_metrics": {
+        "text": "The worker is digging a hole.",
+        "input_tokens": 229,
+        "output_tokens": 8,
+        "token_limit_reached": false,
+        "prepare_ms": 5.36759797250852,
+        "generate_ms": 482.63076099101454,
+        "first_token_ms": 96.826,
+        "total_ms": 488.22003399254754,
+        "fixed_output_tokens": false
+      },
+      "observation_metrics": {
+        "text": "A large, white, fluffy rabbit stands in a grassy field, looking up at a small pink butterfly that is flying above it. The rabbit has its arms slightly raised and is standing still, while a small red butterfly is visible on the grass to the left.",
+        "input_tokens": 108,
+        "output_tokens": 54,
+        "token_limit_reached": false,
+        "prepare_ms": 2.6018949574790895,
+        "generate_ms": 2226.8689190386795,
+        "first_token_ms": 73.356,
+        "total_ms": 2230.57928099297,
+        "fixed_output_tokens": false
+      }
+    },
+    {
+      "index": 6,
+      "timestamp_seconds": 95.0,
+      "frame_sha256": "357a415b683b4511fc6c2664c438f1e9c6f0b8f87db934b744e186f057db7c20",
+      "entry": {
+        "timestamp": "T+95.00s",
+        "action": "The worker is harvesting flowers.",
+        "observation": "A large, white, fluffy rabbit stands in a grassy field, holding a red carrot in its right hand and eating it with its left paw. The rabbit is positioned in the foreground, with a backdrop of green trees, a blue sky, and distant mountains."
+      },
+      "action_metrics": {
+        "text": "The worker is harvesting flowers.",
+        "input_tokens": 229,
+        "output_tokens": 7,
+        "token_limit_reached": false,
+        "prepare_ms": 6.81907800026238,
+        "generate_ms": 316.26979500288144,
+        "first_token_ms": 90.927,
+        "total_ms": 323.3323899912648,
+        "fixed_output_tokens": false
+      },
+      "observation_metrics": {
+        "text": "A large, white, fluffy rabbit stands in a grassy field, holding a red carrot in its right hand and eating it with its left paw. The rabbit is positioned in the foreground, with a backdrop of green trees, a blue sky, and distant mountains.",
+        "input_tokens": 108,
+        "output_tokens": 54,
+        "token_limit_reached": false,
+        "prepare_ms": 3.7347180186770856,
+        "generate_ms": 2099.787221988663,
+        "first_token_ms": 70.976,
+        "total_ms": 2104.2808620259166,
+        "fixed_output_tokens": false
+      }
+    },
+    {
+      "index": 7,
+      "timestamp_seconds": 110.0,
+      "frame_sha256": "fbccdf7fbdae982c388d74fa25a2167ea54fe9100baa4a8bfccb26d6a96a107c",
+      "entry": {
+        "timestamp": "T+110.00s",
+        "action": "The worker is eating.",
+        "observation": "A large, white rabbit with long ears stands in a grassy field, looking up with a surprised expression. A purple butterfly flies in the air to the left of the rabbit."
+      },
+      "action_metrics": {
+        "text": "The worker is eating.",
+        "input_tokens": 229,
+        "output_tokens": 6,
+        "token_limit_reached": false,
+        "prepare_ms": 5.726791045162827,
+        "generate_ms": 285.4644740000367,
+        "first_token_ms": 94.478,
+        "total_ms": 291.3204070064239,
+        "fixed_output_tokens": false
+      },
+      "observation_metrics": {
+        "text": "A large, white rabbit with long ears stands in a grassy field, looking up with a surprised expression. A purple butterfly flies in the air to the left of the rabbit.",
+        "input_tokens": 108,
+        "output_tokens": 37,
+        "token_limit_reached": false,
+        "prepare_ms": 2.897760015912354,
+        "generate_ms": 1436.9122589705512,
+        "first_token_ms": 69.178,
+        "total_ms": 1440.174041024875,
+        "fixed_output_tokens": false
+      }
+    },
+    {
+      "index": 8,
+      "timestamp_seconds": 125.0,
+      "frame_sha256": "e89242eeb72f450e8b8deaeaf626e363a72abe847cce6d1a3c6312ede964abd2",
+      "entry": {
+        "timestamp": "T+125.00s",
+        "action": "The worker is eating.",
+        "observation": "A small, brown squirrel with large, round eyes peeks out from behind a large, gray rock. The squirrel is looking directly at the viewer with a curious expression."
+      },
+      "action_metrics": {
+        "text": "The worker is eating.",
+        "input_tokens": 229,
+        "output_tokens": 6,
+        "token_limit_reached": false,
+        "prepare_ms": 6.496283051092178,
+        "generate_ms": 274.73220898536965,
+        "first_token_ms": 89.316,
+        "total_ms": 281.3613610342145,
+        "fixed_output_tokens": false
+      },
+      "observation_metrics": {
+        "text": "A small, brown squirrel with large, round eyes peeks out from behind a large, gray rock. The squirrel is looking directly at the viewer with a curious expression.",
+        "input_tokens": 108,
+        "output_tokens": 35,
+        "token_limit_reached": false,
+        "prepare_ms": 2.832486992701888,
+        "generate_ms": 1343.4884389862418,
+        "first_token_ms": 66.388,
+        "total_ms": 1346.8573809950612,
+        "fixed_output_tokens": false
+      }
+    },
+    {
+      "index": 9,
+      "timestamp_seconds": 140.0,
+      "frame_sha256": "486e754f96cd579a99fa7dfb4d53a0e04b9f109004093e336b466dfca25e46f2",
+      "entry": {
+        "timestamp": "T+140.00s",
+        "action": "The worker is collecting a butterfly.",
+        "observation": "A large, white rabbit with a worried expression stands in the foreground, looking up at a small brown squirrel perched on a tree trunk. A purple butterfly is flying in the air to the left of the rabbit."
+      },
+      "action_metrics": {
+        "text": "The worker is collecting a butterfly.",
+        "input_tokens": 229,
+        "output_tokens": 8,
+        "token_limit_reached": false,
+        "prepare_ms": 5.564337014220655,
+        "generate_ms": 347.89628500584513,
+        "first_token_ms": 89.882,
+        "total_ms": 353.63051103195176,
+        "fixed_output_tokens": false
+      },
+      "observation_metrics": {
+        "text": "A large, white rabbit with a worried expression stands in the foreground, looking up at a small brown squirrel perched on a tree trunk. A purple butterfly is flying in the air to the left of the rabbit.",
+        "input_tokens": 108,
+        "output_tokens": 44,
+        "token_limit_reached": false,
+        "prepare_ms": 2.8945640078745782,
+        "generate_ms": 1672.5504419882782,
+        "first_token_ms": 69.381,
+        "total_ms": 1675.7358509930782,
+        "fixed_output_tokens": false
+      }
+    },
+    {
+      "index": 10,
+      "timestamp_seconds": 155.0,
+      "frame_sha256": "a7cd77c90444c03bb2934b0e996524cc54563ae5f96670ca8871b8e6a98b1794",
+      "entry": {
+        "timestamp": "T+155.00s",
+        "action": "The worker is climbing a tree.",
+        "observation": "A squirrel with a bushy tail is perched on a large tree trunk, looking down at the ground. A small, dark-furred mouse is sitting on the grass nearby, looking up at the squirrel."
+      },
+      "action_metrics": {
+        "text": "The worker is climbing a tree.",
+        "input_tokens": 229,
+        "output_tokens": 8,
+        "token_limit_reached": false,
+        "prepare_ms": 5.563835031352937,
+        "generate_ms": 353.893713967409,
+        "first_token_ms": 88.36,
+        "total_ms": 359.5986540312879,
+        "fixed_output_tokens": false
+      },
+      "observation_metrics": {
+        "text": "A squirrel with a bushy tail is perched on a large tree trunk, looking down at the ground. A small, dark-furred mouse is sitting on the grass nearby, looking up at the squirrel.",
+        "input_tokens": 108,
+        "output_tokens": 43,
+        "token_limit_reached": false,
+        "prepare_ms": 2.7073629898950458,
+        "generate_ms": 1650.302294001449,
+        "first_token_ms": 68.885,
+        "total_ms": 1653.4799779765308,
+        "fixed_output_tokens": false
+      }
+    },
+    {
+      "index": 11,
+      "timestamp_seconds": 170.0,
+      "frame_sha256": "615ef861344413b359f8eca6dea6f4ea2bcc5915ef365c561f0c63ea8d2b8ba7",
+      "entry": {
+        "timestamp": "T+170.00s",
+        "action": "The worker is digging.",
+        "observation": "A white rabbit with long ears is shown from the back, standing in a grassy field. The rabbit is facing away from the viewer, with a bright, sunny sky and distant hills in the background."
+      },
+      "action_metrics": {
+        "text": "The worker is digging.",
+        "input_tokens": 229,
+        "output_tokens": 6,
+        "token_limit_reached": false,
+        "prepare_ms": 5.203620996326208,
+        "generate_ms": 279.9967959872447,
+        "first_token_ms": 89.304,
+        "total_ms": 285.33972799777985,
+        "fixed_output_tokens": false
+      },
+      "observation_metrics": {
+        "text": "A white rabbit with long ears is shown from the back, standing in a grassy field. The rabbit is facing away from the viewer, with a bright, sunny sky and distant hills in the background.",
+        "input_tokens": 108,
+        "output_tokens": 42,
+        "token_limit_reached": false,
+        "prepare_ms": 2.7907490148209035,
+        "generate_ms": 1679.3249959591776,
+        "first_token_ms": 70.484,
+        "total_ms": 1682.6183369848877,
+        "fixed_output_tokens": false
+      }
+    },
+    {
+      "index": 12,
+      "timestamp_seconds": 185.0,
+      "frame_sha256": "1773a48a9695ca94316bc6085cd649231059dfc60c8ab6b353bf9c67e294c694",
+      "entry": {
+        "timestamp": "T+185.00s",
+        "action": "The worker is climbing a tree.",
+        "observation": "A red, fox-like character with a long tail is peeking out from behind a large tree trunk. A gray, mouse-like character is sitting on the grass, looking up at the fox."
+      },
+      "action_metrics": {
+        "text": "The worker is climbing a tree.",
+        "input_tokens": 229,
+        "output_tokens": 8,
+        "token_limit_reached": false,
+        "prepare_ms": 5.567462998442352,
+        "generate_ms": 360.7915840111673,
+        "first_token_ms": 88.79,
+        "total_ms": 366.56163702718914,
+        "fixed_output_tokens": false
+      },
+      "observation_metrics": {
+        "text": "A red, fox-like character with a long tail is peeking out from behind a large tree trunk. A gray, mouse-like character is sitting on the grass, looking up at the fox.",
+        "input_tokens": 108,
+        "output_tokens": 40,
+        "token_limit_reached": false,
+        "prepare_ms": 2.7691490249708295,
+        "generate_ms": 1618.6828049831092,
+        "first_token_ms": 86.824,
+        "total_ms": 1621.9901019940153,
+        "fixed_output_tokens": false
+      }
+    },
+    {
+      "index": 13,
+      "timestamp_seconds": 200.0,
+      "frame_sha256": "3e8eabc3b3da7c7af78e9bf911b0ba697a3150e160697dbc1a5db3b34731977d",
+      "entry": {
+        "timestamp": "T+200.00s",
+        "action": "The worker is digging.",
+        "observation": "A small, dark-furred animal with a red nose is lying on the grass near a large tree trunk. A brown, furry creature with a large head is standing in the foreground, facing the animal."
+      },
+      "action_metrics": {
+        "text": "The worker is digging.",
+        "input_tokens": 229,
+        "output_tokens": 6,
+        "token_limit_reached": false,
+        "prepare_ms": 5.249918031040579,
+        "generate_ms": 274.88548995461315,
+        "first_token_ms": 88.212,
+        "total_ms": 280.2697200095281,
+        "fixed_output_tokens": false
+      },
+      "observation_metrics": {
+        "text": "A small, dark-furred animal with a red nose is lying on the grass near a large tree trunk. A brown, furry creature with a large head is standing in the foreground, facing the animal.",
+        "input_tokens": 108,
+        "output_tokens": 42,
+        "token_limit_reached": false,
+        "prepare_ms": 2.6329640531912446,
+        "generate_ms": 1609.5150249893777,
+        "first_token_ms": 69.661,
+        "total_ms": 1612.518603040371,
+        "fixed_output_tokens": false
+      }
+    },
+    {
+      "index": 14,
+      "timestamp_seconds": 215.0,
+      "frame_sha256": "6e029a53d6c4e1a676108ad9a9ad1239536ea99efd1c9aa93450a665156a7c5c",
+      "entry": {
+        "timestamp": "T+215.00s",
+        "action": "The worker is climbing a tree.",
+        "observation": "A brown squirrel with large, expressive eyes is looking up at a large tree. A small, dark-colored animal with a round face is peeking out from behind the tree trunk."
+      },
+      "action_metrics": {
+        "text": "The worker is climbing a tree.",
+        "input_tokens": 229,
+        "output_tokens": 8,
+        "token_limit_reached": false,
+        "prepare_ms": 6.028176052495837,
+        "generate_ms": 366.7984399944544,
+        "first_token_ms": 93.175,
+        "total_ms": 372.9625210398808,
+        "fixed_output_tokens": false
+      },
+      "observation_metrics": {
+        "text": "A brown squirrel with large, expressive eyes is looking up at a large tree. A small, dark-colored animal with a round face is peeking out from behind the tree trunk.",
+        "input_tokens": 108,
+        "output_tokens": 37,
+        "token_limit_reached": false,
+        "prepare_ms": 2.610711962915957,
+        "generate_ms": 1437.4094280065037,
+        "first_token_ms": 69.829,
+        "total_ms": 1440.3281969716772,
+        "fixed_output_tokens": false
+      }
+    },
+    {
+      "index": 15,
+      "timestamp_seconds": 230.0,
+      "frame_sha256": "77670143ea675327295bc84408f7083eb1ddfdb30d48ed6423ae2a39cf9cd581",
+      "entry": {
+        "timestamp": "T+230.00s",
+        "action": "The worker is digging.",
+        "observation": "A small, dark-furred squirrel is sitting on the grass near a large tree trunk, holding a red object in its paws. A red fox with a bushy tail is standing on the grass, looking at the squirrel. A brown squirrel is on the grass to the right, looking at the fox."
+      },
+      "action_metrics": {
+        "text": "The worker is digging.",
+        "input_tokens": 229,
+        "output_tokens": 6,
+        "token_limit_reached": false,
+        "prepare_ms": 5.426297953817993,
+        "generate_ms": 273.2984860194847,
+        "first_token_ms": 88.319,
+        "total_ms": 278.8626229739748,
+        "fixed_output_tokens": false
+      },
+      "observation_metrics": {
+        "text": "A small, dark-furred squirrel is sitting on the grass near a large tree trunk, holding a red object in its paws. A red fox with a bushy tail is standing on the grass, looking at the squirrel. A brown squirrel is on the grass to the right, looking at the fox.",
+        "input_tokens": 108,
+        "output_tokens": 63,
+        "token_limit_reached": false,
+        "prepare_ms": 2.6200690190307796,
+        "generate_ms": 2506.6178389824927,
+        "first_token_ms": 67.635,
+        "total_ms": 2509.4943789881654,
+        "fixed_output_tokens": false
+      }
+    },
+    {
+      "index": 16,
+      "timestamp_seconds": 245.0,
+      "frame_sha256": "7eb7ccbc442475a55d2b0455808bbe2929cb47386d7ffdd52f1b6d97c552e0d2",
+      "entry": {
+        "timestamp": "T+245.00s",
+        "action": "The worker is digging.",
+        "observation": "A large, grey, cartoon rabbit with a round body and a prominent snout stands in a lush, green forest. The rabbit is holding a small red object in its right paw and is looking slightly to its left."
+      },
+      "action_metrics": {
+        "text": "The worker is digging.",
+        "input_tokens": 229,
+        "output_tokens": 6,
+        "token_limit_reached": false,
+        "prepare_ms": 5.291656008921564,
+        "generate_ms": 274.3603769922629,
+        "first_token_ms": 85.999,
+        "total_ms": 279.78846803307533,
+        "fixed_output_tokens": false
+      },
+      "observation_metrics": {
+        "text": "A large, grey, cartoon rabbit with a round body and a prominent snout stands in a lush, green forest. The rabbit is holding a small red object in its right paw and is looking slightly to its left.",
+        "input_tokens": 108,
+        "output_tokens": 45,
+        "token_limit_reached": false,
+        "prepare_ms": 2.762275980785489,
+        "generate_ms": 1696.0607700166292,
+        "first_token_ms": 70.065,
+        "total_ms": 1699.1307620191947,
+        "fixed_output_tokens": false
+      }
+    },
+    {
+      "index": 17,
+      "timestamp_seconds": 260.0,
+      "frame_sha256": "23861ea896df963ab7de66e6af1361ae5008cae4e8f952d65ec62d3913521c28",
+      "entry": {
+        "timestamp": "T+260.00s",
+        "action": "The worker is lifting a log.",
+        "observation": "A white, furry creature with a long snout and a small tail is standing in a forest, holding a large, thick tree trunk with both front paws. The creature is looking up at the tree trunk, which is leaning against a tree."
+      },
+      "action_metrics": {
+        "text": "The worker is lifting a log.",
+        "input_tokens": 229,
+        "output_tokens": 8,
+        "token_limit_reached": false,
+        "prepare_ms": 6.20039802743122,
+        "generate_ms": 342.68751996569335,
+        "first_token_ms": 87.0,
+        "total_ms": 349.1002559894696,
+        "fixed_output_tokens": false
+      },
+      "observation_metrics": {
+        "text": "A white, furry creature with a long snout and a small tail is standing in a forest, holding a large, thick tree trunk with both front paws. The creature is looking up at the tree trunk, which is leaning against a tree.",
+        "input_tokens": 108,
+        "output_tokens": 51,
+        "token_limit_reached": false,
+        "prepare_ms": 2.6920639793388546,
+        "generate_ms": 1932.756889029406,
+        "first_token_ms": 69.58,
+        "total_ms": 1935.7228460139595,
+        "fixed_output_tokens": false
+      }
+    },
+    {
+      "index": 18,
+      "timestamp_seconds": 275.0,
+      "frame_sha256": "9d93e6c50ee2c87e08944638ada3c9d1589cc6c47ede1f9bfe7a35ce873baca0",
+      "entry": {
+        "timestamp": "T+275.00s",
+        "action": "The worker is lifting a large log.",
+        "observation": "A large, white, round rabbit with long ears stands in a forest, holding a green plant in its front paws. The rabbit is looking forward with a calm expression."
+      },
+      "action_metrics": {
+        "text": "The worker is lifting a large log.",
+        "input_tokens": 229,
+        "output_tokens": 9,
+        "token_limit_reached": false,
+        "prepare_ms": 6.207150989212096,
+        "generate_ms": 384.9569060257636,
+        "first_token_ms": 87.148,
+        "total_ms": 391.30227599525824,
+        "fixed_output_tokens": false
+      },
+      "observation_metrics": {
+        "text": "A large, white, round rabbit with long ears stands in a forest, holding a green plant in its front paws. The rabbit is looking forward with a calm expression.",
+        "input_tokens": 108,
+        "output_tokens": 36,
+        "token_limit_reached": false,
+        "prepare_ms": 2.744812984019518,
+        "generate_ms": 1352.3832419887185,
+        "first_token_ms": 65.095,
+        "total_ms": 1355.3749980055727,
+        "fixed_output_tokens": false
+      }
+    },
+    {
+      "index": 19,
+      "timestamp_seconds": 290.0,
+      "frame_sha256": "13b8b0f86d3ecc1973d71b79a3a8d4e4c78df42a6090ac2ac2ff455a11352afd",
+      "entry": {
+        "timestamp": "T+290.00s",
+        "action": "The worker is lifting a log.",
+        "observation": "A small, gray, furry creature with a long snout is peeking out from behind a large tree trunk in a grassy field. The creature is looking towards the left side of the frame, where a single, green tree stands in the distance."
+      },
+      "action_metrics": {
+        "text": "The worker is lifting a log.",
+        "input_tokens": 229,
+        "output_tokens": 8,
+        "token_limit_reached": false,
+        "prepare_ms": 5.568394029978663,
+        "generate_ms": 350.05842096870765,
+        "first_token_ms": 87.781,
+        "total_ms": 355.7636920013465,
+        "fixed_output_tokens": false
+      },
+      "observation_metrics": {
+        "text": "A small, gray, furry creature with a long snout is peeking out from behind a large tree trunk in a grassy field. The creature is looking towards the left side of the frame, where a single, green tree stands in the distance.",
+        "input_tokens": 108,
+        "output_tokens": 52,
+        "token_limit_reached": false,
+        "prepare_ms": 2.60086398338899,
+        "generate_ms": 1971.12434101291,
+        "first_token_ms": 64.852,
+        "total_ms": 1974.219151015859,
+        "fixed_output_tokens": false
+      }
+    },
+    {
+      "index": 20,
+      "timestamp_seconds": 305.0,
+      "frame_sha256": "74b4593cf28bac08fadeb945ef2c58dc2682f15d0375e884bd585a8bdab7c107",
+      "entry": {
+        "timestamp": "T+305.00s",
+        "action": "The worker is digging.",
+        "observation": "A small, red, bird-like creature with a long tail is flying over a vibrant green field. In the background, a large, green, leafy tree stands tall among other trees."
+      },
+      "action_metrics": {
+        "text": "The worker is digging.",
+        "input_tokens": 229,
+        "output_tokens": 6,
+        "token_limit_reached": false,
+        "prepare_ms": 5.859544035047293,
+        "generate_ms": 270.05972201004624,
+        "first_token_ms": 87.867,
+        "total_ms": 276.0705699911341,
+        "fixed_output_tokens": false
+      },
+      "observation_metrics": {
+        "text": "A small, red, bird-like creature with a long tail is flying over a vibrant green field. In the background, a large, green, leafy tree stands tall among other trees.",
+        "input_tokens": 108,
+        "output_tokens": 39,
+        "token_limit_reached": false,
+        "prepare_ms": 2.630979986861348,
+        "generate_ms": 1472.409231995698,
+        "first_token_ms": 69.471,
+        "total_ms": 1475.3887749975547,
+        "fixed_output_tokens": false
+      }
+    },
+    {
+      "index": 21,
+      "timestamp_seconds": 320.0,
+      "frame_sha256": "ea0a484dca6efaeb930520e0dc8ea756ab0882225f5fe2a296f26ac390e15cce",
+      "entry": {
+        "timestamp": "T+320.00s",
+        "action": "The worker is harvesting.",
+        "observation": "A large, green-skinned character with a prominent nose is holding a long, thin stick. The character is using the stick to carefully wrap a bundle of green leaves around a thick, brown tree branch."
+      },
+      "action_metrics": {
+        "text": "The worker is harvesting.",
+        "input_tokens": 229,
+        "output_tokens": 6,
+        "token_limit_reached": false,
+        "prepare_ms": 5.448609997984022,
+        "generate_ms": 278.7388199940324,
+        "first_token_ms": 89.386,
+        "total_ms": 284.3216719920747,
+        "fixed_output_tokens": false
+      },
+      "observation_metrics": {
+        "text": "A large, green-skinned character with a prominent nose is holding a long, thin stick. The character is using the stick to carefully wrap a bundle of green leaves around a thick, brown tree branch.",
+        "input_tokens": 108,
+        "output_tokens": 42,
+        "token_limit_reached": false,
+        "prepare_ms": 2.5211540050804615,
+        "generate_ms": 1608.29816700425,
+        "first_token_ms": 66.432,
+        "total_ms": 1611.3827570225112,
+        "fixed_output_tokens": false
+      }
+    },
+    {
+      "index": 22,
+      "timestamp_seconds": 335.0,
+      "frame_sha256": "1d670703e3fa4182bf7dd8a098ebf461d48db4194a8dbd747e4ec72ddaa86901",
+      "entry": {
+        "timestamp": "T+335.00s",
+        "action": "The worker is harvesting.",
+        "observation": "A cartoon rabbit with large, wide eyes and a prominent white tooth is shown in a close-up. The rabbit's ears are perked up, and it appears to be looking directly at the viewer."
+      },
+      "action_metrics": {
+        "text": "The worker is harvesting.",
+        "input_tokens": 229,
+        "output_tokens": 6,
+        "token_limit_reached": false,
+        "prepare_ms": 5.320360010955483,
+        "generate_ms": 272.14999397983775,
+        "first_token_ms": 88.022,
+        "total_ms": 277.60733995819464,
+        "fixed_output_tokens": false
+      },
+      "observation_metrics": {
+        "text": "A cartoon rabbit with large, wide eyes and a prominent white tooth is shown in a close-up. The rabbit's ears are perked up, and it appears to be looking directly at the viewer.",
+        "input_tokens": 108,
+        "output_tokens": 41,
+        "token_limit_reached": false,
+        "prepare_ms": 2.6608759653754532,
+        "generate_ms": 1550.8386110304855,
+        "first_token_ms": 70.81,
+        "total_ms": 1553.8681779871695,
+        "fixed_output_tokens": false
+      }
+    },
+    {
+      "index": 23,
+      "timestamp_seconds": 350.0,
+      "frame_sha256": "ee6d3adbffa6226d88a0b8fa93d4b10c73c32104f24eb55209cbf77cb9ed4618",
+      "entry": {
+        "timestamp": "T+350.00s",
+        "action": "The worker is tying a rope to a tree.",
+        "observation": "A small, gray, furry creature with large ears sits on a dirt path in a lush, green forest. The creature is holding a small, brown object in its paws and appears to be looking down at it."
+      },
+      "action_metrics": {
+        "text": "The worker is tying a rope to a tree.",
+        "input_tokens": 229,
+        "output_tokens": 10,
+        "token_limit_reached": true,
+        "prepare_ms": 5.500497005414218,
+        "generate_ms": 428.0188709963113,
+        "first_token_ms": 89.496,
+        "total_ms": 433.72449302114546,
+        "fixed_output_tokens": false
+      },
+      "observation_metrics": {
+        "text": "A small, gray, furry creature with large ears sits on a dirt path in a lush, green forest. The creature is holding a small, brown object in its paws and appears to be looking down at it.",
+        "input_tokens": 108,
+        "output_tokens": 45,
+        "token_limit_reached": false,
+        "prepare_ms": 2.905945002567023,
+        "generate_ms": 1708.0855499953032,
+        "first_token_ms": 66.88,
+        "total_ms": 1711.2247119657695,
+        "fixed_output_tokens": false
+      }
+    },
+    {
+      "index": 24,
+      "timestamp_seconds": 365.0,
+      "frame_sha256": "a808efea47de22138254957691f91d7ed0f62f35c643ac8bd19945a74f567160",
+      "entry": {
+        "timestamp": "T+365.00s",
+        "action": "The worker is digging.",
+        "observation": "A large, white, furry creature with a stern expression stands in a forest, looking down at a small, dark gray mouse on the ground. The creature has its arms outstretched and is holding a small, dark object in its right hand."
+      },
+      "action_metrics": {
+        "text": "The worker is digging.",
+        "input_tokens": 229,
+        "output_tokens": 6,
+        "token_limit_reached": false,
+        "prepare_ms": 5.528518988285214,
+        "generate_ms": 280.8756710146554,
+        "first_token_ms": 88.507,
+        "total_ms": 286.5447939839214,
+        "fixed_output_tokens": false
+      },
+      "observation_metrics": {
+        "text": "A large, white, furry creature with a stern expression stands in a forest, looking down at a small, dark gray mouse on the ground. The creature has its arms outstretched and is holding a small, dark object in its right hand.",
+        "input_tokens": 108,
+        "output_tokens": 51,
+        "token_limit_reached": false,
+        "prepare_ms": 2.696462965104729,
+        "generate_ms": 1931.168887997046,
+        "first_token_ms": 69.608,
+        "total_ms": 1934.2024729703553,
+        "fixed_output_tokens": false
+      }
+    },
+    {
+      "index": 25,
+      "timestamp_seconds": 380.0,
+      "frame_sha256": "4195dede68c3da2ed6d0a99e286f2ade68619e5d1fdb7e86f41f77ea74856af6",
+      "entry": {
+        "timestamp": "T+380.00s",
+        "action": "The worker is digging.",
+        "observation": "A small, brown squirrel with large, round eyes stands on a patch of dirt near a large tree trunk. The squirrel is holding a small, round object in its paws and looks directly at the viewer."
+      },
+      "action_metrics": {
+        "text": "The worker is digging.",
+        "input_tokens": 229,
+        "output_tokens": 6,
+        "token_limit_reached": false,
+        "prepare_ms": 5.539240024518222,
+        "generate_ms": 278.9608539897017,
+        "first_token_ms": 86.743,
+        "total_ms": 284.62733200285584,
+        "fixed_output_tokens": false
+      },
+      "observation_metrics": {
+        "text": "A small, brown squirrel with large, round eyes stands on a patch of dirt near a large tree trunk. The squirrel is holding a small, round object in its paws and looks directly at the viewer.",
+        "input_tokens": 108,
+        "output_tokens": 43,
+        "token_limit_reached": false,
+        "prepare_ms": 2.6509169838391244,
+        "generate_ms": 1635.6916860095225,
+        "first_token_ms": 69.719,
+        "total_ms": 1638.5930620017461,
+        "fixed_output_tokens": false
+      }
+    },
+    {
+      "index": 26,
+      "timestamp_seconds": 395.0,
+      "frame_sha256": "360cddf70becb90b1bc9e78b39ff5461fb0270b5ee990c0dfb78d69fbe8e6566",
+      "entry": {
+        "timestamp": "T+395.00s",
+        "action": "The worker is digging.",
+        "observation": "A cartoon squirrel with large, wide eyes and a furrowed brow is perched on a rock. It is looking down with a worried expression, its tail curled around its body."
+      },
+      "action_metrics": {
+        "text": "The worker is digging.",
+        "input_tokens": 229,
+        "output_tokens": 6,
+        "token_limit_reached": false,
+        "prepare_ms": 5.73584798257798,
+        "generate_ms": 271.2641549878754,
+        "first_token_ms": 88.451,
+        "total_ms": 277.1274219849147,
+        "fixed_output_tokens": false
+      },
+      "observation_metrics": {
+        "text": "A cartoon squirrel with large, wide eyes and a furrowed brow is perched on a rock. It is looking down with a worried expression, its tail curled around its body.",
+        "input_tokens": 108,
+        "output_tokens": 38,
+        "token_limit_reached": false,
+        "prepare_ms": 2.5323349982500076,
+        "generate_ms": 1444.3436469882727,
+        "first_token_ms": 68.122,
+        "total_ms": 1447.2157289856113,
+        "fixed_output_tokens": false
+      }
+    },
+    {
+      "index": 27,
+      "timestamp_seconds": 410.0,
+      "frame_sha256": "9c9311a4548eea94980cc341d77a0d842f25add35ae69f57bcab1f4d32c7c7bd",
+      "entry": {
+        "timestamp": "T+410.00s",
+        "action": "The worker is climbing.",
+        "observation": "A cartoon squirrel with a large, expressive eye is flying through the air with its arms outstretched. The squirrel is wearing a red bandana and has a bushy tail."
+      },
+      "action_metrics": {
+        "text": "The worker is climbing.",
+        "input_tokens": 229,
+        "output_tokens": 6,
+        "token_limit_reached": false,
+        "prepare_ms": 5.2529730019159615,
+        "generate_ms": 271.2183289695531,
+        "first_token_ms": 87.515,
+        "total_ms": 276.6127570066601,
+        "fixed_output_tokens": false
+      },
+      "observation_metrics": {
+        "text": "A cartoon squirrel with a large, expressive eye is flying through the air with its arms outstretched. The squirrel is wearing a red bandana and has a bushy tail.",
+        "input_tokens": 108,
+        "output_tokens": 37,
+        "token_limit_reached": false,
+        "prepare_ms": 2.5048829847946763,
+        "generate_ms": 1417.9150040145032,
+        "first_token_ms": 65.638,
+        "total_ms": 1420.8397140027955,
+        "fixed_output_tokens": false
+      }
+    },
+    {
+      "index": 28,
+      "timestamp_seconds": 425.0,
+      "frame_sha256": "534a324bab7657c5da25539c6945de03468e9e64711c1ffa5e6efe28851c4f91",
+      "entry": {
+        "timestamp": "T+425.00s",
+        "action": "Flying.",
+        "observation": "A cartoon squirrel with a brown and white coat is flying through the air with its arms outstretched. The squirrel has a long tail and is positioned against a bright blue sky with white clouds and a green tree visible in the background."
+      },
+      "action_metrics": {
+        "text": "Flying.",
+        "input_tokens": 229,
+        "output_tokens": 3,
+        "token_limit_reached": false,
+        "prepare_ms": 5.259475961793214,
+        "generate_ms": 172.67318104859442,
+        "first_token_ms": 89.964,
+        "total_ms": 178.05451597087085,
+        "fixed_output_tokens": false
+      },
+      "observation_metrics": {
+        "text": "A cartoon squirrel with a brown and white coat is flying through the air with its arms outstretched. The squirrel has a long tail and is positioned against a bright blue sky with white clouds and a green tree visible in the background.",
+        "input_tokens": 108,
+        "output_tokens": 48,
+        "token_limit_reached": false,
+        "prepare_ms": 2.49465397791937,
+        "generate_ms": 1886.969436018262,
+        "first_token_ms": 67.927,
+        "total_ms": 1889.7136370069347,
+        "fixed_output_tokens": false
+      }
+    },
+    {
+      "index": 29,
+      "timestamp_seconds": 440.0,
+      "frame_sha256": "90f9b228ff126902363910d061fe4c86381dc1d1732277e639d01f5071b42a85",
+      "entry": {
+        "timestamp": "T+440.00s",
+        "action": "Flying",
+        "observation": "A cartoon squirrel with large, wide eyes is flying through the air. It has a bushy tail and is positioned above a green, leafy tree."
+      },
+      "action_metrics": {
+        "text": "Flying",
+        "input_tokens": 229,
+        "output_tokens": 2,
+        "token_limit_reached": false,
+        "prepare_ms": 5.384058982599527,
+        "generate_ms": 128.00780596444383,
+        "first_token_ms": 89.323,
+        "total_ms": 133.5140430019237,
+        "fixed_output_tokens": false
+      },
+      "observation_metrics": {
+        "text": "A cartoon squirrel with large, wide eyes is flying through the air. It has a bushy tail and is positioned above a green, leafy tree.",
+        "input_tokens": 108,
+        "output_tokens": 32,
+        "token_limit_reached": false,
+        "prepare_ms": 2.5477540330030024,
+        "generate_ms": 1203.292973979842,
+        "first_token_ms": 67.251,
+        "total_ms": 1206.016196985729,
+        "fixed_output_tokens": false
+      }
+    },
+    {
+      "index": 30,
+      "timestamp_seconds": 455.0,
+      "frame_sha256": "f06759799b833deeba97f11fede9c55a06cc6c5983ab47766460587310df33df",
+      "entry": {
+        "timestamp": "T+455.00s",
+        "action": "Flying.",
+        "observation": "A small, brown squirrel with a large, round eye is perched on a thin branch, looking up at a large, white, furry creature. The creature, which has a long, pointed ear and a calm expression, is holding the branch with its front paws."
+      },
+      "action_metrics": {
+        "text": "Flying.",
+        "input_tokens": 229,
+        "output_tokens": 3,
+        "token_limit_reached": false,
+        "prepare_ms": 5.378277972340584,
+        "generate_ms": 162.29774901876226,
+        "first_token_ms": 88.395,
+        "total_ms": 167.80740296235308,
+        "fixed_output_tokens": false
+      },
+      "observation_metrics": {
+        "text": "A small, brown squirrel with a large, round eye is perched on a thin branch, looking up at a large, white, furry creature. The creature, which has a long, pointed ear and a calm expression, is holding the branch with its front paws.",
+        "input_tokens": 108,
+        "output_tokens": 56,
+        "token_limit_reached": false,
+        "prepare_ms": 2.6177650433965027,
+        "generate_ms": 2205.032614991069,
+        "first_token_ms": 67.039,
+        "total_ms": 2207.930385018699,
+        "fixed_output_tokens": false
+      }
+    }
+  ],
+  "compressions": [
+    {
+      "after_observations": 5,
+      "source_entries": [
+        {
+          "timestamp": "T+20.00s",
+          "action": "Flying",
+          "observation": "A cartoon bird with grey feathers, a yellow beak, and orange feet is perched on a tree branch. The bird is opening its beak wide as if singing or calling out."
+        },
+        {
+          "timestamp": "T+35.00s",
+          "action": "The worker is digging.",
+          "observation": "A large, dark, furry creature is curled up inside a cozy, grassy den with rocks. The creature is resting, and the den is surrounded by vibrant green grass and smooth stones."
+        },
+        {
+          "timestamp": "T+50.00s",
+          "action": "The worker is digging.",
+          "observation": "A large, grey, furry creature with a long snout and small ears is sitting on a grassy hill, holding onto a rock with its front paws. The creature is looking up at the sky, which is a soft, pale color."
+        },
+        {
+          "timestamp": "T+65.00s",
+          "action": "Digging.",
+          "observation": "A large, white, cartoonish character with a round body and a small head is standing on a grassy hill. The character is facing the viewer and appears to be in a relaxed, standing pose."
+        },
+        {
+          "timestamp": "T+80.00s",
+          "action": "The worker is digging a hole.",
+          "observation": "A large, white, fluffy rabbit stands in a grassy field, looking up at a small pink butterfly that is flying above it. The rabbit has its arms slightly raised and is standing still, while a small red butterfly is visible on the grass to the left."
+        }
+      ],
+      "summary": "The worker observes a series of animated and real creatures in a natural setting: a cartoon bird singing on a tree, a furry creature resting in a den, another creature on a hill, a white character standing, and finally a rabbit with a butterfly above it, all within a grassy, natural environment",
+      "metrics": {
+        "text": "The worker observes a series of animated and real creatures in a natural setting: a cartoon bird singing on a tree, a furry creature resting in a den, another creature on a hill, a white character standing, and finally a rabbit with a butterfly above it, all within a grassy, natural environment",
+        "input_tokens": 359,
+        "output_tokens": 60,
+        "token_limit_reached": true,
+        "prepare_ms": 15.448668971657753,
+        "generate_ms": 2411.3492210162804,
+        "first_token_ms": 56.334,
+        "total_ms": 2427.8928759740666,
+        "fixed_output_tokens": false
+      },
+      "long_term_memory": "The worker observes a series of animated and real creatures in a natural setting: a cartoon bird singing on a tree, a furry creature resting in a den, another creature on a hill, a white character standing, and finally a rabbit with a butterfly above it, all within a grassy, natural environment"
+    },
+    {
+      "after_observations": 10,
+      "source_entries": [
+        {
+          "timestamp": "T+95.00s",
+          "action": "The worker is harvesting flowers.",
+          "observation": "A large, white, fluffy rabbit stands in a grassy field, holding a red carrot in its right hand and eating it with its left paw. The rabbit is positioned in the foreground, with a backdrop of green trees, a blue sky, and distant mountains."
+        },
+        {
+          "timestamp": "T+110.00s",
+          "action": "The worker is eating.",
+          "observation": "A large, white rabbit with long ears stands in a grassy field, looking up with a surprised expression. A purple butterfly flies in the air to the left of the rabbit."
+        },
+        {
+          "timestamp": "T+125.00s",
+          "action": "The worker is eating.",
+          "observation": "A small, brown squirrel with large, round eyes peeks out from behind a large, gray rock. The squirrel is looking directly at the viewer with a curious expression."
+        },
+        {
+          "timestamp": "T+140.00s",
+          "action": "The worker is collecting a butterfly.",
+          "observation": "A large, white rabbit with a worried expression stands in the foreground, looking up at a small brown squirrel perched on a tree trunk. A purple butterfly is flying in the air to the left of the rabbit."
+        },
+        {
+          "timestamp": "T+155.00s",
+          "action": "The worker is climbing a tree.",
+          "observation": "A squirrel with a bushy tail is perched on a large tree trunk, looking down at the ground. A small, dark-furred mouse is sitting on the grass nearby, looking up at the squirrel."
+        }
+      ],
+      "summary": "The worker observes a white rabbit harvesting flowers, eating a carrot, and later encounters a squirrel and butterfly in a grassy field, before climbing a tree to observe a mouse below.",
+      "metrics": {
+        "text": "The worker observes a white rabbit harvesting flowers, eating a carrot, and later encounters a squirrel and butterfly in a grassy field, before climbing a tree to observe a mouse below.",
+        "input_tokens": 360,
+        "output_tokens": 37,
+        "token_limit_reached": false,
+        "prepare_ms": 4.028018040116876,
+        "generate_ms": 1409.134991990868,
+        "first_token_ms": 57.295,
+        "total_ms": 1413.7270069913939,
+        "fixed_output_tokens": false
+      },
+      "long_term_memory": "The worker observes a series of animated and real creatures in a natural setting: a cartoon bird singing on a tree, a furry creature resting in a den, another creature on a hill, a white character standing, and finally a rabbit with a butterfly above it, all within a grassy, natural environment The worker observes a white rabbit harvesting flowers, eating a carrot, and later encounters a squirrel and butterfly in a grassy field, before climbing a tree to observe a mouse below."
+    },
+    {
+      "after_observations": 15,
+      "source_entries": [
+        {
+          "timestamp": "T+170.00s",
+          "action": "The worker is digging.",
+          "observation": "A white rabbit with long ears is shown from the back, standing in a grassy field. The rabbit is facing away from the viewer, with a bright, sunny sky and distant hills in the background."
+        },
+        {
+          "timestamp": "T+185.00s",
+          "action": "The worker is climbing a tree.",
+          "observation": "A red, fox-like character with a long tail is peeking out from behind a large tree trunk. A gray, mouse-like character is sitting on the grass, looking up at the fox."
+        },
+        {
+          "timestamp": "T+200.00s",
+          "action": "The worker is digging.",
+          "observation": "A small, dark-furred animal with a red nose is lying on the grass near a large tree trunk. A brown, furry creature with a large head is standing in the foreground, facing the animal."
+        },
+        {
+          "timestamp": "T+215.00s",
+          "action": "The worker is climbing a tree.",
+          "observation": "A brown squirrel with large, expressive eyes is looking up at a large tree. A small, dark-colored animal with a round face is peeking out from behind the tree trunk."
+        },
+        {
+          "timestamp": "T+230.00s",
+          "action": "The worker is digging.",
+          "observation": "A small, dark-furred squirrel is sitting on the grass near a large tree trunk, holding a red object in its paws. A red fox with a bushy tail is standing on the grass, looking at the squirrel. A brown squirrel is on the grass to the right, looking at the fox."
+        }
+      ],
+      "summary": "The worker repeatedly digs in a grassy field, observing a white rabbit, a red fox, and various squirrels, while climbing a tree and interacting with them in a sunny, natural setting.",
+      "metrics": {
+        "text": "The worker repeatedly digs in a grassy field, observing a white rabbit, a red fox, and various squirrels, while climbing a tree and interacting with them in a sunny, natural setting.",
+        "input_tokens": 371,
+        "output_tokens": 40,
+        "token_limit_reached": false,
+        "prepare_ms": 1.5991470427252352,
+        "generate_ms": 1487.5840379972942,
+        "first_token_ms": 56.653,
+        "total_ms": 1489.6398610435426,
+        "fixed_output_tokens": false
+      },
+      "long_term_memory": "The worker observes a series of animated and real creatures in a natural setting: a cartoon bird singing on a tree, a furry creature resting in a den, another creature on a hill, a white character standing, and finally a rabbit with a butterfly above it, all within a grassy, natural environment The worker observes a white rabbit harvesting flowers, eating a carrot, and later encounters a squirrel and butterfly in a grassy field, before climbing a tree to observe a mouse below. The worker repeatedly digs in a grassy field, observing a white rabbit, a red fox, and various squirrels, while climbing a tree and interacting with them in a sunny, natural setting."
+    },
+    {
+      "after_observations": 20,
+      "source_entries": [
+        {
+          "timestamp": "T+245.00s",
+          "action": "The worker is digging.",
+          "observation": "A large, grey, cartoon rabbit with a round body and a prominent snout stands in a lush, green forest. The rabbit is holding a small red object in its right paw and is looking slightly to its left."
+        },
+        {
+          "timestamp": "T+260.00s",
+          "action": "The worker is lifting a log.",
+          "observation": "A white, furry creature with a long snout and a small tail is standing in a forest, holding a large, thick tree trunk with both front paws. The creature is looking up at the tree trunk, which is leaning against a tree."
+        },
+        {
+          "timestamp": "T+275.00s",
+          "action": "The worker is lifting a large log.",
+          "observation": "A large, white, round rabbit with long ears stands in a forest, holding a green plant in its front paws. The rabbit is looking forward with a calm expression."
+        },
+        {
+          "timestamp": "T+290.00s",
+          "action": "The worker is lifting a log.",
+          "observation": "A small, gray, furry creature with a long snout is peeking out from behind a large tree trunk in a grassy field. The creature is looking towards the left side of the frame, where a single, green tree stands in the distance."
+        },
+        {
+          "timestamp": "T+305.00s",
+          "action": "The worker is digging.",
+          "observation": "A small, red, bird-like creature with a long tail is flying over a vibrant green field. In the background, a large, green, leafy tree stands tall among other trees."
+        }
+      ],
+      "summary": "The worker repeatedly digs and lifts logs in a lush forest, observing various animals including a cartoon rabbit, a white furry creature, a large white rabbit, and a small gray creature, while a red bird-like creature flies over a green field.",
+      "metrics": {
+        "text": "The worker repeatedly digs and lifts logs in a lush forest, observing various animals including a cartoon rabbit, a white furry creature, a large white rabbit, and a small gray creature, while a red bird-like creature flies over a green field.",
+        "input_tokens": 373,
+        "output_tokens": 49,
+        "token_limit_reached": false,
+        "prepare_ms": 6.754316971637309,
+        "generate_ms": 1823.8605720107444,
+        "first_token_ms": 54.178,
+        "total_ms": 1830.9136189636774,
+        "fixed_output_tokens": false
+      },
+      "long_term_memory": "The worker observes a series of animated and real creatures in a natural setting: a cartoon bird singing on a tree, a furry creature resting in a den, another creature on a hill, a white character standing, and finally a rabbit with a butterfly above it, all within a grassy, natural environment The worker observes a white rabbit harvesting flowers, eating a carrot, and later encounters a squirrel and butterfly in a grassy field, before climbing a tree to observe a mouse below. The worker repeatedly digs in a grassy field, observing a white rabbit, a red fox, and various squirrels, while climbing a tree and interacting with them in a sunny, natural setting. The worker repeatedly digs and lifts logs in a lush forest, observing various animals including a cartoon rabbit, a white furry creature, a large white rabbit, and a small gray creature, while a red bird-like creature flies over a green field."
+    },
+    {
+      "after_observations": 25,
+      "source_entries": [
+        {
+          "timestamp": "T+320.00s",
+          "action": "The worker is harvesting.",
+          "observation": "A large, green-skinned character with a prominent nose is holding a long, thin stick. The character is using the stick to carefully wrap a bundle of green leaves around a thick, brown tree branch."
+        },
+        {
+          "timestamp": "T+335.00s",
+          "action": "The worker is harvesting.",
+          "observation": "A cartoon rabbit with large, wide eyes and a prominent white tooth is shown in a close-up. The rabbit's ears are perked up, and it appears to be looking directly at the viewer."
+        },
+        {
+          "timestamp": "T+350.00s",
+          "action": "The worker is tying a rope to a tree.",
+          "observation": "A small, gray, furry creature with large ears sits on a dirt path in a lush, green forest. The creature is holding a small, brown object in its paws and appears to be looking down at it."
+        },
+        {
+          "timestamp": "T+365.00s",
+          "action": "The worker is digging.",
+          "observation": "A large, white, furry creature with a stern expression stands in a forest, looking down at a small, dark gray mouse on the ground. The creature has its arms outstretched and is holding a small, dark object in its right hand."
+        },
+        {
+          "timestamp": "T+380.00s",
+          "action": "The worker is digging.",
+          "observation": "A small, brown squirrel with large, round eyes stands on a patch of dirt near a large tree trunk. The squirrel is holding a small, round object in its paws and looks directly at the viewer."
+        }
+      ],
+      "summary": "The worker observes a series of interactions in a lush forest: a green-skinned character wraps leaves around a tree, a rabbit looks at the viewer, a gray creature ties a rope, a white furry creature observes a mouse, and a squirrel holds a round object while looking directly at the viewer.",
+      "metrics": {
+        "text": "The worker observes a series of interactions in a lush forest: a green-skinned character wraps leaves around a tree, a rabbit looks at the viewer, a gray creature ties a rope, a white furry creature observes a mouse, and a squirrel holds a round object while looking directly at the viewer.",
+        "input_tokens": 370,
+        "output_tokens": 60,
+        "token_limit_reached": true,
+        "prepare_ms": 1.706768001895398,
+        "generate_ms": 2250.279330997728,
+        "first_token_ms": 53.642,
+        "total_ms": 2252.3304549977183,
+        "fixed_output_tokens": false
+      },
+      "long_term_memory": "The worker observes a series of animated and real creatures in a natural setting: a cartoon bird singing on a tree, a furry creature resting in a den, another creature on a hill, a white character standing, and finally a rabbit with a butterfly above it, all within a grassy, natural environment The worker observes a white rabbit harvesting flowers, eating a carrot, and later encounters a squirrel and butterfly in a grassy field, before climbing a tree to observe a mouse below. The worker repeatedly digs in a grassy field, observing a white rabbit, a red fox, and various squirrels, while climbing a tree and interacting with them in a sunny, natural setting. The worker repeatedly digs and lifts logs in a lush forest, observing various animals including a cartoon rabbit, a white furry creature, a large white rabbit, and a small gray creature, while a red bird-like creature flies over a green field. The worker observes a series of interactions in a lush forest: a green-skinned character wraps leaves around a tree, a rabbit looks at the viewer, a gray creature ties a rope, a white furry creature observes a mouse, and a squirrel holds a round object while looking directly at the viewer."
+    },
+    {
+      "after_observations": 30,
+      "source_entries": [
+        {
+          "timestamp": "T+395.00s",
+          "action": "The worker is digging.",
+          "observation": "A cartoon squirrel with large, wide eyes and a furrowed brow is perched on a rock. It is looking down with a worried expression, its tail curled around its body."
+        },
+        {
+          "timestamp": "T+410.00s",
+          "action": "The worker is climbing.",
+          "observation": "A cartoon squirrel with a large, expressive eye is flying through the air with its arms outstretched. The squirrel is wearing a red bandana and has a bushy tail."
+        },
+        {
+          "timestamp": "T+425.00s",
+          "action": "Flying.",
+          "observation": "A cartoon squirrel with a brown and white coat is flying through the air with its arms outstretched. The squirrel has a long tail and is positioned against a bright blue sky with white clouds and a green tree visible in the background."
+        },
+        {
+          "timestamp": "T+440.00s",
+          "action": "Flying",
+          "observation": "A cartoon squirrel with large, wide eyes is flying through the air. It has a bushy tail and is positioned above a green, leafy tree."
+        },
+        {
+          "timestamp": "T+455.00s",
+          "action": "Flying.",
+          "observation": "A small, brown squirrel with a large, round eye is perched on a thin branch, looking up at a large, white, furry creature. The creature, which has a long, pointed ear and a calm expression, is holding the branch with its front paws."
+        }
+      ],
+      "summary": "The worker observes a cartoon squirrel initially perched on a rock, then flying through the air with a red bandana and bushy tail, eventually perched on a branch above a tree, while a large, calm creature holds the branch.",
+      "metrics": {
+        "text": "The worker observes a cartoon squirrel initially perched on a rock, then flying through the air with a red bandana and bushy tail, eventually perched on a branch above a tree, while a large, calm creature holds the branch.",
+        "input_tokens": 344,
+        "output_tokens": 49,
+        "token_limit_reached": false,
+        "prepare_ms": 1.2945859925821424,
+        "generate_ms": 1829.6853070496581,
+        "first_token_ms": 53.525,
+        "total_ms": 1831.2263140105642,
+        "fixed_output_tokens": false
+      },
+      "long_term_memory": "The worker observes a series of animated and real creatures in a natural setting: a cartoon bird singing on a tree, a furry creature resting in a den, another creature on a hill, a white character standing, and finally a rabbit with a butterfly above it, all within a grassy, natural environment The worker observes a white rabbit harvesting flowers, eating a carrot, and later encounters a squirrel and butterfly in a grassy field, before climbing a tree to observe a mouse below. The worker repeatedly digs in a grassy field, observing a white rabbit, a red fox, and various squirrels, while climbing a tree and interacting with them in a sunny, natural setting. The worker repeatedly digs and lifts logs in a lush forest, observing various animals including a cartoon rabbit, a white furry creature, a large white rabbit, and a small gray creature, while a red bird-like creature flies over a green field. The worker observes a series of interactions in a lush forest: a green-skinned character wraps leaves around a tree, a rabbit looks at the viewer, a gray creature ties a rope, a white furry creature observes a mouse, and a squirrel holds a round object while looking directly at the viewer. The worker observes a cartoon squirrel initially perched on a rock, then flying through the air with a red bandana and bushy tail, eventually perched on a branch above a tree, while a large, calm creature holds the branch."
+    }
+  ],
+  "checkpoints": [
+    {
+      "observations": 5,
+      "contexts": {
+        "raw": "Long-term memory context: No prior context. | Recent observations: A cartoon bird with grey feathers, a yellow beak, and orange feet is perched on a tree branch. The bird is opening its beak wide as if singing or calling out. | A large, dark, furry creature is curled up inside a cozy, grassy den with rocks. The creature is resting, and the den is surrounded by vibrant green grass and smooth stones. | A large, grey, furry creature with a long snout and small ears is sitting on a grassy hill, holding onto a rock with its front paws. The creature is looking up at the sky, which is a soft, pale color. | A large, white, cartoonish character with a round body and a small head is standing on a grassy hill. The character is facing the viewer and appears to be in a relaxed, standing pose. | A large, white, fluffy rabbit stands in a grassy field, looking up at a small pink butterfly that is flying above it. The rabbit has its arms slightly raised and is standing still, while a small red butterfly is visible on the grass to the left.",
+        "compressed": "Long-term memory context: The worker observes a series of animated and real creatures in a natural setting: a cartoon bird singing on a tree, a furry creature resting in a den, another creature on a hill, a white character standing, and finally a rabbit with a butterfly above it, all within a grassy, natural environment | Recent observations: No recent context available."
+      },
+      "natural_answers": [
+        {
+          "mode": "raw",
+          "repeat": 0,
+          "text": "The cartoon bird with grey feathers, a yellow beak, and orange feet is perched on a tree branch, opening its beak wide as if singing. A large, grey, furry creature with a long snout is sitting on a grassy hill, holding onto a rock with its front paws. A large, white, fluffy rabbit stands in a grassy field, looking up at a small pink butterfly that is flying above it.",
+          "input_tokens": 521,
+          "output_tokens": 90,
+          "token_limit_reached": false,
+          "prepare_ms": 14.405802998226136,
+          "generate_ms": 3524.998387962114,
+          "first_token_ms": 127.585,
+          "total_ms": 3539.5996479783207,
+          "fixed_output_tokens": false,
+          "method_total_ms": 3540.9501190297306
+        },
+        {
+          "mode": "compressed",
+          "repeat": 0,
+          "text": "The cartoon bird is singing on a tree, and a furry creature is resting in a den. Another creature is on a hill, and a white character is standing. A rabbit is now standing in the grass with a butterfly above it.",
+          "input_tokens": 358,
+          "output_tokens": 48,
+          "token_limit_reached": false,
+          "prepare_ms": 7.383995980489999,
+          "generate_ms": 1864.4491099985316,
+          "first_token_ms": 101.709,
+          "total_ms": 1872.0535690081306,
+          "fixed_output_tokens": false,
+          "method_total_ms": 1872.4414960015565
+        },
+        {
+          "mode": "compressed",
+          "repeat": 1,
+          "text": "The cartoon bird is singing on a tree, and a furry creature is resting in a den. Another creature is on a hill, and a white character is standing. A rabbit is now standing in the grass with a butterfly above it.",
+          "input_tokens": 358,
+          "output_tokens": 48,
+          "token_limit_reached": false,
+          "prepare_ms": 15.241649991367012,
+          "generate_ms": 1925.7286170031875,
+          "first_token_ms": 103.005,
+          "total_ms": 1941.1394339986145,
+          "fixed_output_tokens": false,
+          "method_total_ms": 1941.4138380088843
+        },
+        {
+          "mode": "raw",
+          "repeat": 1,
+          "text": "The cartoon bird with grey feathers, a yellow beak, and orange feet is perched on a tree branch, opening its beak wide as if singing. A large, grey, furry creature with a long snout is sitting on a grassy hill, holding onto a rock with its front paws. A large, white, fluffy rabbit stands in a grassy field, looking up at a small pink butterfly that is flying above it.",
+          "input_tokens": 521,
+          "output_tokens": 90,
+          "token_limit_reached": false,
+          "prepare_ms": 6.416924006771296,
+          "generate_ms": 3530.1112639717758,
+          "first_token_ms": 123.558,
+          "total_ms": 3536.707162973471,
+          "fixed_output_tokens": false,
+          "method_total_ms": 3536.786130978726
+        },
+        {
+          "mode": "raw",
+          "repeat": 2,
+          "text": "The cartoon bird with grey feathers, a yellow beak, and orange feet is perched on a tree branch, opening its beak wide as if singing. A large, grey, furry creature with a long snout is sitting on a grassy hill, holding onto a rock with its front paws. A large, white, fluffy rabbit stands in a grassy field, looking up at a small pink butterfly that is flying above it.",
+          "input_tokens": 521,
+          "output_tokens": 90,
+          "token_limit_reached": false,
+          "prepare_ms": 7.859817997086793,
+          "generate_ms": 3685.908154002391,
+          "first_token_ms": 127.568,
+          "total_ms": 3693.963779020123,
+          "fixed_output_tokens": false,
+          "method_total_ms": 3694.102989975363
+        },
+        {
+          "mode": "compressed",
+          "repeat": 2,
+          "text": "The cartoon bird is singing on a tree, and a furry creature is resting in a den. Another creature is on a hill, and a white character is standing. A rabbit is now standing in the grass with a butterfly above it.",
+          "input_tokens": 358,
+          "output_tokens": 48,
+          "token_limit_reached": false,
+          "prepare_ms": 6.095731980167329,
+          "generate_ms": 1847.4740990204737,
+          "first_token_ms": 100.546,
+          "total_ms": 1853.7484359694645,
+          "fixed_output_tokens": false,
+          "method_total_ms": 1853.8313810131513
+        }
+      ],
+      "fixed_output_control": [
+        {
+          "mode": "compressed",
+          "repeat": 0,
+          "text": "The cartoon bird is singing on a tree, and a furry creature is resting in a den. Another creature is on a hill, and a white character is standing",
+          "input_tokens": 358,
+          "output_tokens": 32,
+          "token_limit_reached": true,
+          "prepare_ms": 7.801689032930881,
+          "generate_ms": 1309.7948549548164,
+          "first_token_ms": 109.619,
+          "total_ms": 1317.7436190308072,
+          "fixed_output_tokens": true
+        },
+        {
+          "mode": "raw",
+          "repeat": 0,
+          "text": "The cartoon bird with grey feathers, a yellow beak, and orange feet is perched on a tree branch, opening its beak wide as if singing.",
+          "input_tokens": 521,
+          "output_tokens": 32,
+          "token_limit_reached": true,
+          "prepare_ms": 33.860888972412795,
+          "generate_ms": 1322.1933580352925,
+          "first_token_ms": 125.024,
+          "total_ms": 1356.205660966225,
+          "fixed_output_tokens": true
+        },
+        {
+          "mode": "raw",
+          "repeat": 1,
+          "text": "The cartoon bird with grey feathers, a yellow beak, and orange feet is perched on a tree branch, opening its beak wide as if singing.",
+          "input_tokens": 521,
+          "output_tokens": 32,
+          "token_limit_reached": true,
+          "prepare_ms": 7.226941990666091,
+          "generate_ms": 1315.3149129939266,
+          "first_token_ms": 123.554,
+          "total_ms": 1322.7155299973674,
+          "fixed_output_tokens": true
+        },
+        {
+          "mode": "compressed",
+          "repeat": 1,
+          "text": "The cartoon bird is singing on a tree, and a furry creature is resting in a den. Another creature is on a hill, and a white character is standing",
+          "input_tokens": 358,
+          "output_tokens": 32,
+          "token_limit_reached": true,
+          "prepare_ms": 5.941082024946809,
+          "generate_ms": 1321.9314910238609,
+          "first_token_ms": 103.419,
+          "total_ms": 1328.0385640100576,
+          "fixed_output_tokens": true
+        },
+        {
+          "mode": "compressed",
+          "repeat": 2,
+          "text": "The cartoon bird is singing on a tree, and a furry creature is resting in a den. Another creature is on a hill, and a white character is standing",
+          "input_tokens": 358,
+          "output_tokens": 32,
+          "token_limit_reached": true,
+          "prepare_ms": 6.484479992650449,
+          "generate_ms": 1426.8941890331917,
+          "first_token_ms": 101.732,
+          "total_ms": 1434.33898803778,
+          "fixed_output_tokens": true
+        },
+        {
+          "mode": "raw",
+          "repeat": 2,
+          "text": "The cartoon bird with grey feathers, a yellow beak, and orange feet is perched on a tree branch, opening its beak wide as if singing.",
+          "input_tokens": 521,
+          "output_tokens": 32,
+          "token_limit_reached": true,
+          "prepare_ms": 23.353921016678214,
+          "generate_ms": 1306.1593750026077,
+          "first_token_ms": 125.631,
+          "total_ms": 1329.7541280044243,
+          "fixed_output_tokens": true
+        }
+      ]
+    },
+    {
+      "observations": 10,
+      "contexts": {
+        "raw": "Long-term memory context: No prior context. | Recent observations: A cartoon bird with grey feathers, a yellow beak, and orange feet is perched on a tree branch. The bird is opening its beak wide as if singing or calling out. | A large, dark, furry creature is curled up inside a cozy, grassy den with rocks. The creature is resting, and the den is surrounded by vibrant green grass and smooth stones. | A large, grey, furry creature with a long snout and small ears is sitting on a grassy hill, holding onto a rock with its front paws. The creature is looking up at the sky, which is a soft, pale color. | A large, white, cartoonish character with a round body and a small head is standing on a grassy hill. The character is facing the viewer and appears to be in a relaxed, standing pose. | A large, white, fluffy rabbit stands in a grassy field, looking up at a small pink butterfly that is flying above it. The rabbit has its arms slightly raised and is standing still, while a small red butterfly is visible on the grass to the left. | A large, white, fluffy rabbit stands in a grassy field, holding a red carrot in its right hand and eating it with its left paw. The rabbit is positioned in the foreground, with a backdrop of green trees, a blue sky, and distant mountains. | A large, white rabbit with long ears stands in a grassy field, looking up with a surprised expression. A purple butterfly flies in the air to the left of the rabbit. | A small, brown squirrel with large, round eyes peeks out from behind a large, gray rock. The squirrel is looking directly at the viewer with a curious expression. | A large, white rabbit with a worried expression stands in the foreground, looking up at a small brown squirrel perched on a tree trunk. A purple butterfly is flying in the air to the left of the rabbit. | A squirrel with a bushy tail is perched on a large tree trunk, looking down at the ground. A small, dark-furred mouse is sitting on the grass nearby, looking up at the squirrel.",
+        "compressed": "Long-term memory context: The worker observes a series of animated and real creatures in a natural setting: a cartoon bird singing on a tree, a furry creature resting in a den, another creature on a hill, a white character standing, and finally a rabbit with a butterfly above it, all within a grassy, natural environment The worker observes a white rabbit harvesting flowers, eating a carrot, and later encounters a squirrel and butterfly in a grassy field, before climbing a tree to observe a mouse below. | Recent observations: No recent context available."
+      },
+      "natural_answers": [
+        {
+          "mode": "raw",
+          "repeat": 0,
+          "text": "The events in the timeline, in chronological order, are as follows: a cartoon bird sings from a tree branch, a large, grey, furry creature rests in a den, a large, grey, furry creature sits on a hill, a large, white, cartoonish character stands on a hill, and a large, white, fluffy rabbit eats a carrot. Now, a squirrel with a bushy tail is perched on a tree trunk, looking down at the ground, while a small, dark-furred mouse sits on the grass nearby, looking up at the squirrel.",
+          "input_tokens": 734,
+          "output_tokens": 116,
+          "token_limit_reached": false,
+          "prepare_ms": 6.5488810068927705,
+          "generate_ms": 4519.694018003065,
+          "first_token_ms": 143.429,
+          "total_ms": 4526.631426997483,
+          "fixed_output_tokens": false,
+          "method_total_ms": 4526.755740051158
+        },
+        {
+          "mode": "compressed",
+          "repeat": 0,
+          "text": "The worker has been observing a series of animals in a natural setting. First, a cartoon bird sang on a tree, then a furry creature rested in a den, followed by another creature on a hill, a white character stood, and finally a rabbit with a butterfly above it. The worker is now climbing a tree to observe a mouse below.",
+          "input_tokens": 394,
+          "output_tokens": 70,
+          "token_limit_reached": false,
+          "prepare_ms": 6.570512952748686,
+          "generate_ms": 2734.7049950039946,
+          "first_token_ms": 106.657,
+          "total_ms": 2742.2112109488808,
+          "fixed_output_tokens": false,
+          "method_total_ms": 2742.4239800311625
+        },
+        {
+          "mode": "compressed",
+          "repeat": 1,
+          "text": "The worker has been observing a series of animals in a natural setting. First, a cartoon bird sang on a tree, then a furry creature rested in a den, followed by another creature on a hill, a white character stood, and finally a rabbit with a butterfly above it. The worker is now climbing a tree to observe a mouse below.",
+          "input_tokens": 394,
+          "output_tokens": 70,
+          "token_limit_reached": false,
+          "prepare_ms": 6.253899016883224,
+          "generate_ms": 2866.9754099682905,
+          "first_token_ms": 110.581,
+          "total_ms": 2873.407232982572,
+          "fixed_output_tokens": false,
+          "method_total_ms": 2873.687378014438
+        },
+        {
+          "mode": "raw",
+          "repeat": 1,
+          "text": "The events in the timeline, in chronological order, are as follows: a cartoon bird sings from a tree branch, a large, grey, furry creature rests in a den, a large, grey, furry creature sits on a hill, a large, white, cartoonish character stands on a hill, and a large, white, fluffy rabbit eats a carrot. Now, a squirrel with a bushy tail is perched on a tree trunk, looking down at the ground, while a small, dark-furred mouse sits on the grass nearby, looking up at the squirrel.",
+          "input_tokens": 734,
+          "output_tokens": 116,
+          "token_limit_reached": false,
+          "prepare_ms": 6.536578002851456,
+          "generate_ms": 4809.919100021943,
+          "first_token_ms": 150.631,
+          "total_ms": 4816.658107039984,
+          "fixed_output_tokens": false,
+          "method_total_ms": 4816.844946995843
+        },
+        {
+          "mode": "raw",
+          "repeat": 2,
+          "text": "The events in the timeline, in chronological order, are as follows: a cartoon bird sings from a tree branch, a large, grey, furry creature rests in a den, a large, grey, furry creature sits on a hill, a large, white, cartoonish character stands on a hill, and a large, white, fluffy rabbit eats a carrot. Now, a squirrel with a bushy tail is perched on a tree trunk, looking down at the ground, while a small, dark-furred mouse sits on the grass nearby, looking up at the squirrel.",
+          "input_tokens": 734,
+          "output_tokens": 116,
+          "token_limit_reached": false,
+          "prepare_ms": 6.1220620409585536,
+          "generate_ms": 4761.609548004344,
+          "first_token_ms": 143.779,
+          "total_ms": 4767.930112022441,
+          "fixed_output_tokens": false,
+          "method_total_ms": 4768.151025986299
+        },
+        {
+          "mode": "compressed",
+          "repeat": 2,
+          "text": "The worker has been observing a series of animals in a natural setting. First, a cartoon bird sang on a tree, then a furry creature rested in a den, followed by another creature on a hill, a white character stood, and finally a rabbit with a butterfly above it. The worker is now climbing a tree to observe a mouse below.",
+          "input_tokens": 394,
+          "output_tokens": 70,
+          "token_limit_reached": false,
+          "prepare_ms": 5.777797021437436,
+          "generate_ms": 2917.7621779963374,
+          "first_token_ms": 109.814,
+          "total_ms": 2923.7349209724925,
+          "fixed_output_tokens": false,
+          "method_total_ms": 2923.9195269765332
+        }
+      ],
+      "fixed_output_control": [
+        {
+          "mode": "compressed",
+          "repeat": 0,
+          "text": "The worker has been observing a series of animals in a natural setting. First, a cartoon bird sang on a tree, then a furry creature rested in a den",
+          "input_tokens": 394,
+          "output_tokens": 32,
+          "token_limit_reached": true,
+          "prepare_ms": 6.171063985675573,
+          "generate_ms": 1293.5421760194004,
+          "first_token_ms": 111.0,
+          "total_ms": 1299.864993954543,
+          "fixed_output_tokens": true
+        },
+        {
+          "mode": "raw",
+          "repeat": 0,
+          "text": "The events in the timeline, in chronological order, are as follows: a cartoon bird sings from a tree branch, a large, grey, furry creature rests in",
+          "input_tokens": 734,
+          "output_tokens": 32,
+          "token_limit_reached": true,
+          "prepare_ms": 6.283223978243768,
+          "generate_ms": 1403.3981070388108,
+          "first_token_ms": 146.335,
+          "total_ms": 1409.8406489938498,
+          "fixed_output_tokens": true
+        },
+        {
+          "mode": "raw",
+          "repeat": 1,
+          "text": "The events in the timeline, in chronological order, are as follows: a cartoon bird sings from a tree branch, a large, grey, furry creature rests in",
+          "input_tokens": 734,
+          "output_tokens": 32,
+          "token_limit_reached": true,
+          "prepare_ms": 6.171904969960451,
+          "generate_ms": 1335.2288330206648,
+          "first_token_ms": 143.901,
+          "total_ms": 1341.5474829962477,
+          "fixed_output_tokens": true
+        },
+        {
+          "mode": "compressed",
+          "repeat": 1,
+          "text": "The worker has been observing a series of animals in a natural setting. First, a cartoon bird sang on a tree, then a furry creature rested in a den",
+          "input_tokens": 394,
+          "output_tokens": 32,
+          "token_limit_reached": true,
+          "prepare_ms": 6.987683998886496,
+          "generate_ms": 1463.5055920225568,
+          "first_token_ms": 109.99,
+          "total_ms": 1470.6509319948964,
+          "fixed_output_tokens": true
+        },
+        {
+          "mode": "compressed",
+          "repeat": 2,
+          "text": "The worker has been observing a series of animals in a natural setting. First, a cartoon bird sang on a tree, then a furry creature rested in a den",
+          "input_tokens": 394,
+          "output_tokens": 32,
+          "token_limit_reached": true,
+          "prepare_ms": 6.375983008183539,
+          "generate_ms": 1311.4466320257634,
+          "first_token_ms": 115.541,
+          "total_ms": 1317.977164988406,
+          "fixed_output_tokens": true
+        },
+        {
+          "mode": "raw",
+          "repeat": 2,
+          "text": "The events in the timeline, in chronological order, are as follows: a cartoon bird sings from a tree branch, a large, grey, furry creature rests in",
+          "input_tokens": 734,
+          "output_tokens": 32,
+          "token_limit_reached": true,
+          "prepare_ms": 6.660090992227197,
+          "generate_ms": 1321.7644109972753,
+          "first_token_ms": 144.318,
+          "total_ms": 1328.5930579877459,
+          "fixed_output_tokens": true
+        }
+      ]
+    },
+    {
+      "observations": 20,
+      "contexts": {
+        "raw": "Long-term memory context: No prior context. | Recent observations: A cartoon bird with grey feathers, a yellow beak, and orange feet is perched on a tree branch. The bird is opening its beak wide as if singing or calling out. | A large, dark, furry creature is curled up inside a cozy, grassy den with rocks. The creature is resting, and the den is surrounded by vibrant green grass and smooth stones. | A large, grey, furry creature with a long snout and small ears is sitting on a grassy hill, holding onto a rock with its front paws. The creature is looking up at the sky, which is a soft, pale color. | A large, white, cartoonish character with a round body and a small head is standing on a grassy hill. The character is facing the viewer and appears to be in a relaxed, standing pose. | A large, white, fluffy rabbit stands in a grassy field, looking up at a small pink butterfly that is flying above it. The rabbit has its arms slightly raised and is standing still, while a small red butterfly is visible on the grass to the left. | A large, white, fluffy rabbit stands in a grassy field, holding a red carrot in its right hand and eating it with its left paw. The rabbit is positioned in the foreground, with a backdrop of green trees, a blue sky, and distant mountains. | A large, white rabbit with long ears stands in a grassy field, looking up with a surprised expression. A purple butterfly flies in the air to the left of the rabbit. | A small, brown squirrel with large, round eyes peeks out from behind a large, gray rock. The squirrel is looking directly at the viewer with a curious expression. | A large, white rabbit with a worried expression stands in the foreground, looking up at a small brown squirrel perched on a tree trunk. A purple butterfly is flying in the air to the left of the rabbit. | A squirrel with a bushy tail is perched on a large tree trunk, looking down at the ground. A small, dark-furred mouse is sitting on the grass nearby, looking up at the squirrel. | A white rabbit with long ears is shown from the back, standing in a grassy field. The rabbit is facing away from the viewer, with a bright, sunny sky and distant hills in the background. | A red, fox-like character with a long tail is peeking out from behind a large tree trunk. A gray, mouse-like character is sitting on the grass, looking up at the fox. | A small, dark-furred animal with a red nose is lying on the grass near a large tree trunk. A brown, furry creature with a large head is standing in the foreground, facing the animal. | A brown squirrel with large, expressive eyes is looking up at a large tree. A small, dark-colored animal with a round face is peeking out from behind the tree trunk. | A small, dark-furred squirrel is sitting on the grass near a large tree trunk, holding a red object in its paws. A red fox with a bushy tail is standing on the grass, looking at the squirrel. A brown squirrel is on the grass to the right, looking at the fox. | A large, grey, cartoon rabbit with a round body and a prominent snout stands in a lush, green forest. The rabbit is holding a small red object in its right paw and is looking slightly to its left. | A white, furry creature with a long snout and a small tail is standing in a forest, holding a large, thick tree trunk with both front paws. The creature is looking up at the tree trunk, which is leaning against a tree. | A large, white, round rabbit with long ears stands in a forest, holding a green plant in its front paws. The rabbit is looking forward with a calm expression. | A small, gray, furry creature with a long snout is peeking out from behind a large tree trunk in a grassy field. The creature is looking towards the left side of the frame, where a single, green tree stands in the distance. | A small, red, bird-like creature with a long tail is flying over a vibrant green field. In the background, a large, green, leafy tree stands tall among other trees.",
+        "compressed": "Long-term memory context: The worker observes a series of animated and real creatures in a natural setting: a cartoon bird singing on a tree, a furry creature resting in a den, another creature on a hill, a white character standing, and finally a rabbit with a butterfly above it, all within a grassy, natural environment The worker observes a white rabbit harvesting flowers, eating a carrot, and later encounters a squirrel and butterfly in a grassy field, before climbing a tree to observe a mouse below. The worker repeatedly digs in a grassy field, observing a white rabbit, a red fox, and various squirrels, while climbing a tree and interacting with them in a sunny, natural setting. The worker repeatedly digs and lifts logs in a lush forest, observing various animals including a cartoon rabbit, a white furry creature, a large white rabbit, and a small gray creature, while a red bird-like creature flies over a green field. | Recent observations: No recent context available."
+      },
+      "natural_answers": [
+        {
+          "mode": "raw",
+          "repeat": 0,
+          "text": "The events in the timeline, in chronological order, are: a cartoon bird sings from a tree branch, a large, dark, furry creature rests in a den, a large, grey, furry creature sits on a hill, a large, white, cartoonish character stands on a hill, and a large, white, fluffy rabbit eats a carrot. Now, a large, white rabbit with long ears stands in a grassy field, looking up with a surprised expression, while a purple butterfly flies in the air to the left of the rabbit.",
+          "input_tokens": 1181,
+          "output_tokens": 110,
+          "token_limit_reached": false,
+          "prepare_ms": 6.998614000622183,
+          "generate_ms": 4262.434863951057,
+          "first_token_ms": 196.138,
+          "total_ms": 4269.627531990409,
+          "fixed_output_tokens": false,
+          "method_total_ms": 4269.727409002371
+        },
+        {
+          "mode": "compressed",
+          "repeat": 0,
+          "text": "The worker has been observing a series of animals in a natural setting, including a cartoon rabbit, a white furry creature, a large white rabbit, and a small gray creature, while also digging in a grassy field and climbing a tree. The worker is now in a sunny, grassy field where a squirrel is hiding near a tree, and a red fox is running across the field.",
+          "input_tokens": 481,
+          "output_tokens": 79,
+          "token_limit_reached": false,
+          "prepare_ms": 6.875002000015229,
+          "generate_ms": 3144.3116790032946,
+          "first_token_ms": 117.261,
+          "total_ms": 3151.4529500273056,
+          "fixed_output_tokens": false,
+          "method_total_ms": 3151.5375379822217
+        },
+        {
+          "mode": "compressed",
+          "repeat": 1,
+          "text": "The worker has been observing a series of animals in a natural setting, including a cartoon rabbit, a white furry creature, a large white rabbit, and a small gray creature, while also digging in a grassy field and climbing a tree. The worker is now in a sunny, grassy field where a squirrel is hiding near a tree, and a red fox is running across the field.",
+          "input_tokens": 481,
+          "output_tokens": 79,
+          "token_limit_reached": false,
+          "prepare_ms": 6.512342020869255,
+          "generate_ms": 3118.923301983159,
+          "first_token_ms": 112.718,
+          "total_ms": 3125.605851993896,
+          "fixed_output_tokens": false,
+          "method_total_ms": 3125.6912130047567
+        },
+        {
+          "mode": "raw",
+          "repeat": 1,
+          "text": "The events in the timeline, in chronological order, are: a cartoon bird sings from a tree branch, a large, dark, furry creature rests in a den, a large, grey, furry creature sits on a hill, a large, white, cartoonish character stands on a hill, and a large, white, fluffy rabbit eats a carrot. Now, a large, white rabbit with long ears stands in a grassy field, looking up with a surprised expression, while a purple butterfly flies in the air to the left of the rabbit.",
+          "input_tokens": 1181,
+          "output_tokens": 110,
+          "token_limit_reached": false,
+          "prepare_ms": 7.660745002795011,
+          "generate_ms": 4429.9290019553155,
+          "first_token_ms": 200.583,
+          "total_ms": 4437.787708011456,
+          "fixed_output_tokens": false,
+          "method_total_ms": 4438.065087015275
+        },
+        {
+          "mode": "raw",
+          "repeat": 2,
+          "text": "The events in the timeline, in chronological order, are: a cartoon bird sings from a tree branch, a large, dark, furry creature rests in a den, a large, grey, furry creature sits on a hill, a large, white, cartoonish character stands on a hill, and a large, white, fluffy rabbit eats a carrot. Now, a large, white rabbit with long ears stands in a grassy field, looking up with a surprised expression, while a purple butterfly flies in the air to the left of the rabbit.",
+          "input_tokens": 1181,
+          "output_tokens": 110,
+          "token_limit_reached": false,
+          "prepare_ms": 7.584272010717541,
+          "generate_ms": 4336.7978379828855,
+          "first_token_ms": 196.016,
+          "total_ms": 4344.569951994345,
+          "fixed_output_tokens": false,
+          "method_total_ms": 4344.656914006919
+        },
+        {
+          "mode": "compressed",
+          "repeat": 2,
+          "text": "The worker has been observing a series of animals in a natural setting, including a cartoon rabbit, a white furry creature, a large white rabbit, and a small gray creature, while also digging in a grassy field and climbing a tree. The worker is now in a sunny, grassy field where a squirrel is hiding near a tree, and a red fox is running across the field.",
+          "input_tokens": 481,
+          "output_tokens": 79,
+          "token_limit_reached": false,
+          "prepare_ms": 5.998951033689082,
+          "generate_ms": 3051.850445976015,
+          "first_token_ms": 112.016,
+          "total_ms": 3058.039143041242,
+          "fixed_output_tokens": false,
+          "method_total_ms": 3058.227575966157
+        }
+      ],
+      "fixed_output_control": [
+        {
+          "mode": "compressed",
+          "repeat": 0,
+          "text": "The worker has been observing a series of animals in a natural setting, including a cartoon rabbit, a white furry creature, a large white rabbit, and a small",
+          "input_tokens": 481,
+          "output_tokens": 32,
+          "token_limit_reached": true,
+          "prepare_ms": 6.5236149821430445,
+          "generate_ms": 1275.6236350396648,
+          "first_token_ms": 113.296,
+          "total_ms": 1282.2921220213175,
+          "fixed_output_tokens": true
+        },
+        {
+          "mode": "raw",
+          "repeat": 0,
+          "text": "The events in the timeline, in chronological order, are: a cartoon bird sings from a tree branch, a large, dark, furry creature rests in a den",
+          "input_tokens": 1181,
+          "output_tokens": 32,
+          "token_limit_reached": true,
+          "prepare_ms": 6.783712015021592,
+          "generate_ms": 1348.9241279894486,
+          "first_token_ms": 196.297,
+          "total_ms": 1355.8623700519092,
+          "fixed_output_tokens": true
+        },
+        {
+          "mode": "raw",
+          "repeat": 1,
+          "text": "The events in the timeline, in chronological order, are: a cartoon bird sings from a tree branch, a large, dark, furry creature rests in a den",
+          "input_tokens": 1181,
+          "output_tokens": 32,
+          "token_limit_reached": true,
+          "prepare_ms": 6.832773971837014,
+          "generate_ms": 1349.2851690389216,
+          "first_token_ms": 196.813,
+          "total_ms": 1356.2668120139278,
+          "fixed_output_tokens": true
+        },
+        {
+          "mode": "compressed",
+          "repeat": 1,
+          "text": "The worker has been observing a series of animals in a natural setting, including a cartoon rabbit, a white furry creature, a large white rabbit, and a small",
+          "input_tokens": 481,
+          "output_tokens": 32,
+          "token_limit_reached": true,
+          "prepare_ms": 5.992819031234831,
+          "generate_ms": 1270.5745290149935,
+          "first_token_ms": 113.102,
+          "total_ms": 1276.7209350131452,
+          "fixed_output_tokens": true
+        },
+        {
+          "mode": "compressed",
+          "repeat": 2,
+          "text": "The worker has been observing a series of animals in a natural setting, including a cartoon rabbit, a white furry creature, a large white rabbit, and a small",
+          "input_tokens": 481,
+          "output_tokens": 32,
+          "token_limit_reached": true,
+          "prepare_ms": 6.0369030106812716,
+          "generate_ms": 1266.7320769978687,
+          "first_token_ms": 112.524,
+          "total_ms": 1272.922016971279,
+          "fixed_output_tokens": true
+        },
+        {
+          "mode": "raw",
+          "repeat": 2,
+          "text": "The events in the timeline, in chronological order, are: a cartoon bird sings from a tree branch, a large, dark, furry creature rests in a den",
+          "input_tokens": 1181,
+          "output_tokens": 32,
+          "token_limit_reached": true,
+          "prepare_ms": 6.937880010809749,
+          "generate_ms": 1330.386626010295,
+          "first_token_ms": 195.736,
+          "total_ms": 1337.4733949895017,
+          "fixed_output_tokens": true
+        }
+      ]
+    },
+    {
+      "observations": 30,
+      "contexts": {
+        "raw": "Long-term memory context: No prior context. | Recent observations: A cartoon bird with grey feathers, a yellow beak, and orange feet is perched on a tree branch. The bird is opening its beak wide as if singing or calling out. | A large, dark, furry creature is curled up inside a cozy, grassy den with rocks. The creature is resting, and the den is surrounded by vibrant green grass and smooth stones. | A large, grey, furry creature with a long snout and small ears is sitting on a grassy hill, holding onto a rock with its front paws. The creature is looking up at the sky, which is a soft, pale color. | A large, white, cartoonish character with a round body and a small head is standing on a grassy hill. The character is facing the viewer and appears to be in a relaxed, standing pose. | A large, white, fluffy rabbit stands in a grassy field, looking up at a small pink butterfly that is flying above it. The rabbit has its arms slightly raised and is standing still, while a small red butterfly is visible on the grass to the left. | A large, white, fluffy rabbit stands in a grassy field, holding a red carrot in its right hand and eating it with its left paw. The rabbit is positioned in the foreground, with a backdrop of green trees, a blue sky, and distant mountains. | A large, white rabbit with long ears stands in a grassy field, looking up with a surprised expression. A purple butterfly flies in the air to the left of the rabbit. | A small, brown squirrel with large, round eyes peeks out from behind a large, gray rock. The squirrel is looking directly at the viewer with a curious expression. | A large, white rabbit with a worried expression stands in the foreground, looking up at a small brown squirrel perched on a tree trunk. A purple butterfly is flying in the air to the left of the rabbit. | A squirrel with a bushy tail is perched on a large tree trunk, looking down at the ground. A small, dark-furred mouse is sitting on the grass nearby, looking up at the squirrel. | A white rabbit with long ears is shown from the back, standing in a grassy field. The rabbit is facing away from the viewer, with a bright, sunny sky and distant hills in the background. | A red, fox-like character with a long tail is peeking out from behind a large tree trunk. A gray, mouse-like character is sitting on the grass, looking up at the fox. | A small, dark-furred animal with a red nose is lying on the grass near a large tree trunk. A brown, furry creature with a large head is standing in the foreground, facing the animal. | A brown squirrel with large, expressive eyes is looking up at a large tree. A small, dark-colored animal with a round face is peeking out from behind the tree trunk. | A small, dark-furred squirrel is sitting on the grass near a large tree trunk, holding a red object in its paws. A red fox with a bushy tail is standing on the grass, looking at the squirrel. A brown squirrel is on the grass to the right, looking at the fox. | A large, grey, cartoon rabbit with a round body and a prominent snout stands in a lush, green forest. The rabbit is holding a small red object in its right paw and is looking slightly to its left. | A white, furry creature with a long snout and a small tail is standing in a forest, holding a large, thick tree trunk with both front paws. The creature is looking up at the tree trunk, which is leaning against a tree. | A large, white, round rabbit with long ears stands in a forest, holding a green plant in its front paws. The rabbit is looking forward with a calm expression. | A small, gray, furry creature with a long snout is peeking out from behind a large tree trunk in a grassy field. The creature is looking towards the left side of the frame, where a single, green tree stands in the distance. | A small, red, bird-like creature with a long tail is flying over a vibrant green field. In the background, a large, green, leafy tree stands tall among other trees. | A large, green-skinned character with a prominent nose is holding a long, thin stick. The character is using the stick to carefully wrap a bundle of green leaves around a thick, brown tree branch. | A cartoon rabbit with large, wide eyes and a prominent white tooth is shown in a close-up. The rabbit's ears are perked up, and it appears to be looking directly at the viewer. | A small, gray, furry creature with large ears sits on a dirt path in a lush, green forest. The creature is holding a small, brown object in its paws and appears to be looking down at it. | A large, white, furry creature with a stern expression stands in a forest, looking down at a small, dark gray mouse on the ground. The creature has its arms outstretched and is holding a small, dark object in its right hand. | A small, brown squirrel with large, round eyes stands on a patch of dirt near a large tree trunk. The squirrel is holding a small, round object in its paws and looks directly at the viewer. | A cartoon squirrel with large, wide eyes and a furrowed brow is perched on a rock. It is looking down with a worried expression, its tail curled around its body. | A cartoon squirrel with a large, expressive eye is flying through the air with its arms outstretched. The squirrel is wearing a red bandana and has a bushy tail. | A cartoon squirrel with a brown and white coat is flying through the air with its arms outstretched. The squirrel has a long tail and is positioned against a bright blue sky with white clouds and a green tree visible in the background. | A cartoon squirrel with large, wide eyes is flying through the air. It has a bushy tail and is positioned above a green, leafy tree. | A small, brown squirrel with a large, round eye is perched on a thin branch, looking up at a large, white, furry creature. The creature, which has a long, pointed ear and a calm expression, is holding the branch with its front paws.",
+        "compressed": "Long-term memory context: The worker observes a series of animated and real creatures in a natural setting: a cartoon bird singing on a tree, a furry creature resting in a den, another creature on a hill, a white character standing, and finally a rabbit with a butterfly above it, all within a grassy, natural environment The worker observes a white rabbit harvesting flowers, eating a carrot, and later encounters a squirrel and butterfly in a grassy field, before climbing a tree to observe a mouse below. The worker repeatedly digs in a grassy field, observing a white rabbit, a red fox, and various squirrels, while climbing a tree and interacting with them in a sunny, natural setting. The worker repeatedly digs and lifts logs in a lush forest, observing various animals including a cartoon rabbit, a white furry creature, a large white rabbit, and a small gray creature, while a red bird-like creature flies over a green field. The worker observes a series of interactions in a lush forest: a green-skinned character wraps leaves around a tree, a rabbit looks at the viewer, a gray creature ties a rope, a white furry creature observes a mouse, and a squirrel holds a round object while looking directly at the viewer. The worker observes a cartoon squirrel initially perched on a rock, then flying through the air with a red bandana and bushy tail, eventually perched on a branch above a tree, while a large, calm creature holds the branch. | Recent observations: No recent context available."
+      },
+      "natural_answers": [
+        {
+          "mode": "raw",
+          "repeat": 0,
+          "text": "The events in the timeline, in chronological order, are as follows: a cartoon squirrel with a bushy tail is flying through the air with its arms outstretched, and a cartoon squirrel with a brown and white coat is flying through the air with its arms outstretched. The current scene shows a small, brown squirrel with large, round eyes standing on a patch of dirt near a large tree trunk, holding a small, round object in its paws and looking directly at the viewer.",
+          "input_tokens": 1614,
+          "output_tokens": 100,
+          "token_limit_reached": false,
+          "prepare_ms": 7.273630006238818,
+          "generate_ms": 3933.309232990723,
+          "first_token_ms": 255.706,
+          "total_ms": 3940.883647010196,
+          "fixed_output_tokens": false,
+          "method_total_ms": 3941.1634010029957
+        },
+        {
+          "mode": "compressed",
+          "repeat": 0,
+          "text": "The worker has been observing a cartoon squirrel that was initially perched on a rock, then flew through the air with a red bandana and bushy tail, and is now perched on a branch above a tree while a large, calm creature holds the branch. The worker is currently in a lush forest, digging in the grassy field and lifting logs, and has also climbed a tree to observe a mouse below.",
+          "input_tokens": 588,
+          "output_tokens": 85,
+          "token_limit_reached": false,
+          "prepare_ms": 6.13002700265497,
+          "generate_ms": 3258.803273027297,
+          "first_token_ms": 121.554,
+          "total_ms": 3265.2043380076066,
+          "fixed_output_tokens": false,
+          "method_total_ms": 3265.302450978197
+        },
+        {
+          "mode": "compressed",
+          "repeat": 1,
+          "text": "The worker has been observing a cartoon squirrel that was initially perched on a rock, then flew through the air with a red bandana and bushy tail, and is now perched on a branch above a tree while a large, calm creature holds the branch. The worker is currently in a lush forest, digging in the grassy field and lifting logs, and has also climbed a tree to observe a mouse below.",
+          "input_tokens": 588,
+          "output_tokens": 85,
+          "token_limit_reached": false,
+          "prepare_ms": 6.143001024611294,
+          "generate_ms": 3289.332362008281,
+          "first_token_ms": 123.099,
+          "total_ms": 3295.6626740051433,
+          "fixed_output_tokens": false,
+          "method_total_ms": 3295.750820019748
+        },
+        {
+          "mode": "raw",
+          "repeat": 1,
+          "text": "The events in the timeline, in chronological order, are as follows: a cartoon squirrel with a bushy tail is flying through the air with its arms outstretched, and a cartoon squirrel with a brown and white coat is flying through the air with its arms outstretched. The current scene shows a small, brown squirrel with large, round eyes standing on a patch of dirt near a large tree trunk, holding a small, round object in its paws and looking directly at the viewer.",
+          "input_tokens": 1614,
+          "output_tokens": 100,
+          "token_limit_reached": false,
+          "prepare_ms": 7.418881985358894,
+          "generate_ms": 4155.190105026122,
+          "first_token_ms": 254.175,
+          "total_ms": 4162.794014031533,
+          "fixed_output_tokens": false,
+          "method_total_ms": 4162.873974011745
+        },
+        {
+          "mode": "raw",
+          "repeat": 2,
+          "text": "The events in the timeline, in chronological order, are as follows: a cartoon squirrel with a bushy tail is flying through the air with its arms outstretched, and a cartoon squirrel with a brown and white coat is flying through the air with its arms outstretched. The current scene shows a small, brown squirrel with large, round eyes standing on a patch of dirt near a large tree trunk, holding a small, round object in its paws and looking directly at the viewer.",
+          "input_tokens": 1614,
+          "output_tokens": 100,
+          "token_limit_reached": false,
+          "prepare_ms": 7.280632038600743,
+          "generate_ms": 4118.9057099982165,
+          "first_token_ms": 254.945,
+          "total_ms": 4126.374625018798,
+          "fixed_output_tokens": false,
+          "method_total_ms": 4126.459074032027
+        },
+        {
+          "mode": "compressed",
+          "repeat": 2,
+          "text": "The worker has been observing a cartoon squirrel that was initially perched on a rock, then flew through the air with a red bandana and bushy tail, and is now perched on a branch above a tree while a large, calm creature holds the branch. The worker is currently in a lush forest, digging in the grassy field and lifting logs, and has also climbed a tree to observe a mouse below.",
+          "input_tokens": 588,
+          "output_tokens": 85,
+          "token_limit_reached": false,
+          "prepare_ms": 6.162097037304193,
+          "generate_ms": 3380.0076440093108,
+          "first_token_ms": 124.686,
+          "total_ms": 3386.3572230329737,
+          "fixed_output_tokens": false,
+          "method_total_ms": 3386.5597319672816
+        }
+      ],
+      "fixed_output_control": [
+        {
+          "mode": "compressed",
+          "repeat": 0,
+          "text": "The worker has been observing a cartoon squirrel that was initially perched on a rock, then flew through the air with a red bandana and bushy tail,",
+          "input_tokens": 588,
+          "output_tokens": 32,
+          "token_limit_reached": true,
+          "prepare_ms": 5.849982029758394,
+          "generate_ms": 1292.5685849622823,
+          "first_token_ms": 123.94,
+          "total_ms": 1298.6217479920015,
+          "fixed_output_tokens": true
+        },
+        {
+          "mode": "raw",
+          "repeat": 0,
+          "text": "The events in the timeline, in chronological order, are as follows: a cartoon squirrel with a bushy tail is flying through the air with its arms outst",
+          "input_tokens": 1614,
+          "output_tokens": 32,
+          "token_limit_reached": true,
+          "prepare_ms": 7.863505044952035,
+          "generate_ms": 1416.2300410098396,
+          "first_token_ms": 254.947,
+          "total_ms": 1424.24388701329,
+          "fixed_output_tokens": true
+        },
+        {
+          "mode": "raw",
+          "repeat": 1,
+          "text": "The events in the timeline, in chronological order, are as follows: a cartoon squirrel with a bushy tail is flying through the air with its arms outst",
+          "input_tokens": 1614,
+          "output_tokens": 32,
+          "token_limit_reached": true,
+          "prepare_ms": 8.22056399192661,
+          "generate_ms": 1467.7603439777158,
+          "first_token_ms": 255.456,
+          "total_ms": 1476.130076975096,
+          "fixed_output_tokens": true
+        },
+        {
+          "mode": "compressed",
+          "repeat": 1,
+          "text": "The worker has been observing a cartoon squirrel that was initially perched on a rock, then flew through the air with a red bandana and bushy tail,",
+          "input_tokens": 588,
+          "output_tokens": 32,
+          "token_limit_reached": true,
+          "prepare_ms": 5.885377002414316,
+          "generate_ms": 1346.6344450134784,
+          "first_token_ms": 125.238,
+          "total_ms": 1352.678228984587,
+          "fixed_output_tokens": true
+        },
+        {
+          "mode": "compressed",
+          "repeat": 2,
+          "text": "The worker has been observing a cartoon squirrel that was initially perched on a rock, then flew through the air with a red bandana and bushy tail,",
+          "input_tokens": 588,
+          "output_tokens": 32,
+          "token_limit_reached": true,
+          "prepare_ms": 5.911027023103088,
+          "generate_ms": 1280.485562980175,
+          "first_token_ms": 122.992,
+          "total_ms": 1286.5488349925727,
+          "fixed_output_tokens": true
+        },
+        {
+          "mode": "raw",
+          "repeat": 2,
+          "text": "The events in the timeline, in chronological order, are as follows: a cartoon squirrel with a bushy tail is flying through the air with its arms outst",
+          "input_tokens": 1614,
+          "output_tokens": 32,
+          "token_limit_reached": true,
+          "prepare_ms": 7.515624049119651,
+          "generate_ms": 1438.7467229971662,
+          "first_token_ms": 254.082,
+          "total_ms": 1446.424020046834,
+          "fixed_output_tokens": true
+        }
+      ]
+    }
+  ],
+  "passed": true,
+  "completed_at": "2026-10-22T10:36:58Z"
+}

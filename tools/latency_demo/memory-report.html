@@ -1,0 +1,38 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>똑띠 · 기억 압축 비교</title>
+<style>
+:root{font:15px system-ui,"Malgun Gothic",sans-serif;color:#18302c;background:#f2f5f3}*{box-sizing:border-box}body{margin:0}
+header{padding:28px max(24px,calc((100vw - 1200px)/2));background:#143d33;color:white}h1{margin:5px 0 12px;font-size:28px}header a{color:#c5e6d4}main{max-width:1248px;margin:24px auto;padding:0 24px}
+.card{background:white;border:1px solid #dce4dd;border-radius:14px;padding:22px;margin:20px 0}h2{font-size:19px;margin:0 0 15px}p{line-height:1.7}.muted{font-size:13px;color:#65746d}.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+video{width:100%;max-height:360px;background:#122e27;border-radius:8px}table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}th,td{padding:12px 8px;text-align:right;border-bottom:1px solid #e6ede7;font-size:14px}th:first-child,td:first-child{text-align:left}.scroll{overflow:auto}
+pre{font:13px/1.7 system-ui,sans-serif;white-space:pre-wrap;overflow-wrap:anywhere;background:#f4f7f3;padding:16px;border-radius:8px;max-height:450px;overflow:auto}
+select,button{font:inherit;padding:9px 12px;border:1px solid #c2cec6;background:white;border-radius:7px}a{color:#175944}.big{font-size:27px;font-weight:700}.note{border-left:3px solid #afbf75;background:#f3f6ee;padding:12px 16px}
+@media(max-width:800px){.grid{grid-template-columns:1fr}main{padding:0 14px}.card{padding:16px}header{padding:24px}}
+</style>
+<header><a href="/">← 프레임 지연 데모</a><h1>단기 기억을 장기 기억으로 옮기면 얼마나 달라질까?</h1><div>동일 영상 · 동일 관찰 기록 · 동일 질문 · 실제 GPU 추론</div></header>
+<main><div id="status" class="card">측정 결과를 불러오고 있습니다.</div>
+<section class="card grid"><div><h2>사용한 영상</h2><video controls preload="metadata" src="/demo/memory-video.mp4"></video><p class="muted">Big Buck Bunny · © 2008 Blender Foundation / www.bigbuckbunny.org · <a href="https://peach.blender.org/about/">CC BY 3.0</a><br>원본 320×180 영상에서 20~455초 구간을 15초 간격으로 관찰했습니다.</p></div><div><h2>비교 방식</h2><p><strong>누적:</strong> 관찰 기록을 전부 그대로 질문에 넣습니다.<br><strong>압축:</strong> 기록 5개를 기존 compress_memory()로 요약하고 장기 기억에 이어 붙입니다.</p><p>30개 관찰 · 요약 6회 · 4개 시점에서 조건별 3회 반복. 기존 질문 프롬프트와 최근 프레임 3개는 양쪽에 동일하게 사용했습니다.</p><p class="note">공개 2B 모델의 로컬 추론 비교입니다. 원본 8B 모델, 위험 탐지 정확도, 네트워크·대기열 지연은 이번 결과에 포함하지 않습니다.</p></div></section>
+<section class="card"><h2>입력량과 답변 시간</h2><p class="muted">각 값은 3회 중앙값입니다. 토큰에는 프롬프트와 최근 이미지 입력도 포함됩니다. 첫 토큰 시간은 모델 생성 시작부터 측정합니다.</p><div class="scroll"><table><thead><tr><th>관찰 기록</th><th>입력 토큰<br>누적 / 압축</th><th>자연 답변 ms<br>누적 / 압축</th><th>32토큰 고정 ms<br>누적 / 압축</th><th>고정 조건 첫 토큰 ms<br>누적 / 압축</th></tr></thead><tbody id="rows"></tbody></table></div><p id="finding"></p></section>
+<section class="card"><h2>요약 비용까지 포함하면</h2><div id="cost"></div><p class="muted">영상 관찰은 두 방식이 공유합니다. 비교 총비용은 공통 관찰 비용 + 각 측정 시점에 질문 1회(반복 중앙값) + 해당 방식의 요약 비용으로 계산합니다. 고정 출력 통제 실험과 반복 측정 비용은 이 비교 총비용에서 제외합니다.</p></section>
+<section class="card"><h2>실제로 어떤 기억이 남았나</h2><label>관찰 수 <select id="checkpoint"></select></label><button id="seek">영상의 해당 시점으로 이동</button><div class="grid"><div><h3>누적 기록을 넣은 입력</h3><pre id="raw"></pre><h3>그때의 답변</h3><pre id="rawAnswer"></pre></div><div><h3>장기 기억으로 압축한 입력</h3><pre id="compressed"></pre><h3>그때의 답변</h3><pre id="compressedAnswer"></pre></div></div><p class="muted">생성된 관찰과 요약은 오류·누락이 있을 수 있습니다. 이 화면은 정확도 평가 결과가 아닙니다. 압축 요약의 생성 토큰 상한은 기존 코드와 같은 60이며, 길이 상한 도달 여부는 원본 JSON에 기록했습니다.</p></section>
+<p><a href="/demo/memory-results.json" download>전체 원시 결과 JSON 저장</a> · <a href="/demo/memory-report.md">상세 측정 보고서</a></p></main>
+<script>
+const $=id=>document.getElementById(id), median=a=>{a=[...a].sort((a,b)=>a-b);return a[Math.floor(a.length/2)]},fmt=n=>n.toLocaleString('ko-KR',{maximumFractionDigits:1});
+const metric=(c,kind,mode,key)=>median(c[kind].filter(x=>x.mode===mode).map(x=>x[key]));
+fetch('/demo/memory-results.json').then(r=>{if(!r.ok)throw Error('결과 파일을 찾지 못했습니다.');return r.json()}).then(data=>{
+$('status').textContent=data.passed?'측정 완료 · 실제 영상 관찰 30회 · 조건별 자연 답변 12회 + 고정 출력 12회':'측정 진행 중 · 새로고침하면 최신 결과를 확인할 수 있습니다.';
+const checkpoints=data.checkpoints.filter(c=>c.natural_answers.length===6&&c.fixed_output_control.length===6);
+for(const c of checkpoints){const row=document.createElement('tr');const pair=(kind,key)=>['raw','compressed'].map(mode=>fmt(metric(c,kind,mode,key))).join(' / ');
+for(const value of [c.observations,pair('natural_answers','input_tokens'),pair('natural_answers','total_ms'),pair('fixed_output_control','total_ms'),pair('fixed_output_control','first_token_ms')]){const cell=document.createElement('td');cell.textContent=value;row.append(cell)}$('rows').append(row);
+const opt=document.createElement('option');opt.value=c.observations;opt.textContent=c.observations+'개';$('checkpoint').append(opt)}
+const final=checkpoints.at(-1);if(!final)return;
+const inputSaving=100*(1-metric(final,'natural_answers','compressed','input_tokens')/metric(final,'natural_answers','raw','input_tokens'));
+const genSaving=100*(1-metric(final,'fixed_output_control','compressed','total_ms')/metric(final,'fixed_output_control','raw','total_ms'));
+$('finding').textContent='마지막 시점: 입력 토큰 '+fmt(inputSaving)+'% 감소. 같은 32토큰을 생성하는 전체 추론 시간은 '+fmt(Math.abs(genSaving))+'% '+(genSaving>=0?'감소':'증가')+'했습니다.';
+const observe=data.observations.reduce((a,o)=>a+o.action_metrics.total_ms+o.observation_metrics.total_ms,0),compression=data.compressions.reduce((a,c)=>a+c.metrics.total_ms,0);
+const raw=checkpoints.reduce((a,c)=>a+metric(c,'natural_answers','raw','total_ms'),0),compressed=checkpoints.reduce((a,c)=>a+metric(c,'natural_answers','compressed','total_ms'),0);
+$('cost').textContent='요약 6회 비용 '+fmt(compression/1000)+'초 · 공통 관찰 비용 '+fmt(observe/1000)+'초. 관찰 + 질문 4회 + 요약의 계산상 총비용: 누적 '+fmt((observe+raw)/1000)+'초 / 압축 '+fmt((observe+compressed+compression)/1000)+'초.';
+function show(){const c=checkpoints.find(c=>c.observations===Number($('checkpoint').value));for(const mode of ['raw','compressed']){$(mode).textContent=c.contexts[mode];$(mode+'Answer').textContent=c.natural_answers.find(a=>a.mode===mode).text}}
+$('checkpoint').value=final.observations;$('checkpoint').onchange=show;show();
+$('seek').onclick=()=>{document.querySelector('video').currentTime=data.conditions.sample_times_seconds[Number($('checkpoint').value)-1]};
+}).catch(e=>$('status').textContent=e.message);
+</script></html>

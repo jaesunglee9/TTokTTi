@@ -1,0 +1,1042 @@
+{
+  "schema_version": 1,
+  "kind": "real_browser_alternative_demo_not_mobile",
+  "base": "http://localhost:8892",
+  "started_at": "2026-10-22T10:13:39.591Z",
+  "conditions": [
+    {
+      "clients": 1,
+      "per_client": 10,
+      "load": "closed_loop_one_inflight_per_client",
+      "elapsed_ms": 20908,
+      "samples": [
+        {
+          "frame_id": "96ffabb4-c187-43b2-8be9-104740150a34",
+          "status": "ok",
+          "warmup": false,
+          "metrics": {
+            "gateway_prepare_ms": 0.691,
+            "queue_age_ms": 1.045,
+            "image_decode_ms": 0.781,
+            "model_prepare_ms": 6.605,
+            "model_generate_ms": 2046.991,
+            "first_token_ms": 74.912,
+            "model_decode_tail_ms": 1972.079,
+            "output_decode_ms": 0.223,
+            "worker_total_ms": 2055.229,
+            "client_prepare_ms": 18.800000071525574,
+            "send_to_result_ms": 2059.7999999523163,
+            "request_to_result_ms": 2078.600000023842,
+            "receive_to_raf_ms": 5.600000023841858,
+            "request_to_raf_ms": 2084.2000000476837
+          },
+          "analysis": {
+            "text": "A woman and a dog are sitting on the sand at the beach, with the dog reaching out to touch the woman's hand. The scene is calm and peaceful, with the ocean and sunset in the background. There are no visible safety hazards in the image.",
+            "output_tokens": 53,
+            "input_tokens": 185,
+            "token_limit_reached": false,
+            "model_call": 2
+          },
+          "visibility": "visible",
+          "utc": "2026-10-22T10:13:50.320Z",
+          "raf_observed": true,
+          "client": 0
+        },
+        {
+          "frame_id": "18631715-af3f-4904-a79d-fd9b094c860a",
+          "status": "ok",
+          "warmup": false,
+          "metrics": {
+            "gateway_prepare_ms": 0.427,
+            "queue_age_ms": 0.978,
+            "image_decode_ms": 0.594,
+            "model_prepare_ms": 8.174,
+            "model_generate_ms": 2064.343,
+            "first_token_ms": 71.512,
+            "model_decode_tail_ms": 1992.831,
+            "output_decode_ms": 0.167,
+            "worker_total_ms": 2073.828,
+            "client_prepare_ms": 3.700000047683716,
+            "send_to_result_ms": 2077.2999999523163,
+            "request_to_result_ms": 2081,
+            "receive_to_raf_ms": 13.300000071525574,
+            "request_to_raf_ms": 2094.3000000715256
+          },
+          "analysis": {
+            "text": "A woman and a dog are sitting on the sand at the beach, with the dog reaching out to touch the woman's hand. The scene is calm and peaceful, with the ocean and sunset in the background. There are no visible safety hazards in the image.",
+            "output_tokens": 53,
+            "input_tokens": 185,
+            "token_limit_reached": false,
+            "model_call": 3
+          },
+          "visibility": "visible",
+          "utc": "2026-10-22T10:13:52.410Z",
+          "raf_observed": true,
+          "client": 0
+        },
+        {
+          "frame_id": "98f95c80-b8f8-4963-9e7d-24f0917fc3cf",
+          "status": "ok",
+          "warmup": false,
+          "metrics": {
+            "gateway_prepare_ms": 0.428,
+            "queue_age_ms": 1.208,
+            "image_decode_ms": 0.638,
+            "model_prepare_ms": 9.676,
+            "model_generate_ms": 2012.687,
+            "first_token_ms": 72.024,
+            "model_decode_tail_ms": 1940.663,
+            "output_decode_ms": 0.173,
+            "worker_total_ms": 2023.744,
+            "client_prepare_ms": 3.5,
+            "send_to_result_ms": 2027.6000000238419,
+            "request_to_result_ms": 2031.1000000238419,
+            "receive_to_raf_ms": 8.899999976158142,
+            "request_to_raf_ms": 2040
+          },
+          "analysis": {
+            "text": "A woman and a dog are sitting on the sand at the beach, with the dog reaching out to touch the woman's hand. The scene is calm and peaceful, with the ocean and sunset in the background. There are no visible safety hazards in the image.",
+            "output_tokens": 53,
+            "input_tokens": 185,
+            "token_limit_reached": false,
+            "model_call": 4
+          },
+          "visibility": "visible",
+          "utc": "2026-10-22T10:13:54.456Z",
+          "raf_observed": true,
+          "client": 0
+        },
+        {
+          "frame_id": "0b21bcb9-0b26-4dc9-9265-aba2b77545de",
+          "status": "ok",
+          "warmup": false,
+          "metrics": {
+            "gateway_prepare_ms": 0.37,
+            "queue_age_ms": 0.696,
+            "image_decode_ms": 0.633,
+            "model_prepare_ms": 10.245,
+            "model_generate_ms": 1937.247,
+            "first_token_ms": 73.293,
+            "model_decode_tail_ms": 1863.954,
+            "output_decode_ms": 0.172,
+            "worker_total_ms": 1949.051,
+            "client_prepare_ms": 3.200000047683716,
+            "send_to_result_ms": 1952.1000000238419,
+            "request_to_result_ms": 1955.3000000715256,
+            "receive_to_raf_ms": 16,
+            "request_to_raf_ms": 1971.3000000715256
+          },
+          "analysis": {
+            "text": "A woman and a dog are sitting on the sand at the beach, with the dog reaching out to touch the woman's hand. The scene is calm and peaceful, with the ocean and sunset in the background. There are no visible safety hazards in the image.",
+            "output_tokens": 53,
+            "input_tokens": 185,
+            "token_limit_reached": false,
+            "model_call": 5
+          },
+          "visibility": "visible",
+          "utc": "2026-10-22T10:13:56.423Z",
+          "raf_observed": true,
+          "client": 0
+        },
+        {
+          "frame_id": "f4aa2fad-439d-4683-bd3d-c993e200775d",
+          "status": "ok",
+          "warmup": false,
+          "metrics": {
+            "gateway_prepare_ms": 0.372,
+            "queue_age_ms": 0.72,
+            "image_decode_ms": 0.545,
+            "model_prepare_ms": 18.187,
+            "model_generate_ms": 2060.159,
+            "first_token_ms": 70.421,
+            "model_decode_tail_ms": 1989.738,
+            "output_decode_ms": 0.226,
+            "worker_total_ms": 2079.729,
+            "client_prepare_ms": 2.799999952316284,
+            "send_to_result_ms": 2082.899999976158,
+            "request_to_result_ms": 2085.6999999284744,
+            "receive_to_raf_ms": 8.900000095367432,
+            "request_to_raf_ms": 2094.600000023842
+          },
+          "analysis": {
+            "text": "A woman and a dog are sitting on the sand at the beach, with the dog reaching out to touch the woman's hand. The scene is calm and peaceful, with the ocean and sunset in the background. There are no visible safety hazards in the image.",
+            "output_tokens": 53,
+            "input_tokens": 185,
+            "token_limit_reached": false,
+            "model_call": 6
+          },
+          "visibility": "visible",
+          "utc": "2026-10-22T10:13:58.527Z",
+          "raf_observed": true,
+          "client": 0
+        },
+        {
+          "frame_id": "948412ec-1f74-47c5-b69d-86a578856d5a",
+          "status": "ok",
+          "warmup": false,
+          "metrics": {
+            "gateway_prepare_ms": 0.399,
+            "queue_age_ms": 0.97,
+            "image_decode_ms": 0.75,
+            "model_prepare_ms": 13.243,
+            "model_generate_ms": 2038.979,
+            "first_token_ms": 73.12,
+            "model_decode_tail_ms": 1965.859,
+            "output_decode_ms": 0.261,
+            "worker_total_ms": 2053.858,
+            "client_prepare_ms": 2.700000047683716,
+            "send_to_result_ms": 2057.2999999523163,
+            "request_to_result_ms": 2060,
+            "receive_to_raf_ms": 7.600000023841858,
+            "request_to_raf_ms": 2067.600000023842
+          },
+          "analysis": {
+            "text": "A woman and a dog are sitting on the sand at the beach, with the dog reaching out to touch the woman's hand. The scene is calm and peaceful, with the ocean and sunset in the background. There are no visible safety hazards in the image.",
+            "output_tokens": 53,
+            "input_tokens": 185,
+            "token_limit_reached": false,
+            "model_call": 7
+          },
+          "visibility": "visible",
+          "utc": "2026-10-22T10:14:00.598Z",
+          "raf_observed": true,
+          "client": 0
+        },
+        {
+          "frame_id": "e207bbbd-126f-4ffe-af7f-48c1016b9479",
+          "status": "ok",
+          "warmup": false,
+          "metrics": {
+            "gateway_prepare_ms": 0.427,
+            "queue_age_ms": 0.791,
+            "image_decode_ms": 0.799,
+            "model_prepare_ms": 7.988,
+            "model_generate_ms": 1969.841,
+            "first_token_ms": 74.096,
+            "model_decode_tail_ms": 1895.745,
+            "output_decode_ms": 0.168,
+            "worker_total_ms": 1979.339,
+            "client_prepare_ms": 3.3000000715255737,
+            "send_to_result_ms": 1982.5,
+            "request_to_result_ms": 1985.8000000715256,
+            "receive_to_raf_ms": 12.599999904632568,
+            "request_to_raf_ms": 1998.3999999761581
+          },
+          "analysis": {
+            "text": "A woman and a dog are sitting on the sand at the beach, with the dog reaching out to touch the woman's hand. The scene is calm and peaceful, with the ocean and sunset in the background. There are no visible safety hazards in the image.",
+            "output_tokens": 53,
+            "input_tokens": 185,
+            "token_limit_reached": false,
+            "model_call": 8
+          },
+          "visibility": "visible",
+          "utc": "2026-10-22T10:14:02.593Z",
+          "raf_observed": true,
+          "client": 0
+        },
+        {
+          "frame_id": "7c2387b2-f849-47c2-8276-d1641d31e062",
+          "status": "ok",
+          "warmup": false,
+          "metrics": {
+            "gateway_prepare_ms": 0.504,
+            "queue_age_ms": 0.68,
+            "image_decode_ms": 0.698,
+            "model_prepare_ms": 10.368,
+            "model_generate_ms": 1959.909,
+            "first_token_ms": 70.876,
+            "model_decode_tail_ms": 1889.033,
+            "output_decode_ms": 0.207,
+            "worker_total_ms": 1971.793,
+            "client_prepare_ms": 2.6999999284744263,
+            "send_to_result_ms": 1975.3000000715256,
+            "request_to_result_ms": 1978,
+            "receive_to_raf_ms": 6.199999928474426,
+            "request_to_raf_ms": 1984.1999999284744
+          },
+          "analysis": {
+            "text": "A woman and a dog are sitting on the sand at the beach, with the dog reaching out to touch the woman's hand. The scene is calm and peaceful, with the ocean and sunset in the background. There are no visible safety hazards in the image.",
+            "output_tokens": 53,
+            "input_tokens": 185,
+            "token_limit_reached": false,
+            "model_call": 9
+          },
+          "visibility": "visible",
+          "utc": "2026-10-22T10:14:04.586Z",
+          "raf_observed": true,
+          "client": 0
+        },
+        {
+          "frame_id": "a407b66f-e05a-43ab-a72a-a268801a9651",
+          "status": "ok",
+          "warmup": false,
+          "metrics": {
+            "gateway_prepare_ms": 0.471,
+            "queue_age_ms": 0.846,
+            "image_decode_ms": 0.791,
+            "model_prepare_ms": 21.452,
+            "model_generate_ms": 2007.402,
+            "first_token_ms": 85.597,
+            "model_decode_tail_ms": 1921.805,
+            "output_decode_ms": 0.194,
+            "worker_total_ms": 2030.478,
+            "client_prepare_ms": 3.100000023841858,
+            "send_to_result_ms": 2034.1999999284744,
+            "request_to_result_ms": 2037.2999999523163,
+            "receive_to_raf_ms": 1.8000000715255737,
+            "request_to_raf_ms": 2039.1000000238419
+          },
+          "analysis": {
+            "text": "A woman and a dog are sitting on the sand at the beach, with the dog reaching out to touch the woman's hand. The scene is calm and peaceful, with the ocean and sunset in the background. There are no visible safety hazards in the image.",
+            "output_tokens": 53,
+            "input_tokens": 185,
+            "token_limit_reached": false,
+            "model_call": 10
+          },
+          "visibility": "visible",
+          "utc": "2026-10-22T10:14:06.632Z",
+          "raf_observed": true,
+          "client": 0
+        },
+        {
+          "frame_id": "479e91ff-8ad2-4efd-96a4-f38b3f85bd7e",
+          "status": "ok",
+          "warmup": false,
+          "metrics": {
+            "gateway_prepare_ms": 0.387,
+            "queue_age_ms": 0.718,
+            "image_decode_ms": 0.676,
+            "model_prepare_ms": 19.571,
+            "model_generate_ms": 2479.036,
+            "first_token_ms": 80.666,
+            "model_decode_tail_ms": 2398.37,
+            "output_decode_ms": 0.197,
+            "worker_total_ms": 2500.218,
+            "client_prepare_ms": 3.100000023841858,
+            "send_to_result_ms": 2503.2999999523163,
+            "request_to_result_ms": 2506.399999976158,
+            "receive_to_raf_ms": 5.800000071525574,
+            "request_to_raf_ms": 2512.2000000476837
+          },
+          "analysis": {
+            "text": "A woman and a dog are sitting on the sand at the beach, with the dog reaching out to touch the woman's hand. The scene is calm and peaceful, with the ocean and sunset in the background. There are no visible safety hazards in the image.",
+            "output_tokens": 53,
+            "input_tokens": 185,
+            "token_limit_reached": false,
+            "model_call": 11
+          },
+          "visibility": "visible",
+          "utc": "2026-10-22T10:14:09.142Z",
+          "raf_observed": true,
+          "client": 0
+        }
+      ],
+      "stats": {
+        "gateway_prepare_ms": {
+          "n": 10,
+          "p50": 0.427,
+          "p95": 0.691,
+          "max": 0.691
+        },
+        "queue_age_ms": {
+          "n": 10,
+          "p50": 0.791,
+          "p95": 1.208,
+          "max": 1.208
+        },
+        "image_decode_ms": {
+          "n": 10,
+          "p50": 0.676,
+          "p95": 0.799,
+          "max": 0.799
+        },
+        "model_prepare_ms": {
+          "n": 10,
+          "p50": 10.245,
+          "p95": 21.452,
+          "max": 21.452
+        },
+        "model_generate_ms": {
+          "n": 10,
+          "p50": 2012.687,
+          "p95": 2479.036,
+          "max": 2479.036
+        },
+        "first_token_ms": {
+          "n": 10,
+          "p50": 73.12,
+          "p95": 85.597,
+          "max": 85.597
+        },
+        "model_decode_tail_ms": {
+          "n": 10,
+          "p50": 1940.663,
+          "p95": 2398.37,
+          "max": 2398.37
+        },
+        "output_decode_ms": {
+          "n": 10,
+          "p50": 0.194,
+          "p95": 0.261,
+          "max": 0.261
+        },
+        "worker_total_ms": {
+          "n": 10,
+          "p50": 2030.478,
+          "p95": 2500.218,
+          "max": 2500.218
+        },
+        "client_prepare_ms": {
+          "n": 10,
+          "p50": 3.100000023841858,
+          "p95": 18.800000071525574,
+          "max": 18.800000071525574
+        },
+        "send_to_result_ms": {
+          "n": 10,
+          "p50": 2034.1999999284744,
+          "p95": 2503.2999999523163,
+          "max": 2503.2999999523163
+        },
+        "request_to_result_ms": {
+          "n": 10,
+          "p50": 2037.2999999523163,
+          "p95": 2506.399999976158,
+          "max": 2506.399999976158
+        },
+        "receive_to_raf_ms": {
+          "n": 10,
+          "p50": 7.600000023841858,
+          "p95": 16,
+          "max": 16
+        },
+        "request_to_raf_ms": {
+          "n": 10,
+          "p50": 2040,
+          "p95": 2512.2000000476837,
+          "max": 2512.2000000476837
+        }
+      }
+    },
+    {
+      "clients": 3,
+      "per_client": 5,
+      "load": "closed_loop_one_inflight_per_client",
+      "elapsed_ms": 29269,
+      "samples": [
+        {
+          "frame_id": "224aa5ed-0070-438a-9979-bee2492d3acb",
+          "status": "ok",
+          "warmup": false,
+          "metrics": {
+            "gateway_prepare_ms": 0.315,
+            "queue_age_ms": 3956.05,
+            "image_decode_ms": 0.782,
+            "model_prepare_ms": 22.389,
+            "model_generate_ms": 2039.336,
+            "first_token_ms": 84.87,
+            "model_decode_tail_ms": 1954.466,
+            "output_decode_ms": 0.217,
+            "worker_total_ms": 2063.233,
+            "client_prepare_ms": 50.699999928474426,
+            "send_to_result_ms": 6021.800000071526,
+            "request_to_result_ms": 6072.5,
+            "receive_to_raf_ms": 9.899999976158142,
+            "request_to_raf_ms": 6082.399999976158
+          },
+          "analysis": {
+            "text": "A woman and a dog are sitting on the sand at the beach, with the dog reaching out to touch the woman's hand. The scene is calm and peaceful, with the ocean and sunset in the background. There are no visible safety hazards in the image.",
+            "output_tokens": 53,
+            "input_tokens": 185,
+            "token_limit_reached": false,
+            "model_call": 14
+          },
+          "visibility": "visible",
+          "utc": "2026-10-22T10:14:15.862Z",
+          "raf_observed": true,
+          "client": 0
+        },
+        {
+          "frame_id": "0c0a1a73-26a5-42e9-b97c-071f188b5884",
+          "status": "ok",
+          "warmup": false,
+          "metrics": {
+            "gateway_prepare_ms": 0.82,
+            "queue_age_ms": 3748.436,
+            "image_decode_ms": 0.784,
+            "model_prepare_ms": 14.966,
+            "model_generate_ms": 2088.276,
+            "first_token_ms": 73.002,
+            "model_decode_tail_ms": 2015.274,
+            "output_decode_ms": 0.175,
+            "worker_total_ms": 2104.77,
+            "client_prepare_ms": 4.5,
+            "send_to_result_ms": 5856.199999928474,
+            "request_to_result_ms": 5860.699999928474,
+            "receive_to_raf_ms": 12,
+            "request_to_raf_ms": 5872.699999928474
+          },
+          "analysis": {
+            "text": "A woman and a dog are sitting on the sand at the beach, with the dog reaching out to touch the woman's hand. The scene is calm and peaceful, with the ocean and sunset in the background. There are no visible safety hazards in the image.",
+            "output_tokens": 53,
+            "input_tokens": 185,
+            "token_limit_reached": false,
+            "model_call": 17
+          },
+          "visibility": "visible",
+          "utc": "2026-10-22T10:14:21.736Z",
+          "raf_observed": true,
+          "client": 0
+        },
+        {
+          "frame_id": "adcc3567-2556-466a-a947-e96d2fb76eb5",
+          "status": "ok",
+          "warmup": false,
+          "metrics": {
+            "gateway_prepare_ms": 0.426,
+            "queue_age_ms": 3655.218,
+            "image_decode_ms": 0.789,
+            "model_prepare_ms": 8.247,
+            "model_generate_ms": 1982.645,
+            "first_token_ms": 74.84,
+            "model_decode_tail_ms": 1907.805,
+            "output_decode_ms": 0.17,
+            "worker_total_ms": 1992.432,
+            "client_prepare_ms": 3.399999976158142,
+            "send_to_result_ms": 5650.299999952316,
+            "request_to_result_ms": 5653.699999928474,
+            "receive_to_raf_ms": 8.700000047683716,
+            "request_to_raf_ms": 5662.399999976158
+          },
+          "analysis": {
+            "text": "A woman and a dog are sitting on the sand at the beach, with the dog reaching out to touch the woman's hand. The scene is calm and peaceful, with the ocean and sunset in the background. There are no visible safety hazards in the image.",
+            "output_tokens": 53,
+            "input_tokens": 185,
+            "token_limit_reached": false,
+            "model_call": 20
+          },
+          "visibility": "visible",
+          "utc": "2026-10-22T10:14:27.407Z",
+          "raf_observed": true,
+          "client": 0
+        },
+        {
+          "frame_id": "d76638eb-207e-4f53-8404-3a698ebf1b4e",
+          "status": "ok",
+          "warmup": false,
+          "metrics": {
+            "gateway_prepare_ms": 0.955,
+            "queue_age_ms": 3676.276,
+            "image_decode_ms": 0.736,
+            "model_prepare_ms": 16.629,
+            "model_generate_ms": 2010.648,
+            "first_token_ms": 73.86,
+            "model_decode_tail_ms": 1936.788,
+            "output_decode_ms": 0.209,
+            "worker_total_ms": 2029.009,
+            "client_prepare_ms": 3.899999976158142,
+            "send_to_result_ms": 5708.800000071526,
+            "request_to_result_ms": 5712.700000047684,
+            "receive_to_raf_ms": 8,
+            "request_to_raf_ms": 5720.700000047684
+          },
+          "analysis": {
+            "text": "A woman and a dog are sitting on the sand at the beach, with the dog reaching out to touch the woman's hand. The scene is calm and peaceful, with the ocean and sunset in the background. There are no visible safety hazards in the image.",
+            "output_tokens": 53,
+            "input_tokens": 185,
+            "token_limit_reached": false,
+            "model_call": 23
+          },
+          "visibility": "visible",
+          "utc": "2026-10-22T10:14:33.131Z",
+          "raf_observed": true,
+          "client": 0
+        },
+        {
+          "frame_id": "634b975d-c2f5-4580-bc4f-6aae7de6f07b",
+          "status": "ok",
+          "warmup": false,
+          "metrics": {
+            "gateway_prepare_ms": 0.602,
+            "queue_age_ms": 3776.215,
+            "image_decode_ms": 0.786,
+            "model_prepare_ms": 14.541,
+            "model_generate_ms": 2107.266,
+            "first_token_ms": 71.939,
+            "model_decode_tail_ms": 2035.327,
+            "output_decode_ms": 0.193,
+            "worker_total_ms": 2123.391,
+            "client_prepare_ms": 2.899999976158142,
+            "send_to_result_ms": 5902.600000023842,
+            "request_to_result_ms": 5905.5,
+            "receive_to_raf_ms": 9.799999952316284,
+            "request_to_raf_ms": 5915.299999952316
+          },
+          "analysis": {
+            "text": "A woman and a dog are sitting on the sand at the beach, with the dog reaching out to touch the woman's hand. The scene is calm and peaceful, with the ocean and sunset in the background. There are no visible safety hazards in the image.",
+            "output_tokens": 53,
+            "input_tokens": 185,
+            "token_limit_reached": false,
+            "model_call": 26
+          },
+          "visibility": "visible",
+          "utc": "2026-10-22T10:14:39.047Z",
+          "raf_observed": true,
+          "client": 0
+        },
+        {
+          "frame_id": "6f95996a-7803-4050-8599-de1641de7d99",
+          "status": "ok",
+          "warmup": false,
+          "metrics": {
+            "gateway_prepare_ms": 0.554,
+            "queue_age_ms": 0.982,
+            "image_decode_ms": 0.798,
+            "model_prepare_ms": 21.247,
+            "model_generate_ms": 1749.814,
+            "first_token_ms": 95.058,
+            "model_decode_tail_ms": 1654.756,
+            "output_decode_ms": 0.388,
+            "worker_total_ms": 1773.079,
+            "client_prepare_ms": 45.89999997615814,
+            "send_to_result_ms": 1777.7999999523163,
+            "request_to_result_ms": 1823.6999999284744,
+            "receive_to_raf_ms": 7.900000095367432,
+            "request_to_raf_ms": 1831.6000000238419
+          },
+          "analysis": {
+            "text": "A woman and a dog are sitting on the sand at the beach, smiling and interacting. The scene is peaceful, with the ocean and sunset in the background. There are no visible safety concerns in the image.",
+            "output_tokens": 43,
+            "input_tokens": 185,
+            "token_limit_reached": false,
+            "model_call": 12
+          },
+          "visibility": "visible",
+          "utc": "2026-10-22T10:14:11.613Z",
+          "raf_observed": true,
+          "client": 1
+        },
+        {
+          "frame_id": "6d45b92e-eafe-4446-ab72-b51452c36e42",
+          "status": "ok",
+          "warmup": false,
+          "metrics": {
+            "gateway_prepare_ms": 0.413,
+            "queue_age_ms": 4232.596,
+            "image_decode_ms": 0.779,
+            "model_prepare_ms": 17.141,
+            "model_generate_ms": 1664.552,
+            "first_token_ms": 75.027,
+            "model_decode_tail_ms": 1589.525,
+            "output_decode_ms": 0.184,
+            "worker_total_ms": 1683.179,
+            "client_prepare_ms": 3.700000047683716,
+            "send_to_result_ms": 5918.199999928474,
+            "request_to_result_ms": 5921.899999976158,
+            "receive_to_raf_ms": 6.900000095367432,
+            "request_to_raf_ms": 5928.800000071526
+          },
+          "analysis": {
+            "text": "A woman and a dog are sitting on the sand at the beach, smiling and interacting. The scene is peaceful, with the ocean and sunset in the background. There are no visible safety concerns in the image.",
+            "output_tokens": 43,
+            "input_tokens": 185,
+            "token_limit_reached": false,
+            "model_call": 15
+          },
+          "visibility": "visible",
+          "utc": "2026-10-22T10:14:17.546Z",
+          "raf_observed": true,
+          "client": 1
+        },
+        {
+          "frame_id": "7f90c69e-4e74-4b1d-8dde-7d740ab0e011",
+          "status": "ok",
+          "warmup": false,
+          "metrics": {
+            "gateway_prepare_ms": 0.42,
+            "queue_age_ms": 4175.745,
+            "image_decode_ms": 0.723,
+            "model_prepare_ms": 14.312,
+            "model_generate_ms": 1645.934,
+            "first_token_ms": 76.244,
+            "model_decode_tail_ms": 1569.69,
+            "output_decode_ms": 0.156,
+            "worker_total_ms": 1661.659,
+            "client_prepare_ms": 3.5,
+            "send_to_result_ms": 5840,
+            "request_to_result_ms": 5843.5,
+            "receive_to_raf_ms": 2.5,
+            "request_to_raf_ms": 5846
+          },
+          "analysis": {
+            "text": "A woman and a dog are sitting on the sand at the beach, smiling and interacting. The scene is peaceful, with the ocean and sunset in the background. There are no visible safety concerns in the image.",
+            "output_tokens": 43,
+            "input_tokens": 185,
+            "token_limit_reached": false,
+            "model_call": 18
+          },
+          "visibility": "visible",
+          "utc": "2026-10-22T10:14:23.398Z",
+          "raf_observed": true,
+          "client": 1
+        },
+        {
+          "frame_id": "30a55189-2a70-4cd4-b376-7cb7d62b4481",
+          "status": "ok",
+          "warmup": false,
+          "metrics": {
+            "gateway_prepare_ms": 0.479,
+            "queue_age_ms": 3998.638,
+            "image_decode_ms": 0.795,
+            "model_prepare_ms": 4.932,
+            "model_generate_ms": 1659.036,
+            "first_token_ms": 72.572,
+            "model_decode_tail_ms": 1586.464,
+            "output_decode_ms": 0.171,
+            "worker_total_ms": 1665.458,
+            "client_prepare_ms": 3,
+            "send_to_result_ms": 5666.899999976158,
+            "request_to_result_ms": 5669.899999976158,
+            "receive_to_raf_ms": 9.399999976158142,
+            "request_to_raf_ms": 5679.299999952316
+          },
+          "analysis": {
+            "text": "A woman and a dog are sitting on the sand at the beach, smiling and interacting. The scene is peaceful, with the ocean and sunset in the background. There are no visible safety concerns in the image.",
+            "output_tokens": 43,
+            "input_tokens": 185,
+            "token_limit_reached": false,
+            "model_call": 21
+          },
+          "visibility": "visible",
+          "utc": "2026-10-22T10:14:29.073Z",
+          "raf_observed": true,
+          "client": 1
+        },
+        {
+          "frame_id": "f5391f4d-1cb3-46ef-9a01-cee5c6355d29",
+          "status": "ok",
+          "warmup": false,
+          "metrics": {
+            "gateway_prepare_ms": 0.449,
+            "queue_age_ms": 4039.872,
+            "image_decode_ms": 0.857,
+            "model_prepare_ms": 16.437,
+            "model_generate_ms": 1678.426,
+            "first_token_ms": 78.525,
+            "model_decode_tail_ms": 1599.901,
+            "output_decode_ms": 0.185,
+            "worker_total_ms": 1696.625,
+            "client_prepare_ms": 4.199999928474426,
+            "send_to_result_ms": 5739.300000071526,
+            "request_to_result_ms": 5743.5,
+            "receive_to_raf_ms": 5.199999928474426,
+            "request_to_raf_ms": 5748.699999928474
+          },
+          "analysis": {
+            "text": "A woman and a dog are sitting on the sand at the beach, smiling and interacting. The scene is peaceful, with the ocean and sunset in the background. There are no visible safety concerns in the image.",
+            "output_tokens": 43,
+            "input_tokens": 185,
+            "token_limit_reached": false,
+            "model_call": 24
+          },
+          "visibility": "visible",
+          "utc": "2026-10-22T10:14:34.828Z",
+          "raf_observed": true,
+          "client": 1
+        },
+        {
+          "frame_id": "f29dacb1-6438-47d0-a4c0-603a5c35240a",
+          "status": "ok",
+          "warmup": false,
+          "metrics": {
+            "gateway_prepare_ms": 0.589,
+            "queue_age_ms": 1773.714,
+            "image_decode_ms": 0.835,
+            "model_prepare_ms": 19.97,
+            "model_generate_ms": 2162.371,
+            "first_token_ms": 76.369,
+            "model_decode_tail_ms": 2086.002,
+            "output_decode_ms": 0.187,
+            "worker_total_ms": 2184.157,
+            "client_prepare_ms": 47.799999952316284,
+            "send_to_result_ms": 3960.9000000953674,
+            "request_to_result_ms": 4008.7000000476837,
+            "receive_to_raf_ms": 3.899999976158142,
+            "request_to_raf_ms": 4012.600000023842
+          },
+          "analysis": {
+            "text": "A woman and a dog are sitting on the sand at the beach, with the dog reaching out to touch the woman's hand. The scene is calm and peaceful, with the ocean and sunset in the background. There are no visible safety hazards in the image.",
+            "output_tokens": 53,
+            "input_tokens": 185,
+            "token_limit_reached": false,
+            "model_call": 13
+          },
+          "visibility": "visible",
+          "utc": "2026-10-22T10:14:13.798Z",
+          "raf_observed": true,
+          "client": 2
+        },
+        {
+          "frame_id": "074564ab-bbe6-47f2-8309-66810376adb5",
+          "status": "ok",
+          "warmup": false,
+          "metrics": {
+            "gateway_prepare_ms": 0.492,
+            "queue_age_ms": 3733.755,
+            "image_decode_ms": 0.803,
+            "model_prepare_ms": 13.949,
+            "model_generate_ms": 2068.412,
+            "first_token_ms": 73.257,
+            "model_decode_tail_ms": 1995.155,
+            "output_decode_ms": 0.175,
+            "worker_total_ms": 2083.88,
+            "client_prepare_ms": 4.200000047683716,
+            "send_to_result_ms": 5820.600000023842,
+            "request_to_result_ms": 5824.800000071526,
+            "receive_to_raf_ms": 5.799999952316284,
+            "request_to_raf_ms": 5830.600000023842
+          },
+          "analysis": {
+            "text": "A woman and a dog are sitting on the sand at the beach, with the dog reaching out to touch the woman's hand. The scene is calm and peaceful, with the ocean and sunset in the background. There are no visible safety hazards in the image.",
+            "output_tokens": 53,
+            "input_tokens": 185,
+            "token_limit_reached": false,
+            "model_call": 16
+          },
+          "visibility": "visible",
+          "utc": "2026-10-22T10:14:19.631Z",
+          "raf_observed": true,
+          "client": 2
+        },
+        {
+          "frame_id": "bf7dfe44-204c-4eb4-a13f-9c87c6fceb8c",
+          "status": "ok",
+          "warmup": false,
+          "metrics": {
+            "gateway_prepare_ms": 0.452,
+            "queue_age_ms": 3754.491,
+            "image_decode_ms": 0.857,
+            "model_prepare_ms": 8.864,
+            "model_generate_ms": 2004.072,
+            "first_token_ms": 73.781,
+            "model_decode_tail_ms": 1930.291,
+            "output_decode_ms": 0.17,
+            "worker_total_ms": 2014.565,
+            "client_prepare_ms": 3.5,
+            "send_to_result_ms": 5771.700000047684,
+            "request_to_result_ms": 5775.200000047684,
+            "receive_to_raf_ms": 1.5,
+            "request_to_raf_ms": 5776.700000047684
+          },
+          "analysis": {
+            "text": "A woman and a dog are sitting on the sand at the beach, with the dog reaching out to touch the woman's hand. The scene is calm and peaceful, with the ocean and sunset in the background. There are no visible safety hazards in the image.",
+            "output_tokens": 53,
+            "input_tokens": 185,
+            "token_limit_reached": false,
+            "model_call": 19
+          },
+          "visibility": "visible",
+          "utc": "2026-10-22T10:14:25.414Z",
+          "raf_observed": true,
+          "client": 2
+        },
+        {
+          "frame_id": "f73ed80c-1da4-4b2a-a5d2-2865990a0ec2",
+          "status": "ok",
+          "warmup": false,
+          "metrics": {
+            "gateway_prepare_ms": 0.407,
+            "queue_age_ms": 3649.2,
+            "image_decode_ms": 0.805,
+            "model_prepare_ms": 7.545,
+            "model_generate_ms": 2018.064,
+            "first_token_ms": 73.591,
+            "model_decode_tail_ms": 1944.473,
+            "output_decode_ms": 0.194,
+            "worker_total_ms": 2027.064,
+            "client_prepare_ms": 3.799999952316284,
+            "send_to_result_ms": 5678.800000071526,
+            "request_to_result_ms": 5682.600000023842,
+            "receive_to_raf_ms": 9.799999952316284,
+            "request_to_raf_ms": 5692.399999976158
+          },
+          "analysis": {
+            "text": "A woman and a dog are sitting on the sand at the beach, with the dog reaching out to touch the woman's hand. The scene is calm and peaceful, with the ocean and sunset in the background. There are no visible safety hazards in the image.",
+            "output_tokens": 53,
+            "input_tokens": 185,
+            "token_limit_reached": false,
+            "model_call": 22
+          },
+          "visibility": "visible",
+          "utc": "2026-10-22T10:14:31.101Z",
+          "raf_observed": true,
+          "client": 2
+        },
+        {
+          "frame_id": "3baa8a79-51c6-4b69-b4fe-91358041cc66",
+          "status": "ok",
+          "warmup": false,
+          "metrics": {
+            "gateway_prepare_ms": 0.416,
+            "queue_age_ms": 3709.07,
+            "image_decode_ms": 0.922,
+            "model_prepare_ms": 18.097,
+            "model_generate_ms": 2073.843,
+            "first_token_ms": 73.423,
+            "model_decode_tail_ms": 2000.42,
+            "output_decode_ms": 0.168,
+            "worker_total_ms": 2093.584,
+            "client_prepare_ms": 3.799999952316284,
+            "send_to_result_ms": 5805.5,
+            "request_to_result_ms": 5809.299999952316,
+            "receive_to_raf_ms": 8.600000023841858,
+            "request_to_raf_ms": 5817.899999976158
+          },
+          "analysis": {
+            "text": "A woman and a dog are sitting on the sand at the beach, with the dog reaching out to touch the woman's hand. The scene is calm and peaceful, with the ocean and sunset in the background. There are no visible safety hazards in the image.",
+            "output_tokens": 53,
+            "input_tokens": 185,
+            "token_limit_reached": false,
+            "model_call": 25
+          },
+          "visibility": "visible",
+          "utc": "2026-10-22T10:14:36.923Z",
+          "raf_observed": true,
+          "client": 2
+        }
+      ],
+      "stats": {
+        "gateway_prepare_ms": {
+          "n": 15,
+          "p50": 0.452,
+          "p95": 0.955,
+          "max": 0.955
+        },
+        "queue_age_ms": {
+          "n": 15,
+          "p50": 3748.436,
+          "p95": 4232.596,
+          "max": 4232.596
+        },
+        "image_decode_ms": {
+          "n": 15,
+          "p50": 0.795,
+          "p95": 0.922,
+          "max": 0.922
+        },
+        "model_prepare_ms": {
+          "n": 15,
+          "p50": 14.966,
+          "p95": 22.389,
+          "max": 22.389
+        },
+        "model_generate_ms": {
+          "n": 15,
+          "p50": 2010.648,
+          "p95": 2162.371,
+          "max": 2162.371
+        },
+        "first_token_ms": {
+          "n": 15,
+          "p50": 73.86,
+          "p95": 95.058,
+          "max": 95.058
+        },
+        "model_decode_tail_ms": {
+          "n": 15,
+          "p50": 1936.788,
+          "p95": 2086.002,
+          "max": 2086.002
+        },
+        "output_decode_ms": {
+          "n": 15,
+          "p50": 0.184,
+          "p95": 0.388,
+          "max": 0.388
+        },
+        "worker_total_ms": {
+          "n": 15,
+          "p50": 2027.064,
+          "p95": 2184.157,
+          "max": 2184.157
+        },
+        "client_prepare_ms": {
+          "n": 15,
+          "p50": 3.799999952316284,
+          "p95": 50.699999928474426,
+          "max": 50.699999928474426
+        },
+        "send_to_result_ms": {
+          "n": 15,
+          "p50": 5771.700000047684,
+          "p95": 6021.800000071526,
+          "max": 6021.800000071526
+        },
+        "request_to_result_ms": {
+          "n": 15,
+          "p50": 5775.200000047684,
+          "p95": 6072.5,
+          "max": 6072.5
+        },
+        "receive_to_raf_ms": {
+          "n": 15,
+          "p50": 8,
+          "p95": 12,
+          "max": 12
+        },
+        "request_to_raf_ms": {
+          "n": 15,
+          "p50": 5776.700000047684,
+          "p95": 6082.399999976158,
+          "max": 6082.399999976158
+        }
+      }
+    }
+  ],
+  "errors": [],
+  "metadata": {
+    "ready": true,
+    "model": "Qwen/Qwen3-VL-2B-Instruct",
+    "revision": "89644892e4d85e24eaac8bacfd4f463576704203",
+    "dtype": "float16",
+    "device": "NVIDIA GeForce RTX 2070 SUPER",
+    "max_new_tokens": 64,
+    "model_load_ms": 42103.734,
+    "transformers": "4.57.6",
+    "torch": "2.14.0+cu130",
+    "mode": "browser_demo_single_frame"
+  },
+  "warmup": {
+    "frame_id": "cf3254c8-22e6-406a-94d4-1e0c3fc98ffe",
+    "status": "ok",
+    "warmup": true,
+    "metrics": {
+      "gateway_prepare_ms": 19.937,
+      "queue_age_ms": 3.192,
+      "image_decode_ms": 66.643,
+      "model_prepare_ms": 165.591,
+      "model_generate_ms": 7371.992,
+      "first_token_ms": 5234.373,
+      "model_decode_tail_ms": 2137.619,
+      "output_decode_ms": 2.88,
+      "worker_total_ms": 7612.008,
+      "client_prepare_ms": 175.20000004768372,
+      "send_to_result_ms": 7659.200000047684,
+      "request_to_result_ms": 7834.400000095367,
+      "receive_to_raf_ms": 4.5,
+      "request_to_raf_ms": 7838.900000095367
+    },
+    "analysis": {
+      "text": "A woman and a dog are sitting on the sand at the beach, with the dog reaching out to touch the woman's hand. The scene is calm and peaceful, with the ocean and sunset in the background. There are no visible safety hazards in the image.",
+      "output_tokens": 53,
+      "input_tokens": 185,
+      "token_limit_reached": false,
+      "model_call": 1
+    },
+    "visibility": "visible",
+    "utc": "2026-10-22T10:13:47.919Z",
+    "raf_observed": true
+  },
+  "completed_at": "2026-10-22T10:14:39.206Z",
+  "passed": true
+}
