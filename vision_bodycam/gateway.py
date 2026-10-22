@@ -3,6 +3,9 @@ import base64
 import io
 import json
 import logging
+import os
+import time
+from latency import elapsed_ms, frame_id, redis_time_ms
 from contextlib import asynccontextmanager
 from typing import Any, Dict
 
@@ -14,7 +17,7 @@ from PIL import Image
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
 
-REDIS_URL = "redis://localhost:6379"
+REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379")
 redis_client: redis.Redis | None = None
 
 def enforce_image_resolution(b64_string: str, max_width=360, max_height=360) -> str:
@@ -71,9 +74,10 @@ async def websocket_endpoint(websocket: WebSocket, client_id: str):
 
     pubsub = redis_client.pubsub()
     listener_task = None
+    measure_latency = False
+    await pubsub.subscribe(f"alerts:{client_id}")
 
     async def listen_for_results():
-        await pubsub.subscribe(f"alerts:{client_id}")
         try:
             async for message in pubsub.listen():
                 if message["type"] == "message":
@@ -90,10 +94,14 @@ async def websocket_endpoint(websocket: WebSocket, client_id: str):
     try:
         while True:
             data_text = await websocket.receive_text()
+            received_at = time.perf_counter()
             data_json: Dict[str, Any] = json.loads(data_text)
+            # Internal timings must never come from the client.
+            data_json.pop("_latency", None)
             
             msg_type = data_json.get("type", "").upper()
             if msg_type == "CONFIG":
+                measure_latency = data_json.get("latency_metrics") is True
                 mapping = {
                     "worksession_id": str(data_json.get("worksession_id", "")),
                     "risk_type_id": str(data_json.get("risk_type_id", "")),
@@ -115,7 +123,17 @@ async def websocket_endpoint(websocket: WebSocket, client_id: str):
                 )
                 data_json["image"] = optimized_b64
 
-            payload = json.dumps({"client_id": client_id, "data": data_json})
+            job = {"client_id": client_id, "data": data_json}
+            if measure_latency and msg_type == "FRAME" and frame_id(data_json.get("frame_id")):
+                try:
+                    job["_latency"] = {
+                        "version": 1, "frame_id": data_json["frame_id"],
+                        "gateway_prepare_ms": elapsed_ms(received_at),
+                        "enqueued_redis_ms": await redis_time_ms(redis_client),
+                    }
+                except Exception:
+                    logger.warning("Latency clock unavailable; frame processing continues")
+            payload = json.dumps(job)
 
             if msg_type == "QUESTION":
                 await redis_client.lpush("questions", payload)
@@ -131,5 +149,9 @@ async def websocket_endpoint(websocket: WebSocket, client_id: str):
     finally:
         if listener_task:
             listener_task.cancel()
+            try:
+                await listener_task
+            except asyncio.CancelledError:
+                pass
         await pubsub.unsubscribe(f"alerts:{client_id}")
         await pubsub.close()

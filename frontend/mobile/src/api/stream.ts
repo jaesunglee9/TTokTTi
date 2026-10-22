@@ -1,123 +1,140 @@
 // src/api/stream.ts
 import { Alert } from 'react-native';
+import { FrameLatencyTracker, type FrameStart } from '../telemetry/latency';
 
-export type StreamMessageType = 'DANGER' | 'ANSWER';
-
+export type StreamMessageType = 'DANGER' | 'ANSWER' | 'ANSWER_CHUNK' | 'ANSWER_DONE' | 'FRAME_RESULT';
 export interface StreamResponse {
   type: StreamMessageType;
   message: string;
   details?: string;
   timestamp?: string;
+  frame_id?: string;
+  status?: 'ok' | 'error';
+  timing?: Record<string, number>;
 }
-
-// 1. Define the configuration interface
 export interface SessionConfig {
   worksession_id: string;
   video_path: string;
+  /** Diagnostic frames receive a completion even when no danger is detected. */
+  measureLatency?: boolean;
+  gatewayUrl?: string;
 }
 
 class SafetyStream {
   private ws: WebSocket | null = null;
   private url: string;
-  private config: SessionConfig;
-  private onMessageCallback: (data: StreamResponse) => void;
-  private reconnectAttempts: number = 0;
-  private maxReconnectAttempts: number = 5;
+  private reconnectAttempts = 0;
+  private readonly maxReconnectAttempts = 5;
+  private reconnectTimer: ReturnType<typeof setTimeout> | null = null;
+  private metricsTimer: ReturnType<typeof setInterval> | null = null;
+  private stopped = false;
+  private lastFrameTime = -Infinity;
+  private readonly FRAME_INTERVAL_MS = 1000;
+  private readonly latency = new FrameLatencyTracker();
+  private readonly tracePrefix = Math.random().toString(36).slice(2);
+  private sequence = 0;
 
-  // Throttle timer
-  private lastFrameTime: number = 0;
-  private readonly FRAME_INTERVAL_MS = 1000; // 1 FPS (matches CameraScreen INTERVAL_MS)
-
-  // FIX: Added 'config: SessionConfig' to the constructor parameters
-  constructor(clientId: string, config: SessionConfig, onMessage: (data: StreamResponse) => void) {
-    // Port 8888 is where your gateway.py FastAPI server is running
-    this.url = `wss://laptop-gpu.tail413c80.ts.net/ws/stream/${clientId}`;
-    this.config = config;
-    this.onMessageCallback = onMessage;
+  constructor(clientId: string, private config: SessionConfig, private onMessageCallback: (data: StreamResponse) => void) {
+    const gateway = config.gatewayUrl ?? 'wss://laptop-gpu.tail413c80.ts.net';
+    this.url = `${gateway.replace(/\/$/, '')}/ws/stream/${encodeURIComponent(clientId)}`;
   }
 
   public connect() {
-    this.ws = new WebSocket(this.url);
-
-    this.ws.onopen = () => {
+    if (this.stopped || this.ws) return;
+    const socket = new WebSocket(this.url);
+    this.ws = socket;
+    socket.onopen = () => {
+      if (this.ws !== socket || this.stopped) return;
       console.log('✅ Connected to Safety Gateway');
       this.reconnectAttempts = 0;
-
-      // Send initialization config payload right after connection opens
-      this.ws?.send(JSON.stringify({
-        type: 'CONFIG',
-        worksession_id: this.config.worksession_id,
-        video_path: this.config.video_path
+      socket.send(JSON.stringify({
+        type: 'CONFIG', worksession_id: this.config.worksession_id,
+        video_path: this.config.video_path, latency_metrics: this.config.measureLatency === true,
       }));
+      if (this.config.measureLatency && !this.metricsTimer) {
+        this.metricsTimer = setInterval(() => {
+          const summary = this.latency.snapshot();
+          if (summary.counts.sent) console.log('[LATENCY]', JSON.stringify(summary));
+        }, 10_000);
+      }
     };
-
-    this.ws.onmessage = (e) => {
+    socket.onmessage = e => {
+      if (this.ws !== socket || this.stopped) return;
       try {
         const data: StreamResponse = JSON.parse(e.data);
+        if (data.type === 'FRAME_RESULT') {
+          if (this.config.measureLatency) this.latency.complete(data.frame_id, data.status, data.timing);
+          return; // Measurement acknowledgments are not safety alerts.
+        }
         this.onMessageCallback(data);
       } catch (err) {
         console.error('❌ Failed to parse stream message:', err);
       }
     };
-
-    this.ws.onclose = (e) => {
+    socket.onclose = e => {
+      if (this.ws !== socket) return;
+      this.ws = null;
+      this.latency.abandon();
       console.log('🔌 Connection closed:', e.reason);
-      this.handleReconnect();
+      if (!this.stopped) this.handleReconnect();
     };
-
-    this.ws.onerror = (e) => {
-      console.error('⚠️ WebSocket Error:', e);
-    };
+    socket.onerror = e => console.error('⚠️ WebSocket Error:', e);
   }
 
   private handleReconnect() {
     if (this.reconnectAttempts < this.maxReconnectAttempts) {
       this.reconnectAttempts++;
-      console.log(`🔄 Attempting reconnect (${this.reconnectAttempts}/${this.maxReconnectAttempts})...`);
-      setTimeout(() => this.connect(), 3000);
+      this.reconnectTimer = setTimeout(() => { this.reconnectTimer = null; this.connect(); }, 3000);
     } else {
       Alert.alert('연결 오류', '서버와의 연결이 끊겼습니다. 네트워크를 확인해주세요.');
     }
   }
 
-  /**
-   * Sends video frame in desired rate.
-   */
-  public sendFrame(base64Image: string) {
-    const now = Date.now();
-    // Drop frames if they are coming in too fast
-    if (now - this.lastFrameTime < this.FRAME_INTERVAL_MS) {
-        return;
+  public sendFrame(base64Image: string, capture?: FrameStart): boolean {
+    const now = performance.now();
+    if (this.ws?.readyState !== WebSocket.OPEN) {
+      if (this.config.measureLatency) this.latency.counts.offline++;
+      return false;
     }
-    
-    if (this.ws?.readyState === WebSocket.OPEN) {
-      this.lastFrameTime = now;
-      this.ws.send(JSON.stringify({
-        type: 'FRAME',
-        image: base64Image,
-        timestamp: now
-      }));
+    if (now - this.lastFrameTime < this.FRAME_INTERVAL_MS) {
+      if (this.config.measureLatency) this.latency.counts.throttled++;
+      return false;
+    }
+    this.lastFrameTime = now;
+    const id = this.config.measureLatency ? `${this.tracePrefix}-${++this.sequence}` : undefined;
+    const payload = JSON.stringify({ type: 'FRAME', image: base64Image, timestamp: Date.now(), frame_id: id });
+    // Serialization is included in capture-to-send, but not send-to-result.
+    if (id) this.latency.start(id, capture?.captureRequestedAt);
+    try {
+      this.ws.send(payload);
+      return true;
+    } catch (error) {
+      if (id) this.latency.complete(id, 'error', {});
+      console.warn('Frame send failed:', error);
+      return false;
     }
   }
 
-  /**
-   * Sends an STT question to the high-priority 'questions' queue
-   */
-  // FIX: Updated parameter from `base64Image: string` to `timestamp: string`
   public sendQuestion(text: string, timestamp: string) {
-    if (this.ws?.readyState === WebSocket.OPEN) {
-      this.ws.send(JSON.stringify({
-        type: 'QUESTION',
-        text: text,
-        timestamp: timestamp
-      }));
-    }
+    if (this.ws?.readyState === WebSocket.OPEN)
+      this.ws.send(JSON.stringify({ type: 'QUESTION', text, timestamp }));
   }
+
+  public getLatencySummary() { return this.latency.snapshot(); }
 
   public disconnect() {
-    this.ws?.close();
-    this.ws = null;
+    if (this.stopped) return;
+    this.stopped = true;
+    if (this.reconnectTimer) clearTimeout(this.reconnectTimer);
+    if (this.metricsTimer) clearInterval(this.metricsTimer);
+    this.reconnectTimer = null;
+    this.metricsTimer = null;
+    this.latency.abandon();
+    if (this.config.measureLatency && this.latency.counts.sent)
+      console.log('[LATENCY]', JSON.stringify(this.latency.snapshot()));
+    const socket = this.ws;
+    this.ws = null; // Ignore the close callback; deliberate stop must never reconnect.
+    socket?.close();
   }
 }
-
 export default SafetyStream;

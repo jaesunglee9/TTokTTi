@@ -29,6 +29,7 @@ import { useWorkSession } from '../context/WorkSessionContext';
 import SafetyStream, { StreamResponse } from '../api/stream';
 
 import { useVisionEngine } from '../vision/hooks/useVisionEngine';
+import { LatencyWindow } from '../telemetry/latency';
 import { preprocessImageForYOLO } from '../vision/utils/imagePreprocess';
 
 import { PorcupineManager } from '@picovoice/porcupine-react-native';
@@ -110,6 +111,18 @@ export default function CameraScreen({ route }: Props) {
 
   // Refs
   const cameraRef = useRef<Camera>(null);
+  const captureBusyRef = useRef(false);
+  const localLatency = useRef(new LatencyWindow());
+  const localCounts = useRef({ completed: 0, failed: 0, busySkipped: 0 });
+  useEffect(() => {
+    if (!__DEV__ || !isCameraActive) return;
+    const report = () => console.log('[LATENCY]', JSON.stringify({
+      source: 'camera_local', window: 120, counts: localCounts.current,
+      metrics: localLatency.current.snapshot(),
+    }));
+    const timer = setInterval(report, 10_000);
+    return () => { clearInterval(timer); report(); };
+  }, [isCameraActive]);
   const streamRef = useRef<SafetyStream | null>(null);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const porcupineManagerRef = useRef<PorcupineManager | null>(null);
@@ -227,7 +240,8 @@ export default function CameraScreen({ route }: Props) {
       userId, 
       { 
         worksession_id: currentSessionId, 
-        video_path: ""  
+        video_path: "",
+        measureLatency: __DEV__,
       },
       (data: StreamResponse) => {
       if (data.type === 'DANGER') {
@@ -272,16 +286,29 @@ export default function CameraScreen({ route }: Props) {
       if (!cameraRef.current || !vision.isReady) return;
       if (!isCameraActiveRef.current || !isCameraReadyRef.current) return;
 
+      if (captureBusyRef.current) { localCounts.current.busySkipped++; return; }
+      captureBusyRef.current = true;
+      const captureRequestedAt = performance.now();
       try {
         const photo = await cameraRef.current.takePhoto({
           flash: 'off',
           enableShutterSound: false,
         });
 
+        const photoReadyAt = performance.now();
+        if (__DEV__) localLatency.current.observe('photo_request_ms', photoReadyAt - captureRequestedAt);
         // 실제 이미지 전처리: JPEG → 640x640 RGB Float32Array
         const inputData = await preprocessImageForYOLO(`file://${photo.path}`, 640);
 
-        const { events, detections: frameDetections } = vision.processFrame(inputData, 640, 640);
+        const preparedAt = performance.now();
+        if (__DEV__) localLatency.current.observe('preprocess_ms', preparedAt - photoReadyAt);
+        const { events, detections: frameDetections, processed } = vision.processFrame(inputData, 640, 640);
+        const resultAt = performance.now();
+        if (__DEV__ && processed) {
+          localLatency.current.observe('local_analysis_ms', resultAt - preparedAt);
+          localLatency.current.observe('capture_request_to_local_result_ms', resultAt - captureRequestedAt);
+          localCounts.current.completed++;
+        }
 
         // 모드별 detection 필터
         const filtered = isTestCam
@@ -296,8 +323,9 @@ export default function CameraScreen({ route }: Props) {
         // 불필요한 네트워크 트래픽 및 Tailscale 라우팅 지연을 감소시킵니다.
         if (isWorkerCam && filtered.length > 0 && streamRef.current) {
           const base64 = await RNFS.readFile(photo.path, 'base64');
-          streamRef.current.sendFrame(base64);
-          console.log('[CameraScreen] 유의미한 객체 인식됨 -> 프레임 스트리밍 전송완료');
+          if (streamRef.current.sendFrame(base64, { captureRequestedAt })) {
+            console.log('[CameraScreen] 유의미한 객체 인식됨 -> 프레임 스트리밍 전송완료');
+          }
         }
 
         // 모드별 이벤트 처리
@@ -332,7 +360,10 @@ export default function CameraScreen({ route }: Props) {
           }
         }
       } catch (err) {
+        localCounts.current.failed++;
         console.error('[CameraScreen] 프레임 처리 실패:', err);
+      } finally {
+        captureBusyRef.current = false;
       }
     }, 1000); // 1fps
 

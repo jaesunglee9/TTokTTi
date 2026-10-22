@@ -83,6 +83,7 @@ export class VisionEngine {
     frameHeight: number,
     poseInputFn?: (bbox: [number, number, number, number]) => Float32Array | null,
   ): { events: SafetyEvent[]; detections: Detection[] } {
+    const started = performance.now();
     const t0 = Date.now();
     const now = t0 / 1000;
     const shouldLog = t0 - this.lastLogTime >= 1000; // 1초마다 로그
@@ -184,7 +185,7 @@ export class VisionEngine {
       events.push(...ruleEvents);
     }
 
-    this.lastInferenceMs = Date.now() - t0;
+    this.lastInferenceMs = Math.round(performance.now() - started);
 
     if (shouldLog) {
       console.log(`[Vision:Frame] ${this.lastInferenceMs}ms | 탐지=${detections.length} | 이벤트=${events.length}`);

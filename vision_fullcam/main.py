@@ -2,6 +2,7 @@
 import time
 import cv2
 
+from vision_fullcam.latency import PipelineLatency
 from vision_fullcam.config import Config
 from vision_fullcam.stream.reader import FrameReader
 
@@ -129,6 +130,7 @@ def _handle_keys(detector, task: TaskState, key: int):
 
 def main():
     cfg = Config()
+    latency = PipelineLatency()
 
     # ========================
     # 입력 / 추론 파이프라인
@@ -208,15 +210,18 @@ def main():
 
     try:
         while True:
-            t0 = time.time()
+            t0 = time.perf_counter()
             frame = reader.read()
             if frame is None:
                 break
 
+            read_done = time.perf_counter()
             clip_buffer.push(frame)
 
             # 1) detection
+            detection_started = time.perf_counter()
             detections = detector.detect(frame)
+            detection_done = time.perf_counter()
 
             # 2) tracking
             tracked_input = [
@@ -250,6 +255,7 @@ def main():
             if events:
                 draw_events(frame, events)
 
+            rules_done = time.perf_counter()
             # 7) emit
             if events:
                 emitter.emit(events, frame)
@@ -261,21 +267,35 @@ def main():
                         f"info={e.info}"
                     )
 
+            emit_done = time.perf_counter()
             # 8) monitor + key handling (키는 여기서 딱 1번만 읽음)
             if getattr(cfg, "show_window", True):
                 cv2.imshow("vision_fullcam", frame)
+
+            display_submitted = time.perf_counter()
+            metrics = {
+                "read_ms": (read_done - t0) * 1000,
+                "detector_ms": (detection_done - detection_started) * 1000,
+                "tracking_state_rules_ms": (rules_done - detection_done) * 1000,
+                "event_emit_ms": (emit_done - rules_done) * 1000,
+                "read_request_to_result_ms": (rules_done - t0) * 1000,
+            }
+            if getattr(cfg, "show_window", True):
+                metrics["read_request_to_display_submit_ms"] = (display_submitted - t0) * 1000
+            latency.record(metrics)
 
             key = cv2.waitKey(1) & 0xFF
             _handle_keys(detector, task, key)
 
             # fps sync
-            dt = time.time() - t0
+            dt = time.perf_counter() - t0
             if dt < dt_target:
                 time.sleep(dt_target - dt)
 
     except KeyboardInterrupt:
         pass
     finally:
+        latency.flush()
         reader.release()
         cv2.destroyAllWindows()
 

@@ -3,6 +3,8 @@ import json
 import logging
 import os
 import signal
+import time
+from latency import FrameTiming, elapsed_ms
 import threading
 from collections import OrderedDict, deque
 from typing import Any, Dict, Optional
@@ -94,9 +96,19 @@ async def report_to_django(user_id: str, reason: str, timestamp: str):
 
 async def process_job(queue_name, payload):
     """Handles a single job from Redis"""
+    timing = None
+    outcome = "error"
+    client_id = None
     try:
         data = json.loads(payload)
         client_id = data["client_id"]
+        timing = FrameTiming(data.get("_latency"))
+        if timing.enabled:
+            try:
+                await timing.dequeue(redis_client)
+            except Exception:
+                logger.warning("Latency queue clock unavailable; detection continues")
+        context_started = time.perf_counter()
         content = data["data"]
         image_b64 = content.get("image")
         if not image_b64: return
@@ -168,7 +180,10 @@ async def process_job(queue_name, payload):
                 logger.info(f"[{client_id}] T={current_time_t} | Action: {current_action}")
 
             # --- THE FAST LOOP: RAG Safety Check ---
+            timing.metrics["context_ms"] = elapsed_ms(context_started)
+            danger_started = time.perf_counter()
             result = await analyzer.detect_danger(frames_list, state["current_rule"])
+            timing.metrics["danger_check_ms"] = elapsed_ms(danger_started)
 
             if result["is_danger"]:
                 now_iso = datetime.now(timezone.utc).isoformat()
@@ -187,8 +202,19 @@ async def process_job(queue_name, payload):
                 }))
                 asyncio.create_task(report_to_django(client_id, result["details"], now_iso))
 
+        outcome = "ok"
+
     except Exception as e:
         logger.error(f"Job Processing Error: {e}", exc_info=True)
+    finally:
+        # Return a completion for safe frames too: danger-only samples are biased.
+        if timing and timing.enabled and client_id:
+            result = timing.result(outcome)
+            logger.info("LATENCY %s", json.dumps({"source": "bodycam_worker", **result}))
+            try:
+                await redis_client.publish(f"alerts:{client_id}", json.dumps(result))
+            except Exception:
+                logger.warning("Latency result delivery failed")
 
 async def main():
     logger.info("GPU Worker Started... Waiting for Redis jobs.")
