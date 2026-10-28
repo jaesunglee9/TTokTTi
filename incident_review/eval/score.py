@@ -47,6 +47,7 @@ def main() -> None:
     ap.add_argument("--review", type=Path, default=None)
     ap.add_argument("--out", type=Path, default=None)
     ap.add_argument("--adjudication", type=Path, default=None, help="human verdicts on disputed cases")
+    ap.add_argument("--exclude-nonsite", action="store_true", help="drop images site_filter.py marked NOT_WORK_SITE")
     args = ap.parse_args()
 
     catalog = RuleCatalog()
@@ -71,6 +72,12 @@ def main() -> None:
     )
     # Without extracted claims, fall back to keywords (over-counts; reported in the output).
     ok = [r for r in rows if "error" not in r and (not stage1_rules or r["id"] in stage1_rules)]
+    excluded_nonsite = 0
+    if args.exclude_nonsite:
+        # Production frames only come from an active work session; non-work scenes are out of scope.
+        scenes = {s["id"]: s["scene"] for s in map(json.loads, (args.data / "site_filter.jsonl").read_text().splitlines())}
+        kept = [r for r in ok if scenes.get(r["id"]) != "NOT_WORK_SITE"]
+        excluded_nonsite, ok = len(ok) - len(kept), kept
     extra_articles = {"legacy": collections.Counter(), "v2": collections.Counter()}
 
     # Per-image tallies so the bootstrap can resample incidents.
@@ -130,7 +137,7 @@ def main() -> None:
 
     result = {
         "incidents_reviewed": len(ok),
-        "review_errors": len(rows) - len(ok),
+        "review_errors": sum("error" in r for r in rows),
         "stage1_alarms_without_rule_keyword": s("unspecified"),
         "stage1": {"tp": s("s1_tp"), "fp": s("s1_fp"), "precision": rate(s("s1_tp"), s("s1_tp") + s("s1_fp"))},
         "stage1_plus_review": {"tp": s("rv_tp"), "fp": s("rv_fp"), "precision": rate(s("rv_tp"), s("rv_tp") + s("rv_fp"))},
@@ -152,6 +159,7 @@ def main() -> None:
         },
         "stage1_claim_source": "llm_extraction" if stage1_rules else "keyword_fallback",
         "human_adjudicated_cases": adjudicated,
+        "excluded_nonsite_incidents": excluded_nonsite,
     }
     text = json.dumps(result, ensure_ascii=False, indent=2)
     (args.out or args.data / "score.json").write_text(text)

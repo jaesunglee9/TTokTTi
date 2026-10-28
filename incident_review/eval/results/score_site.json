@@ -1,0 +1,125 @@
+{
+  "incidents_reviewed": 122,
+  "review_errors": 0,
+  "stage1_alarms_without_rule_keyword": 0,
+  "stage1": {
+    "tp": 38,
+    "fp": 21,
+    "precision": 0.6440677966101694
+  },
+  "stage1_plus_review": {
+    "tp": 32,
+    "fp": 10,
+    "precision": 0.7619047619047619
+  },
+  "false_positive_reduction": {
+    "value": 0.5238095238095238,
+    "ci95": [
+      0.3076923076923077,
+      0.75
+    ]
+  },
+  "true_positive_retention": {
+    "value": 0.8421052631578947,
+    "ci95": [
+      0.717948717948718,
+      0.95
+    ]
+  },
+  "report_fact_error_rate": {
+    "legacy": {
+      "value": 0.3968253968253968,
+      "ci95": [
+        0.2857142857142857,
+        0.5166666666666667
+      ],
+      "claims": 63
+    },
+    "v2": {
+      "value": 0.2558139534883721,
+      "ci95": [
+        0.13513513513513514,
+        0.3902439024390244
+      ],
+      "claims": 43
+    }
+  },
+  "hardhat_citation_accuracy": {
+    "legacy": {
+      "value": 1.0,
+      "ci95": [
+        1.0,
+        1.0
+      ],
+      "true_hardhat_incidents": 25
+    },
+    "v2": {
+      "value": 0.88,
+      "ci95": [
+        0.7272727272727273,
+        1.0
+      ],
+      "true_hardhat_incidents": 25
+    }
+  },
+  "vest_cited_as_statute": {
+    "legacy": 120,
+    "v2": 0
+  },
+  "unreviewed_articles": {
+    "legacy": {
+      "reports_with_any": 115,
+      "total": 320,
+      "most_common": [
+        [
+          "제38조",
+          102
+        ],
+        [
+          "제86조",
+          45
+        ],
+        [
+          "제63조",
+          32
+        ],
+        [
+          "제40조",
+          30
+        ],
+        [
+          "제39조",
+          24
+        ],
+        [
+          "제42조",
+          14
+        ],
+        [
+          "제20조",
+          8
+        ],
+        [
+          "제3조",
+          6
+        ],
+        [
+          "제301조",
+          6
+        ],
+        [
+          "제33조",
+          5
+        ]
+      ]
+    },
+    "v2": {
+      "reports_with_any": 0,
+      "total": 0,
+      "most_common": []
+    }
+  },
+  "stage1_claim_source": "llm_extraction",
+  "human_adjudicated_cases": 0,
+  "excluded_nonsite_incidents": 21
+}
