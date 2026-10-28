@@ -1,10 +1,6 @@
 {
  "adjudicator": "user (2026-10-28)",
- "pending": [
-  14,
-  25,
-  26
- ],
+ "pending": [],
  "items": [
   {
    "n": 1,
@@ -98,6 +94,13 @@
    "note": "사용자 직접 판정"
   },
   {
+   "n": 14,
+   "id": "train/RPReplay_Final1667001201_MP4-274_jpg.rf.8adc843b6c1a9f24eab53d648ea740f5.jpg",
+   "rule": "PPE-HARDHAT",
+   "human": "NOT_VIOLATED",
+   "note": "사용자 직접 판정"
+  },
+  {
    "n": 15,
    "id": "train/-1975-_png_jpg.rf.9d1bea0086ca5f1b3cf012a16ea16330.jpg",
    "rule": "PPE-HARDHAT",
@@ -165,6 +168,20 @@
    "id": "valid/ppe_0355_jpg.rf.cfa066e02e546147182bc856af6661b3.jpg",
    "rule": "PPE-VEST",
    "human": "VIOLATED",
+   "note": "사용자 직접 판정"
+  },
+  {
+   "n": 25,
+   "id": "valid/IMG_3094_mp4-3_jpg.rf.f82fc911f5ca8731dd454d552be7b1d2.jpg",
+   "rule": "PPE-HARDHAT",
+   "human": "NOT_VIOLATED",
+   "note": "사용자 직접 판정"
+  },
+  {
+   "n": 26,
+   "id": "test/mask-wearing-1632938044674_png_jpg.rf.1b03a26af457338804c4115e64040953.jpg",
+   "rule": "PPE-HARDHAT",
+   "human": "NOT_VIOLATED",
    "note": "사용자 직접 판정"
   },
   {
