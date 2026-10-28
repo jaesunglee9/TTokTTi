@@ -1,0 +1,34 @@
+{
+  "version": "2026-10-28",
+  "note": "조문 번호와 요지는 국가법령정보센터(law.go.kr) 시행본으로 확인 전이다(verified=false). 운영 전 사람이 검수한다.",
+  "rules": [
+    {
+      "rule_id": "PPE-HARDHAT",
+      "title": "안전모 착용",
+      "violation": "안전모 미착용",
+      "check": "Is every visible worker wearing a hard hat (safety helmet) on their head?",
+      "keywords": ["안전모", "헬멧", "hard hat", "hardhat", "helmet"],
+      "citation": {
+        "type": "STATUTE",
+        "law": "산업안전보건기준에 관한 규칙",
+        "article": "제32조 제1항 제1호",
+        "summary": "물체가 떨어지거나 날아올 위험 또는 근로자가 추락할 위험이 있는 작업에는 안전모를 지급하고 착용하도록 해야 한다.",
+        "verified": false
+      }
+    },
+    {
+      "rule_id": "PPE-VEST",
+      "title": "고시인성 안전조끼 착용",
+      "violation": "고시인성 안전조끼 미착용",
+      "check": "Is every visible worker wearing a high-visibility safety vest?",
+      "keywords": ["안전조끼", "조끼", "vest", "high-visibility"],
+      "citation": {
+        "type": "INTERNAL",
+        "law": null,
+        "article": null,
+        "summary": "현장 안전수칙(사업장 자체 규정). 안전보건규칙 제32조의 보호구 목록에는 안전조끼가 명시되어 있지 않다.",
+        "verified": false
+      }
+    }
+  ]
+}
