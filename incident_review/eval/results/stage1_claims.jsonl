@@ -1,0 +1,143 @@
+{"id": "train/005453_jpg.rf.b288a868fed6d94a795c5d93e3e627ea.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/p65621345_jpg.rf.adc3e7560c74eb3d84519e593beab57b.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/helmet999597_jpg.rf.b716fdbf198ddf892469470efbd70155.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/00622_jpg.rf.b5fd402009e54a1be1a2e608f4f3e833.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/005170_jpg.rf.bdd4839e3b05bdba3810c0c06ebdb4d3.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/img_054_jpg.rf.bcda8d6c85bb891230a5a734fe9a426f.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/004156_jpg.rf.bd5c9c865e3e6f21488144d6bd4b929a.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/002733_jpg.rf.c23a3b4b9a591b3e1783914fd8f42fde.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/ppe_0149_jpg.rf.bb5e8561df8488cf696a09e5e8ca95a9.jpg", "rules": ["PPE-HARDHAT"], "extractor": "claude-cli:haiku"}
+{"id": "train/IMG_3102_mp4-29_jpg.rf.bf034bb07368829f2c576a601bf9595a.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/-806-_png_jpg.rf.c2b3c1f4f30a498ae2dcc00cc949316b.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/additional_tests-Nomask-wearing_mp4-35_jpg.rf.c28eaf9de74953f539471540755d475a.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/front_crawling_00888_jpg.rf.c89c3e226ee3997472f8727207667a48.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/006166_jpg.rf.c4d07484a58295e03574fe03452506b1.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/20220226_143523_jpg.rf.c8605422f9150e09153771d967e16dce.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/005940_jpg.rf.d42c0b030682272c1848e2433545bcdf.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/-3490-_png_jpg.rf.d16888763ead5506b28c7514b5e3d3dd.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/003357_jpg.rf.d728d70c805d6ae67acbff8f535abddf.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/003184_jpg.rf.d931652d58709787709d603f715c7122.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/front_crawling_00216_jpg.rf.db2292257041508c1f8e0c8fdf86b61a.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/005376_jpg.rf.dbdbbe6117247b8f0e632dcf89dbcb19.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/youtube-57_jpg.rf.dd8863683da760bba00bc92997695e8e.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/006529_jpg.rf.f178e47f38eabfa8b2ab3d8945eb717d.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/001321_jpg.rf.f2332c8122d766057ea441ac7d49a407.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/-1680-_png_jpg.rf.f57719a0d9eb98bdf17edf8f28764587.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/005328_jpg.rf.f2b6fec1d2997847e2b43841bd0986c5.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/RPReplay_Final1667001201_MP4-200_jpg.rf.00b74098b1b4b87b7166fbf1aca85953.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/001548_jpg.rf.01a671015cc2ceefdbaf0801b4913d12.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/001387_jpg.rf.02e5873dcf8424e91b220d129c0e98b9.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/-850-_png_jpg.rf.04a228fa620d29ecd8151e0d91801033.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/-1480-_png_jpg.rf.048433d8b6ec1537a00fdbe302abd07d.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/helmet999595_jpg.rf.03cc9aacb7a6715ad880f272388e0847.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/N5h_img_195_jpg.rf.06e1007ebf9e2cca1ea058b4b4433e2f.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/IMG_1493_mp4-53_jpg.rf.05385572abee41fa2ee17a5775bdafa9.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/-3795-_png_jpg.rf.0c7b447637fe65c48968e634cf6a7834.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/006732_jpg.rf.1c8ed24cf3c7b7a9f67a5fe2f8821f23.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/IMG_3102_mp4-38_jpg.rf.16b90db35cf9c61a2a8c716dea089aa1.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/006012_jpg.rf.224c832acfe15c0225d1d77b25738441.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/006463_jpg.rf.1d6f8a27316d95b961a97486e996a28d.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/-3394-_png_jpg.rf.1f539d5f457ea00f39c4646b7f0bf4ee.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/004203_jpg.rf.211f01c7edb2dce7913eb982bbb78b40.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/001165_jpg.rf.26d66ee9a60606d615d1a5a1fea10e21.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/004170_jpg.rf.22cddeef0d5ecd58297424b6a7a9f811.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/IMG_0873_MOV-10_jpg.rf.2cb9b56e89043934ab32276d2cc02e1a.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/helmet999863_jpg.rf.2b0759e0d7fde0982d20be86ee4f535f.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/IMG_3093_mp4-1_jpg.rf.2f6657c7e6d1c4b5639e958cdf67054f.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/006858_jpg.rf.31777fd8b87c2fb3a4eaf24322c2e81a.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/002806_jpg.rf.31958a1af3cfc3c1d86cc4d48389d500.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/ppe_0629_jpg.rf.3a16aa20bb51183cd7588eece8990e3f.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/004381_jpg.rf.3fb0be28e5ce362afbbc3d29590206df.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/-1688-_png_jpg.rf.400f891e0b4e5deb0879f58280664820.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/Nhh_img_141_jpg.rf.3f4e35d6b9f6ab4b3aee5a451446c7f0.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/-1670-_png_jpg.rf.401e319f51f626c5e05ec0692c49b6c4.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/005451_jpg.rf.42b8c300442a58e64acc610cd4b5b4c7.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/002259_jpg.rf.46a356ea2f58a4c79a68af7cd9930000.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/000186_jpg.rf.46e689893d9c7c9db8cd918c2e3c1945.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/-4704-_png_jpg.rf.4da3b2d065eb6fe37efa75ff3bf27083.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/004720_jpg.rf.4cc3c07430f652cd73c95da50e4f43f3.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/RPReplay_Final1667001201_MP4-79_jpg.rf.50b4627592be75a0c2f3d226cde63a25.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/img_059_jpg.rf.4fe33031db6a48316cdf9cb5b6bc22b8.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/004937_jpg.rf.5136246430e8a7b54d33a51e6aad9280.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/-2252-_png_jpg.rf.51f58f68d02dd231550af767c8f26d06.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/001834_jpg.rf.52f61720bc482282136da807e40c9e34.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/000879_jpg.rf.5454b2242052671686ec1b6f2008da8e.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/006053_jpg.rf.52cbc373552dceac4534c3ae1fcdecd7.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/006741_jpg.rf.537b238306f76c1f4c96b9a7dc2a5f16.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/-4302-_png_jpg.rf.552815205b3119e454fd7ac384e986b1.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/p11371_jpg.rf.54618f67b90b91012266bf4fca1f1896.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/RPReplay_Final1667001201_MP4-305_jpg.rf.56fdf38f11272ac4f92e21fb17965f16.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/005492_jpg.rf.5dd2f08e7ea79a9db80f522cefb464db.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/000822_jpg.rf.5fbe23d2998605ab344fc7564b35d957.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/004557_jpg.rf.65ad54b2a4550ad26b0aebbb523f3fa2.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/mask-wearing-1632933572733_png_jpg.rf.634fbc47a979d604253077c0619ad815.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/RPReplay_Final1667001201_MP4-446_jpg.rf.65beddb3ab75984bc1d0528fe760b584.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/N5h_img_70_jpg.rf.681dea3aa187a9944991467e225c1b02.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/p113122_jpg.rf.6c91c6c3f6fee0ca98421c46effef2b1.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/-1342-_png_jpg.rf.76b5b941ad117b124d7b8c265d0a93de.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/004959_jpg.rf.7086c0d84d755d5fae5bab330b72ef38.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/p656213151_jpg.rf.787fdba417b3792c565e067c45fc2ea5.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/002458_jpg.rf.7a409b5561b9b4a6ae52e805a4991f92.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/006650_jpg.rf.7a70b76d6dfe4a7c4da8094407afdadf.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/000246_jpg.rf.803c6bf16e1d86b997796ebb8b4b2152.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/000415_jpg.rf.817b1a64c5f7700371326f24cfacc901.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/005239_jpg.rf.82733e2879918559039e58b3f9004a9f.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/003450_jpg.rf.8490e34235086f526db1c2993ae51177.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/RPReplay_Final1667001201_MP4-274_jpg.rf.8adc843b6c1a9f24eab53d648ea740f5.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/Mask2_mov-66_jpg.rf.8ee86a45f601b4759015bb788ce90ee1.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/004779_jpg.rf.92c537eed971d0111cd63ddf4589d77b.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/002473_jpg.rf.8f0bd75df82f648936758c60121b9703.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/001129_jpg.rf.8f6f2be85860bf82217d8b8b057922d2.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/helmet9991061_jpg.rf.971c9adc6bfbb7d09a6adbed2ad14d5f.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/-1975-_png_jpg.rf.9d1bea0086ca5f1b3cf012a16ea16330.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/-3796-_png_jpg.rf.a44432b0c9adc9401ff50e494f484b7f.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/000886_jpg.rf.a6737d7e59936e70cd8dc08f45de8821.jpg", "rules": ["PPE-HARDHAT"], "extractor": "claude-cli:haiku"}
+{"id": "train/helmet9991045_jpg.rf.a2832bfce841626356f33919e1613c63.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/005773_jpg.rf.aadc470646c0a669b4b33df9c2f73487.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/001255_jpg.rf.ab1105f8c9f2e5b9d0b081b251056dc7.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "valid/RPReplay_Final1667001201_MP4-159_jpg.rf.0398c75b250d3c14669a9cd97c8e736d.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/IMG_4921-2_mp4-40_jpg.rf.ac9247607eea3a7e1a6926006fc27513.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/image_19_jpg.rf.accd91c7827c69aeb9abb0e9cc4d6e09.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "valid/-2061-_png_jpg.rf.09eddcbd771490afd877db8907f83e47.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "train/pos_2168_jpg.rf.abd3a58204c7eefe757c4e35abb9dd32.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "valid/Mask-detector1_mov-46_jpg.rf.2122d830c41384952c89ef8cd23734ca.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "valid/-3766-_png_jpg.rf.27816c050d38c21d9422335dd8033e6e.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "valid/-4906-_png_jpg.rf.4178cd72d8387c1f10f9a90db4a0d706.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "valid/001753_jpg.rf.4a32692fa7d27bab3aaa7f9fb7fbb907.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "valid/000700_jpg.rf.7dc8396cba0d495a66ba59299ab53855.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "valid/-960-_png_jpg.rf.80074888e199f5fb4391a1004e9a4bd4.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "valid/000219_jpg.rf.829945cd669a8da01e10d27681725006.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "valid/006534_jpg.rf.82327442eeb4854d22de5399624aff90.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "valid/-3154-_png_jpg.rf.85ae285d9d0e6e3c3b71313a85ccde76.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "valid/006567_jpg.rf.959f0bff8eea28880bae65e1f07402b0.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "valid/00596_jpg.rf.95cef7ecdb1b732b53701d9f8b57a4be.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "valid/006197_jpg.rf.9773d2f2f2ad969ee16ea9e47f4e8026.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "valid/-1989-_png_jpg.rf.a17e552b24187f6f85b1dc2adc6fbe6a.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "valid/-4615-_png_jpg.rf.b6c366abd9e23e7e9b32b20a838c2aee.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "valid/005349_jpg.rf.a62d12cc06039a78ee2da134616119f3.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "valid/IMG_1491_mp4-0_jpg.rf.b3279b5d609298629408e34c19746454.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "valid/000769_jpg.rf.bcbef18f0b9e8ad7ab31057fac8679b9.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "valid/-1429-_png_jpg.rf.b87c0cd3dc8957f20c19ab1d3e7cf4a6.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "valid/-1969-_png_jpg.rf.c383b0a9a12f96b66d8089f4b4cb8b5c.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "valid/-2653-_png_jpg.rf.c655efed8514dcc50653208b376c5630.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "valid/helmet999939_jpg.rf.c667b976d357ac84e5ca128824a6d753.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "valid/-1079-_png_jpg.rf.eae5c731d79f3b240ce6b5ae84589e49.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "valid/ppe_0355_jpg.rf.cfa066e02e546147182bc856af6661b3.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "valid/003677_jpg.rf.f80ec1c051cafb49c4364ede484aa36a.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "valid/-2502-_png_jpg.rf.fcaff461dab39511e10c78e836cd90b9.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "valid/IMG_3094_mp4-3_jpg.rf.f82fc911f5ca8731dd454d552be7b1d2.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "valid/003067_jpg.rf.ff1334470a933f45561be704450a4470.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "test/000005_jpg.rf.1dff56de01dcdb0f0b43816560736672.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "test/mask-wearing-1632938044674_png_jpg.rf.1b03a26af457338804c4115e64040953.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "test/IMG_0873_MOV-29_jpg.rf.00e6caf4b037e60be18a8eda1f66f24e.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "test/001155_jpg.rf.3e0c8888686607216dc2dbc14b671d10.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "test/-2717-_png_jpg.rf.4a9c352e85d2f7d0500c6ead5c4018e0.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "test/002878_jpg.rf.052be4cceb36f3f59b8a3319d5aff0a7.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "test/-1691-_png_jpg.rf.7f031ecb65a9b5a268ff5e9b33a08936.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "test/-3251-_png_jpg.rf.d40dddbe5275afe320347be664f32247.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "test/IMG_1493_mp4-0_jpg.rf.a5963d9114a6c2982134b758374cfd74.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "test/-776-_png_jpg.rf.e370111378fe378ae90bd26a2d543a22.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "test/NX_img_177_jpg.rf.ce6664324494f1b3c9e13f45911e452c.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "test/003434_jpg.rf.f14e56632cf72dd6423783b0e1e682d0.jpg", "rules": ["PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "test/004763_jpg.rf.fe52e7fe5116697aa5a9685f73bde54f.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}
+{"id": "test/004063_jpg.rf.feafec0025c293c6c552d50bc74a78c4.jpg", "rules": ["PPE-HARDHAT", "PPE-VEST"], "extractor": "claude-cli:haiku"}

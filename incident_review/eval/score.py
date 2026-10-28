@@ -46,10 +46,22 @@ def main() -> None:
     ap.add_argument("--data", type=Path, required=True)
     ap.add_argument("--review", type=Path, default=None)
     ap.add_argument("--out", type=Path, default=None)
+    ap.add_argument("--adjudication", type=Path, default=None, help="human verdicts on disputed cases")
     args = ap.parse_args()
 
     catalog = RuleCatalog()
     labels = {r["id"]: r["labels"] for r in json.loads((args.data / "labels.json").read_text())}
+    adjudicated = 0
+    if args.adjudication:
+        # Human verdicts replace dataset labels on disputed cases; UNCERTAIN and
+        # still-pending cases become unscored rather than guessed.
+        adj = json.loads(args.adjudication.read_text())
+        for it in adj["items"]:
+            labels[it["id"]][it["rule"]] = None if it["human"] == "UNCERTAIN" else it["human"]
+            adjudicated += 1
+        disputed = {it["n"]: it for it in json.loads((args.data / "dispute" / "items.json").read_text())}
+        for n in adj.get("pending", []):
+            labels[disputed[n]["id"]][disputed[n]["rule"]] = None
     base = {b["id"]: b for b in map(json.loads, (args.data / "baseline.jsonl").read_text().splitlines())}
     rows = [json.loads(l) for l in (args.review or args.data / "review.jsonl").read_text().splitlines()]
     claims_file = args.data / "stage1_claims.jsonl"
@@ -139,6 +151,7 @@ def main() -> None:
             for n in ("legacy", "v2")
         },
         "stage1_claim_source": "llm_extraction" if stage1_rules else "keyword_fallback",
+        "human_adjudicated_cases": adjudicated,
     }
     text = json.dumps(result, ensure_ascii=False, indent=2)
     (args.out or args.data / "score.json").write_text(text)

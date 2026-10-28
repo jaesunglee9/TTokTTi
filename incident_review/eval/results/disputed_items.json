@@ -1,0 +1,254 @@
+[
+ {
+  "id": "train/img_054_jpg.rf.bcda8d6c85bb891230a5a734fe9a426f.jpg",
+  "rule": "PPE-VEST",
+  "label": "NOT_VIOLATED",
+  "review": "VIOLATED",
+  "observation": "오른쪽 아래 패널에서 호스를 다루는 작업자는 상체가 보이는데 파란 작업복만 입었고 고시인성 조끼가 없으며, 왼쪽 아래 패널의 흰 방호복 작업자들도 조끼가 보이지 않습니다.",
+  "stage1": "DANGER: The worker in the bottom-right panel, handling a hose in a dirty, oily area, has no visible hard hat or high-visibility vest, and the workers in the bottom-left panel also show no hard hats, which violates the rule that all workers must wear both at all times.",
+  "n": 1
+ },
+ {
+  "id": "train/IMG_3102_mp4-29_jpg.rf.bf034bb07368829f2c576a601bf9595a.jpg",
+  "rule": "PPE-HARDHAT",
+  "label": "VIOLATED",
+  "review": "NOT_VIOLATED",
+  "observation": "프레임은 나무 패널 벽과 레이스 커튼이 있는 실내 셀카이고 건설 현장이나 작업자로 볼 근거가 없어서, 헬멧 착용 규칙이 적용되는 작업자는 보이지 않습니다.",
+  "stage1": "DANGER: The worker is not wearing a required hard hat or high-visibility vest; the visible gear is only over-ear headphones and a gray t-shirt.",
+  "n": 2
+ },
+ {
+  "id": "train/youtube-57_jpg.rf.dd8863683da760bba00bc92997695e8e.jpg",
+  "rule": "PPE-VEST",
+  "label": "VIOLATED",
+  "review": "UNCERTAIN",
+  "observation": "중앙의 작업자는 어두운 재킷에 푸른 셔츠 차림으로 형광 조끼가 보이지 않지만, 오른쪽 멀리 있는 작업자는 너무 작고 흐려서 조끼 착용 여부를 확실히 판단하기 어렵다.",
+  "stage1": "DANGER: The worker in the center of the site appears to be wearing a dark jacket rather than a required high-visibility vest, and the distant worker on the right shows no visible vest, which exposes them to vehicle and equipment traffic on an active site.",
+  "n": 3
+ },
+ {
+  "id": "train/IMG_1493_mp4-53_jpg.rf.05385572abee41fa2ee17a5775bdafa9.jpg",
+  "rule": "PPE-HARDHAT",
+  "label": "VIOLATED",
+  "review": "NOT_VIOLATED",
+  "observation": "프레임은 화분과 창문이 보이는 실내 가정집 셀카 장면이고 공사 현장이나 작업 중인 작업자가 보이지 않아, 사람이 헬멧을 쓰지 않았더라도 이 규칙의 적용 대상이 아닙니다.",
+  "stage1": "DANGER: The worker is not wearing a hard hat or a high-visibility vest; they are in a cream knit sweater with no head protection or hi-vis gear, which violates the requirement that all workers wear both at all times.",
+  "n": 4
+ },
+ {
+  "id": "train/IMG_3102_mp4-38_jpg.rf.16b90db35cf9c61a2a8c716dea089aa1.jpg",
+  "rule": "PPE-HARDHAT",
+  "label": "VIOLATED",
+  "review": "NOT_VIOLATED",
+  "observation": "프레임에는 실내에서 헤드폰과 안경을 착용한 사람 한 명만 보이고 공사 현장이나 작업 환경의 징후가 없어, 안전모 착용 규칙이 적용되는 작업자가 없다고 판단됩니다.",
+  "stage1": "DANGER: The worker is not wearing a hard hat or a high-visibility vest, both required at all times, and is exposed to head and struck-by hazards.",
+  "n": 5
+ },
+ {
+  "id": "train/IMG_0873_MOV-10_jpg.rf.2cb9b56e89043934ab32276d2cc02e1a.jpg",
+  "rule": "PPE-HARDHAT",
+  "label": "VIOLATED",
+  "review": "UNCERTAIN",
+  "observation": "프레임 속 여성은 안전모를 쓰고 있지 않지만, 장소가 커튼과 장식이 있는 가정집 실내이고 작업 중임을 보여주는 단서가 없어 안전모 착용 의무가 적용되는 작업자인지 판단할 수 없습니다.",
+  "stage1": "DANGER: The worker is not wearing a hard hat or a high-visibility vest, both required at all times, so she is exposed to head injury and reduced visibility to equipment and traffic.",
+  "n": 6
+ },
+ {
+  "id": "train/006858_jpg.rf.31777fd8b87c2fb3a4eaf24322c2e81a.jpg",
+  "rule": "PPE-HARDHAT",
+  "label": "VIOLATED",
+  "review": "NOT_VIOLATED",
+  "observation": "프레임 속 인물들은 건물 로비로 보이는 실내에서 안내 책자와 비닐봉투를 들고 있는 일반 방문객으로 보이며 건설 작업자로 식별되는 사람은 없어서, 안전모 착용 규칙을 적용할 대상이 보이지 않습니다.",
+  "stage1": "DANGER: The worker in view is not wearing a hard hat or a high-visibility vest, both required at all times, and the man in front wears a plain shirt with no head protection.",
+  "n": 7
+ },
+ {
+  "id": "train/RPReplay_Final1667001201_MP4-79_jpg.rf.50b4627592be75a0c2f3d226cde63a25.jpg",
+  "rule": "PPE-VEST",
+  "label": "VIOLATED",
+  "review": "UNCERTAIN",
+  "observation": "작업자가 검은색 스웨터를 입은 것은 보이지만, 프레임이 상체 윗부분만 잘려 있고 흐려서 고시인성 조끼를 착용했는지 단정하기 어렵습니다.",
+  "stage1": "DANGER: The worker is not wearing a hard hat or a high-visibility safety vest, both of which the site rules require at all times; only a face mask and a black sweater are visible.",
+  "n": 8
+ },
+ {
+  "id": "train/006741_jpg.rf.537b238306f76c1f4c96b9a7dc2a5f16.jpg",
+  "rule": "PPE-HARDHAT",
+  "label": "VIOLATED",
+  "review": "UNCERTAIN",
+  "observation": "우산을 든 사람들과 카메라맨 모두 안전모를 쓰지 않았지만, 작업자라기보다 시찰 중인 방문객·취재진으로 보이고 배경도 공사가 진행 중인 현장인지 불분명해 규칙 적용 대상인지 판단하기 어렵습니다.",
+  "stage1": "DANGER: Several people on the active construction site, including the woman in front and the men in the middle, are not wearing hard hats or high-visibility vests, which the safety rules require at all times.",
+  "n": 9
+ },
+ {
+  "id": "train/-4302-_png_jpg.rf.552815205b3119e454fd7ac384e986b1.jpg",
+  "rule": "PPE-HARDHAT",
+  "label": "NOT_VIOLATED",
+  "review": "VIOLATED",
+  "observation": "중앙의 초록색 옷을 입은 여성은 안전모를 머리에 쓰지 않고 손에 들고 있어 착용 규칙을 어기고 있습니다.",
+  "stage1": "DANGER: The woman in the center is holding a hard hat instead of wearing one, and no one in view is wearing a high-visibility vest, which the site rules require at all times.",
+  "n": 10
+ },
+ {
+  "id": "train/RPReplay_Final1667001201_MP4-305_jpg.rf.56fdf38f11272ac4f92e21fb17965f16.jpg",
+  "rule": "PPE-HARDHAT",
+  "label": "VIOLATED",
+  "review": "UNCERTAIN",
+  "observation": "얼굴과 이마가 가까이 클로즈업된 프레임이고 머리 윗부분이 대부분 잘려 있으며 안전모는 보이지 않지만, 건설 현장의 작업자인지와 작업 상황인지 판단하기 어렵습니다.",
+  "stage1": "DANGER: The worker's head is bare, with no hard hat, and the black shirt is not a high-visibility vest, so the required head and body PPE is missing.",
+  "n": 11
+ },
+ {
+  "id": "train/RPReplay_Final1667001201_MP4-446_jpg.rf.65beddb3ab75984bc1d0528fe760b584.jpg",
+  "rule": "PPE-HARDHAT",
+  "label": "VIOLATED",
+  "review": "UNCERTAIN",
+  "observation": "프레임이 인물의 얼굴과 상체를 매우 가깝게 잡은 흐릿한 셀카 구도이고 머리 윗부분이 잘려 있어서, 안전모 착용 여부를 확실히 판단할 수 없다.",
+  "stage1": "DANGER: The worker is not wearing a hard hat or a high-visibility vest, which are required at all times, so they are exposed to head injury from falling or overhead objects and are hard to see around moving equipment or vehicles.",
+  "n": 12
+ },
+ {
+  "id": "train/004959_jpg.rf.7086c0d84d755d5fae5bab330b72ef38.jpg",
+  "rule": "PPE-HARDHAT",
+  "label": "VIOLATED",
+  "review": "NOT_VIOLATED",
+  "observation": "실내 회의실에서 회의 중인 사람들로, 건설 현장 작업자로 보이지 않으며 누구도 안전모를 쓰고 있지 않지만 이 규칙이 적용되는 작업자는 확인되지 않습니다.",
+  "stage1": "DANGER: Several people in this indoor meeting room are seated at a conference table without hard hats or high-visibility vests, which the safety rule requires for all workers.",
+  "n": 13
+ },
+ {
+  "id": "train/RPReplay_Final1667001201_MP4-274_jpg.rf.8adc843b6c1a9f24eab53d648ea740f5.jpg",
+  "rule": "PPE-HARDHAT",
+  "label": "VIOLATED",
+  "review": "UNCERTAIN",
+  "observation": "실내에서 KN95 마스크를 손으로 얼굴에 대고 있는 사람의 근접 장면이며 머리에 안전모는 보이지 않지만, 공사 현장이나 작업자라고 판단할 근거가 없어 위반으로 단정할 수 없습니다.",
+  "stage1": "DANGER: The worker has no hard hat and no high-visibility vest, both required at all times, leaving the head exposed to overhead and impact hazards.",
+  "n": 14
+ },
+ {
+  "id": "train/-1975-_png_jpg.rf.9d1bea0086ca5f1b3cf012a16ea16330.jpg",
+  "rule": "PPE-HARDHAT",
+  "label": "NOT_VIOLATED",
+  "review": "VIOLATED",
+  "observation": "왼쪽의 쪼그려 앉은 작업자만 빨간 안전모를 썼고, 전경의 파란 작업복 작업자와 뒤쪽에 서 있는 남성들은 안전모 없이 머리가 드러나 있으며 모자를 쓴 사람도 안전모는 아닙니다.",
+  "stage1": "DANGER: Several workers in view, including the blue-uniformed workers in the foreground and the man in the background, are not wearing hard hats or high-visibility vests, which the safety rule requires at all times.",
+  "n": 15
+ },
+ {
+  "id": "train/IMG_4921-2_mp4-40_jpg.rf.ac9247607eea3a7e1a6926006fc27513.jpg",
+  "rule": "PPE-HARDHAT",
+  "label": "VIOLATED",
+  "review": "UNCERTAIN",
+  "observation": "인물은 헬멧 없이 머리가 그대로 보이지만, 배경이 유리문과 노출 덕트가 있는 실내 사무실 복도처럼 보여 안전모 착용이 필요한 공사 현장인지 확인할 수 없습니다.",
+  "stage1": "DANGER: The worker is not wearing a hard hat or a high-visibility vest, both required at all times, and is exposed to head and struck-by hazards in the work area.",
+  "n": 16
+ },
+ {
+  "id": "train/image_19_jpg.rf.accd91c7827c69aeb9abb0e9cc4d6e09.jpg",
+  "rule": "PPE-VEST",
+  "label": "NOT_VIOLATED",
+  "review": "VIOLATED",
+  "observation": "작업자가 고시인성 안전조끼가 아니라 어깨끈과 버클이 달린 주황색 구명조끼 형태의 의복을 걸치고 있어 고시인성 조끼 착용 기준을 충족하지 못합니다.",
+  "stage1": "DANGER: The worker's red vest is not a high-visibility safety vest. It looks like a flotation or harness-style garment, hangs open and unfastened, and does not meet the hi-vis requirement.",
+  "n": 17
+ },
+ {
+  "id": "train/pos_2168_jpg.rf.abd3a58204c7eefe757c4e35abb9dd32.jpg",
+  "rule": "PPE-HARDHAT",
+  "label": "VIOLATED",
+  "review": "UNCERTAIN",
+  "observation": "형광 조끼를 입은 사람은 머리 부분이 화면 밖으로 잘려 안전모 착용 여부를 알 수 없고, 휴대폰을 보며 계단을 오르는 여성은 공사 현장 작업자로 보이지 않는 일반 보행자입니다.",
+  "stage1": "DANGER: The worker is not wearing a hard hat or a high-visibility vest, which the site rules require at all times, and is distracted by a phone while walking on steps.",
+  "n": 18
+ },
+ {
+  "id": "valid/-3766-_png_jpg.rf.27816c050d38c21d9422335dd8033e6e.jpg",
+  "rule": "PPE-HARDHAT",
+  "label": "NOT_VIOLATED",
+  "review": "VIOLATED",
+  "observation": "상단의 줄무늬 셔츠를 입은 사람, 중앙 좌측의 파란 셔츠를 입은 사람, 우측 하단의 군복 무늬 옷을 입은 사람이 안전모 없이 머리를 드러내고 있습니다.",
+  "stage1": "DANGER: Several workers in the crowd are not wearing hard hats, including people in the upper and right parts of the frame, and most visible workers lack high-visibility vests, exposing them to struck-by and falling-object hazards near the green-covered structure.",
+  "n": 19
+ },
+ {
+  "id": "valid/-960-_png_jpg.rf.80074888e199f5fb4391a1004e9a4bd4.jpg",
+  "rule": "PPE-HARDHAT",
+  "label": "NOT_VIOLATED",
+  "review": "VIOLATED",
+  "observation": "중앙과 왼쪽의 남성들은 안전모 없이 서 있고, 오른쪽의 두 명만 빨간 안전모를 쓰고 있습니다.",
+  "stage1": "DANGER: Several people in the frame, including the men in the center and left, are not wearing hard hats or high-visibility vests, which the site rules require at all times.",
+  "n": 20
+ },
+ {
+  "id": "valid/006197_jpg.rf.9773d2f2f2ad969ee16ea9e47f4e8026.jpg",
+  "rule": "PPE-HARDHAT",
+  "label": "NOT_VIOLATED",
+  "review": "VIOLATED",
+  "observation": "왼쪽 작업자는 안전모 대신 밀짚모자를 쓰고 있어 안전모 미착용이 분명하고, 나머지 세 명은 노란 안전모를 착용하고 있습니다.",
+  "stage1": "DANGER: The worker on the far left is wearing a straw hat instead of a hard hat, and none of the workers visible are wearing high-visibility vests, so they are exposed to head injury and struck-by hazards while working on the wet concrete slab.",
+  "n": 21
+ },
+ {
+  "id": "valid/-4615-_png_jpg.rf.b6c366abd9e23e7e9b32b20a838c2aee.jpg",
+  "rule": "PPE-HARDHAT",
+  "label": "NOT_VIOLATED",
+  "review": "VIOLATED",
+  "observation": "왼쪽의 베이지색 재킷 남성과 오른쪽 뒤의 남성은 빨간 안전모를 썼지만, 회색 블레이저를 입고 손짓하는 남성과 어두운 정장을 입은 남성은 안전모 없이 머리가 그대로 드러나 있습니다.",
+  "stage1": "DANGER: Several workers on this construction site are not wearing the required hard hats and high-visibility vests. The man in the gray blazer pointing and the man in the dark suit beside him have no helmets, and none of the visible people wear hi-vis vests, exposing them to falling-object and struck-by hazards from the scaffolding above.",
+  "n": 22
+ },
+ {
+  "id": "valid/000769_jpg.rf.bcbef18f0b9e8ad7ab31057fac8679b9.jpg",
+  "rule": "PPE-HARDHAT",
+  "label": "NOT_VIOLATED",
+  "review": "VIOLATED",
+  "observation": "전경의 철근 옆에 있는 두 작업자(왼쪽 위장복, 오른쪽 회청색 상의)는 안전모 대신 밀짚·천 소재 모자를 쓰고 있어 안전모 미착용이 명확하다.",
+  "stage1": "DANGER: Several workers kneeling and standing among the exposed rebar are wearing woven straw or cloth hats instead of hard hats, and none of the visible workers has a high-visibility vest, so they are exposed to head injury and to being hard to see on an active site.",
+  "n": 23
+ },
+ {
+  "id": "valid/ppe_0355_jpg.rf.cfa066e02e546147182bc856af6661b3.jpg",
+  "rule": "PPE-VEST",
+  "label": "NOT_VIOLATED",
+  "review": "VIOLATED",
+  "observation": "왼쪽에서 두 번째의 체크무늬 셔츠를 입은 파란 안전모 작업자는 고시인성 조끼 없이 일반 셔츠만 입고 있고, 나머지 세 명은 주황색 조끼를 착용하고 있습니다.",
+  "stage1": "DANGER: The worker in the plaid shirt on the left, wearing a blue hard hat, has no high-visibility vest, which the rule requires at all times.",
+  "n": 24
+ },
+ {
+  "id": "valid/IMG_3094_mp4-3_jpg.rf.f82fc911f5ca8731dd454d552be7b1d2.jpg",
+  "rule": "PPE-HARDHAT",
+  "label": "VIOLATED",
+  "review": "NOT_VIOLATED",
+  "observation": "실내 가정집 배경에서 갈색 후드 재킷을 입은 남성이 마스크를 만지는 모습일 뿐 공사 현장이나 작업 상황이 아니어서 안전모 착용 규칙이 적용되는 작업자는 보이지 않습니다.",
+  "stage1": "DANGER: The worker is not wearing a hard hat or a high-visibility vest, both of which the safety rules require at all times; he is wearing a brown jacket instead.",
+  "n": 25
+ },
+ {
+  "id": "test/mask-wearing-1632938044674_png_jpg.rf.1b03a26af457338804c4115e64040953.jpg",
+  "rule": "PPE-HARDHAT",
+  "label": "VIOLATED",
+  "review": "UNCERTAIN",
+  "observation": "한 남성이 안전모 없이 보이지만 실내 가정집 웹캠 장면이라 공사 현장 작업자인지 확인할 수 없어 위반으로 판단하지 않습니다.",
+  "stage1": "DANGER: The worker is not wearing a hard hat or a high-visibility safety vest, both of which are required at all times.",
+  "n": 26
+ },
+ {
+  "id": "test/003434_jpg.rf.f14e56632cf72dd6423783b0e1e682d0.jpg",
+  "rule": "PPE-VEST",
+  "label": "VIOLATED",
+  "review": "UNCERTAIN",
+  "observation": "작업자는 어두운 재킷을 입고 있지만 몸이 프레임 오른쪽 가장자리에 잘려 있어 상반신 전체가 보이지 않으므로, 조끼를 착용하지 않았다고 단정하기 어렵습니다.",
+  "stage1": "DANGER: The worker wears an orange hard hat, but no high-visibility vest is visible over his dark jacket, which violates the vest requirement while he stands beside operating dust-suppression equipment.",
+  "n": 27
+ },
+ {
+  "id": "test/004063_jpg.rf.feafec0025c293c6c552d50bc74a78c4.jpg",
+  "rule": "PPE-HARDHAT",
+  "label": "VIOLATED",
+  "review": "UNCERTAIN",
+  "observation": "전경의 두 작업자와 중앙 작업자는 노란 안전모를 쓰고 있지만, 우측 끝 작업자는 머리가 어두운 색이라 모자인지 안전모인지 맨머리인지 해상도상 판단하기 어렵고 전신주 위 작업자도 너무 작습니다.",
+  "stage1": "DANGER: Several linemen working on the overhead power lines, including the workers in the foreground, are not wearing high-visibility vests, and the worker at far right appears to be bareheaded, which exposes them to electrical contact and falling-object hazards.",
+  "n": 28
+ }
+]

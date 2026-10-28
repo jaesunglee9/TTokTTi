@@ -1,0 +1,124 @@
+{
+  "incidents_reviewed": 143,
+  "review_errors": 0,
+  "stage1_alarms_without_rule_keyword": 0,
+  "stage1": {
+    "tp": 57,
+    "fp": 20,
+    "precision": 0.7402597402597403
+  },
+  "stage1_plus_review": {
+    "tp": 53,
+    "fp": 1,
+    "precision": 0.9814814814814815
+  },
+  "false_positive_reduction": {
+    "value": 0.95,
+    "ci95": [
+      0.8275862068965517,
+      1.0
+    ]
+  },
+  "true_positive_retention": {
+    "value": 0.9298245614035088,
+    "ci95": [
+      0.8571428571428571,
+      0.9830508474576272
+    ]
+  },
+  "report_fact_error_rate": {
+    "legacy": {
+      "value": 0.2962962962962963,
+      "ci95": [
+        0.2,
+        0.39759036144578314
+      ],
+      "claims": 81
+    },
+    "v2": {
+      "value": 0.03636363636363636,
+      "ci95": [
+        0.0,
+        0.09375
+      ],
+      "claims": 55
+    }
+  },
+  "hardhat_citation_accuracy": {
+    "legacy": {
+      "value": 1.0,
+      "ci95": [
+        1.0,
+        1.0
+      ],
+      "true_hardhat_incidents": 40
+    },
+    "v2": {
+      "value": 0.95,
+      "ci95": [
+        0.875,
+        1.0
+      ],
+      "true_hardhat_incidents": 40
+    }
+  },
+  "vest_cited_as_statute": {
+    "legacy": 141,
+    "v2": 0
+  },
+  "unreviewed_articles": {
+    "legacy": {
+      "reports_with_any": 131,
+      "total": 361,
+      "most_common": [
+        [
+          "제38조",
+          118
+        ],
+        [
+          "제86조",
+          52
+        ],
+        [
+          "제63조",
+          36
+        ],
+        [
+          "제40조",
+          36
+        ],
+        [
+          "제39조",
+          27
+        ],
+        [
+          "제42조",
+          14
+        ],
+        [
+          "제20조",
+          8
+        ],
+        [
+          "제301조",
+          6
+        ],
+        [
+          "제3조",
+          6
+        ],
+        [
+          "제44조",
+          5
+        ]
+      ]
+    },
+    "v2": {
+      "reports_with_any": 0,
+      "total": 0,
+      "most_common": []
+    }
+  },
+  "stage1_claim_source": "llm_extraction",
+  "human_adjudicated_cases": 25
+}

@@ -1,0 +1,123 @@
+{
+  "incidents_reviewed": 143,
+  "review_errors": 0,
+  "stage1_alarms_without_rule_keyword": 0,
+  "stage1": {
+    "tp": 62,
+    "fp": 21,
+    "precision": 0.7469879518072289
+  },
+  "stage1_plus_review": {
+    "tp": 44,
+    "fp": 10,
+    "precision": 0.8148148148148148
+  },
+  "false_positive_reduction": {
+    "value": 0.5238095238095238,
+    "ci95": [
+      0.3125,
+      0.75
+    ]
+  },
+  "true_positive_retention": {
+    "value": 0.7096774193548387,
+    "ci95": [
+      0.582089552238806,
+      0.8169014084507042
+    ]
+  },
+  "report_fact_error_rate": {
+    "legacy": {
+      "value": 0.28735632183908044,
+      "ci95": [
+        0.1978021978021978,
+        0.37777777777777777
+      ],
+      "claims": 87
+    },
+    "v2": {
+      "value": 0.2,
+      "ci95": [
+        0.1,
+        0.3076923076923077
+      ],
+      "claims": 55
+    }
+  },
+  "hardhat_citation_accuracy": {
+    "legacy": {
+      "value": 1.0,
+      "ci95": [
+        1.0,
+        1.0
+      ],
+      "true_hardhat_incidents": 46
+    },
+    "v2": {
+      "value": 0.6739130434782609,
+      "ci95": [
+        0.5277777777777778,
+        0.8095238095238095
+      ],
+      "true_hardhat_incidents": 46
+    }
+  },
+  "vest_cited_as_statute": {
+    "legacy": 141,
+    "v2": 0
+  },
+  "unreviewed_articles": {
+    "legacy": {
+      "reports_with_any": 131,
+      "total": 361,
+      "most_common": [
+        [
+          "제38조",
+          118
+        ],
+        [
+          "제86조",
+          52
+        ],
+        [
+          "제63조",
+          36
+        ],
+        [
+          "제40조",
+          36
+        ],
+        [
+          "제39조",
+          27
+        ],
+        [
+          "제42조",
+          14
+        ],
+        [
+          "제20조",
+          8
+        ],
+        [
+          "제301조",
+          6
+        ],
+        [
+          "제3조",
+          6
+        ],
+        [
+          "제33조",
+          5
+        ]
+      ]
+    },
+    "v2": {
+      "reports_with_any": 0,
+      "total": 0,
+      "most_common": []
+    }
+  },
+  "stage1_claim_source": "llm_extraction"
+}

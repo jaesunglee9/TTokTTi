@@ -1,0 +1,185 @@
+{
+ "adjudicator": "user (2026-10-28)",
+ "pending": [
+  14,
+  25,
+  26
+ ],
+ "items": [
+  {
+   "n": 1,
+   "id": "train/img_054_jpg.rf.bcda8d6c85bb891230a5a734fe9a426f.jpg",
+   "rule": "PPE-VEST",
+   "human": "VIOLATED",
+   "note": "사용자 직접 판정"
+  },
+  {
+   "n": 2,
+   "id": "train/IMG_3102_mp4-29_jpg.rf.bf034bb07368829f2c576a601bf9595a.jpg",
+   "rule": "PPE-HARDHAT",
+   "human": "NOT_VIOLATED",
+   "note": "사용자 규칙: 작업 중이 아니면 정상 (재검토 설명상 실내 셀카)"
+  },
+  {
+   "n": 3,
+   "id": "train/youtube-57_jpg.rf.dd8863683da760bba00bc92997695e8e.jpg",
+   "rule": "PPE-VEST",
+   "human": "VIOLATED",
+   "note": "사용자 직접 판정"
+  },
+  {
+   "n": 4,
+   "id": "train/IMG_1493_mp4-53_jpg.rf.05385572abee41fa2ee17a5775bdafa9.jpg",
+   "rule": "PPE-HARDHAT",
+   "human": "NOT_VIOLATED",
+   "note": "사용자 직접 판정"
+  },
+  {
+   "n": 5,
+   "id": "train/IMG_3102_mp4-38_jpg.rf.16b90db35cf9c61a2a8c716dea089aa1.jpg",
+   "rule": "PPE-HARDHAT",
+   "human": "NOT_VIOLATED",
+   "note": "사용자 직접 판정"
+  },
+  {
+   "n": 6,
+   "id": "train/IMG_0873_MOV-10_jpg.rf.2cb9b56e89043934ab32276d2cc02e1a.jpg",
+   "rule": "PPE-HARDHAT",
+   "human": "NOT_VIOLATED",
+   "note": "사용자 직접 판정"
+  },
+  {
+   "n": 7,
+   "id": "train/006858_jpg.rf.31777fd8b87c2fb3a4eaf24322c2e81a.jpg",
+   "rule": "PPE-HARDHAT",
+   "human": "NOT_VIOLATED",
+   "note": "사용자 직접 판정"
+  },
+  {
+   "n": 8,
+   "id": "train/RPReplay_Final1667001201_MP4-79_jpg.rf.50b4627592be75a0c2f3d226cde63a25.jpg",
+   "rule": "PPE-VEST",
+   "human": "VIOLATED",
+   "note": "사용자 직접 판정"
+  },
+  {
+   "n": 9,
+   "id": "train/006741_jpg.rf.537b238306f76c1f4c96b9a7dc2a5f16.jpg",
+   "rule": "PPE-HARDHAT",
+   "human": "VIOLATED",
+   "note": "사용자 직접 판정"
+  },
+  {
+   "n": 10,
+   "id": "train/-4302-_png_jpg.rf.552815205b3119e454fd7ac384e986b1.jpg",
+   "rule": "PPE-HARDHAT",
+   "human": "VIOLATED",
+   "note": "사용자 직접 판정"
+  },
+  {
+   "n": 11,
+   "id": "train/RPReplay_Final1667001201_MP4-305_jpg.rf.56fdf38f11272ac4f92e21fb17965f16.jpg",
+   "rule": "PPE-HARDHAT",
+   "human": "VIOLATED",
+   "note": "사용자 직접 판정"
+  },
+  {
+   "n": 12,
+   "id": "train/RPReplay_Final1667001201_MP4-446_jpg.rf.65beddb3ab75984bc1d0528fe760b584.jpg",
+   "rule": "PPE-HARDHAT",
+   "human": "UNCERTAIN",
+   "note": "사용자 직접 판정"
+  },
+  {
+   "n": 13,
+   "id": "train/004959_jpg.rf.7086c0d84d755d5fae5bab330b72ef38.jpg",
+   "rule": "PPE-HARDHAT",
+   "human": "NOT_VIOLATED",
+   "note": "사용자 직접 판정"
+  },
+  {
+   "n": 15,
+   "id": "train/-1975-_png_jpg.rf.9d1bea0086ca5f1b3cf012a16ea16330.jpg",
+   "rule": "PPE-HARDHAT",
+   "human": "VIOLATED",
+   "note": "사용자 직접 판정"
+  },
+  {
+   "n": 16,
+   "id": "train/IMG_4921-2_mp4-40_jpg.rf.ac9247607eea3a7e1a6926006fc27513.jpg",
+   "rule": "PPE-HARDHAT",
+   "human": "NOT_VIOLATED",
+   "note": "사용자 직접 판정"
+  },
+  {
+   "n": 17,
+   "id": "train/image_19_jpg.rf.accd91c7827c69aeb9abb0e9cc4d6e09.jpg",
+   "rule": "PPE-VEST",
+   "human": "NOT_VIOLATED",
+   "note": "사용자 직접 판정"
+  },
+  {
+   "n": 18,
+   "id": "train/pos_2168_jpg.rf.abd3a58204c7eefe757c4e35abb9dd32.jpg",
+   "rule": "PPE-HARDHAT",
+   "human": "NOT_VIOLATED",
+   "note": "사용자 직접 판정"
+  },
+  {
+   "n": 19,
+   "id": "valid/-3766-_png_jpg.rf.27816c050d38c21d9422335dd8033e6e.jpg",
+   "rule": "PPE-HARDHAT",
+   "human": "VIOLATED",
+   "note": "사용자 규칙 적용, 이미지 확인: 현장 구조 작업"
+  },
+  {
+   "n": 20,
+   "id": "valid/-960-_png_jpg.rf.80074888e199f5fb4391a1004e9a4bd4.jpg",
+   "rule": "PPE-HARDHAT",
+   "human": "VIOLATED",
+   "note": "사용자 규칙 적용, 이미지 확인: 현장 방문 행사"
+  },
+  {
+   "n": 21,
+   "id": "valid/006197_jpg.rf.9773d2f2f2ad969ee16ea9e47f4e8026.jpg",
+   "rule": "PPE-HARDHAT",
+   "human": "VIOLATED",
+   "note": "사용자 직접 판정"
+  },
+  {
+   "n": 22,
+   "id": "valid/-4615-_png_jpg.rf.b6c366abd9e23e7e9b32b20a838c2aee.jpg",
+   "rule": "PPE-HARDHAT",
+   "human": "VIOLATED",
+   "note": "사용자 직접 판정"
+  },
+  {
+   "n": 23,
+   "id": "valid/000769_jpg.rf.bcbef18f0b9e8ad7ab31057fac8679b9.jpg",
+   "rule": "PPE-HARDHAT",
+   "human": "VIOLATED",
+   "note": "사용자 직접 판정"
+  },
+  {
+   "n": 24,
+   "id": "valid/ppe_0355_jpg.rf.cfa066e02e546147182bc856af6661b3.jpg",
+   "rule": "PPE-VEST",
+   "human": "VIOLATED",
+   "note": "사용자 직접 판정"
+  },
+  {
+   "n": 27,
+   "id": "test/003434_jpg.rf.f14e56632cf72dd6423783b0e1e682d0.jpg",
+   "rule": "PPE-VEST",
+   "human": "UNCERTAIN",
+   "note": "사용자 직접 판정"
+  },
+  {
+   "n": 28,
+   "id": "test/004063_jpg.rf.feafec0025c293c6c552d50bc74a78c4.jpg",
+   "rule": "PPE-HARDHAT",
+   "human": "UNCERTAIN",
+   "note": "사용자 직접 판정"
+  }
+ ]
+}
